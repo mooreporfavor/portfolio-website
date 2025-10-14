@@ -1,9 +1,9 @@
 ---
-title Morocco Employment Lab Evidence-Based Policy Innovation
-client Government of Morocco (Ministry of Finance), Harvard EPOD, MIT J-PAL
-year 2021
-tags [Randomized Control Trials (RCTs), Policy Design, Economic Research, Labor Markets]
-isFeatured true
+title: Morocco Employment Lab Evidence-Based Policy Innovation
+client: Government of Morocco (Ministry of Finance), Harvard EPOD, MIT J-PAL
+year: 2021
+tags: ["Randomized Control Trials (RCTs)", "Policy Design", "Economic Research", "Labor Markets"]
+isFeatured: true
 ---
 
 ### Problem

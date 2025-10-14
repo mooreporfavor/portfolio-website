@@ -26,3 +26,7 @@ secrets/portfolio-ai-pipeline-771032564f36.json
 secrets/
 scripts/chrome_profile/
 data_sources/linkedin_download/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+data_sources/processed_urls.txt
