@@ -1,0 +1,23 @@
+---
+// src/components/CompactBadge.astro
+export interface Props {
+  name: string;
+  title: string;
+  imageUrl: string;
+  profileUrl: string;
+  count: number;
+}
+
+const { name, title, imageUrl, profileUrl, count } = Astro.props;
+---
+<a href={profileUrl} target="_blank" rel="noopener noreferrer" class="group block bg-white p-4 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-transform duration-300">
+  <div class="flex items-center space-x-4">
+    <div class="flex-shrink-0">
+      <img class="h-14 w-14 rounded-full object-cover" src={imageUrl} alt={`Profile picture of ${name}`} />
+    </div>
+    <div>
+      <p class="font-bold text-gray-900 group-hover:text-blue-600">{name}</p>
+      <p class="text-sm text-gray-500">{count} Interactions</p>
+    </div>
+  </div>
+</a>

@@ -1,0 +1,33 @@
+---
+// src/layouts/Layout.astro
+
+import '../styles/global.css'; // <-- ADD THIS LINE
+
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Ryan A. Moore's Personal Portfolio" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="bg-gray-50 text-gray-800">
+		<Header />
+		<main>
+			<slot /> <!-- This is where your page content will go -->
+		</main>
+		<Footer />
+	</body>
+</html>

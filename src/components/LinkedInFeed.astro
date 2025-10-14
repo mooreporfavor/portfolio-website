@@ -1,0 +1,20 @@
+---
+// src/components/LinkedInFeed.astro
+---
+<div class="container mx-auto px-6 py-12">
+  <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Recent Activity</h2>
+  <p class="text-center text-gray-600 mb-10 max-w-2xl mx-auto">
+    A live feed of my recent posts and articles on LinkedIn.
+  </p>
+  
+  <div class="bg-white rounded-lg shadow-lg p-2">
+    <!-- This is the Sociablekit widget code -->
+    <div class='sk-ww-linkedin-profile-post' data-embed-id='25608402'></div>
+  </div>
+</div>
+
+<!-- 
+  The is:inline directive tells Astro to render this script tag as-is,
+  without bundling or processing it. This is essential for external widgets.
+-->
+<script src='https://widgets.sociablekit.com/linkedin-profile-posts/widget.js' is:inline defer></script>

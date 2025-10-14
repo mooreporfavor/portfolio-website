@@ -1,0 +1,38 @@
+---
+// src/components/SocialLinks.astro
+import SocialProfileCard from './SocialProfileCard.astro';
+---
+<section class="py-16">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Connect With Me</h2>
+    <div class="flex flex-col md:flex-row flex-wrap justify-center items-center gap-8 md:gap-12">
+      
+      <!-- LinkedIn Badge -->
+      <SocialProfileCard
+        platform="linkedin"
+        name="Ryan A. Moore"
+        title="Senior Strategy & Innovation Leader | Applying AI & Data Science to Solve Global Challenges | MCC | TechnoServe | Peace Corps Ecuador | Harvard | Purdue"
+        profileUrl="https://www.linkedin.com/in/mooreporfavor/"
+        imageUrl="https://media.licdn.com/dms/image/v2/D4E03AQFL871SoqM-cg/profile-displayphoto-crop_800_800/B4EZmWgZiQKUAQ-/0/1759166702927?e=1762992000&v=beta&t=KbdFNwl8TR9eBm--h43p0hg_kZHIvgX3qSglpx5BxQE"
+      />
+
+      <!-- Facebook Badge -->
+      <SocialProfileCard
+        platform="facebook"
+        name="Ryan A. Moore"
+        title="Connect with me on Facebook for personal updates."
+        profileUrl="https://www.facebook.com/Mooreporfavor"
+        imageUrl="https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-1/419729331_10119394145823238_2248640348748595585_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e99d92&_nc_ohc=zKkdm6b_0ncQ7kNvwE95yG6&_nc_oc=Adm3AoorVleqrD7TQyRWkNOY5h_9E1EaJU0ctjd2lgxTWqR68QkVsw05qPKsdGZgtrM&_nc_zt=24&_nc_ht=scontent-iad3-1.xx&_nc_gid=0ayvHrLtpO9IxuKBThVNWA&oh=00_AfeZvGNnViSMOASiPTxGUWBNmwEU4s-WNaHFevvXs0kRLw&oe=68F066C0"
+      />
+      <!-- Twitter Badge -->
+      <SocialProfileCard
+        platform="twitter"
+        name="Ryan A. Moore"
+        title="Connect with me on Twitter for personal updates."
+        profileUrl="https://x.com/mooreporfavor"
+        imageUrl="https://pbs.twimg.com/profile_images/1688571304692076544/rNoh0Az7_400x400.jpg"
+      />
+
+    </div>
+  </div>
+</section>

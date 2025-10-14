@@ -1,0 +1,29 @@
+---
+// src/components/ProfileCard.astro
+export interface Props {
+  name: string;
+  title: string;
+  imageUrl: string;
+  profileUrl: string;
+  count: number;
+}
+
+const { name, title, imageUrl, profileUrl, count } = Astro.props;
+---
+<div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+  <div class="p-6">
+    <div class="flex items-center space-x-4">
+      <img class="h-16 w-16 rounded-full object-cover ring-2 ring-gray-200" src={imageUrl} alt={`Profile picture of ${name}`} />
+      <div class="flex-1">
+        <p class="text-lg font-bold text-gray-900">{name}</p>
+        <p class="text-sm text-gray-600">{title}</p>
+      </div>
+    </div>
+    <div class="mt-4 pt-4 border-t border-gray-200 flex justify-between items-center">
+      <p class="text-sm text-gray-500">{count} Interactions</p>
+      <a href={profileUrl} target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-blue-600 hover:text-blue-800">
+        View Profile &rarr;
+      </a>
+    </div>
+  </div>
+</div>

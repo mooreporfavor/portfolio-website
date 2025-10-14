@@ -1,0 +1,52 @@
+---
+// src/components/SocialProfileCard.astro
+export interface Props {
+  platform: 'linkedin' | 'facebook' | 'twitter';
+  name: string;
+  title: string;
+  imageUrl: string;
+  profileUrl: string;
+}
+
+const { platform, name, title, imageUrl, profileUrl } = Astro.props;
+---
+
+<div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 w-full max-w-sm mx-auto">
+  <div class="p-6">
+    <div class="flex items-center space-x-4 mb-4">
+      <img class="h-16 w-16 rounded-full object-cover ring-2 ring-gray-200" src={imageUrl} alt={`Profile picture of ${name}`} />
+      <div class="flex-1">
+        <p class="text-lg font-bold text-gray-900">{name}</p>
+        <p class="text-sm text-gray-600 line-clamp-2">{title}</p>
+      </div>
+    </div>
+
+    <!-- ▼▼▼ THIS IS THE BLOCK THAT IS LIKELY MISSING ▼▼▼ -->
+    <a 
+      href={profileUrl} 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="group flex items-center justify-center w-full px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white transition-colors duration-300 
+        {platform === 'linkedin' && 'bg-blue-700 hover:bg-blue-800'}
+        {platform === 'facebook' && 'bg-blue-600 hover:bg-blue-700'}
+        {platform === 'twitter' && 'bg-black hover:bg-gray-800'}"
+    >
+      {platform === 'linkedin' && (
+        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 114.75 6.5 1.75 1.75 0 016.5 8.25zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
+        </svg>
+      )}
+      {platform === 'facebook' && (
+        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"></path>
+        </svg>
+      )}
+      {platform === 'twitter' && (
+        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M16.9999 0H20.9999L14.6689 7.38683L22.9999 16H14.9999L9.61891 9.01171L3.99991 16H0L6.83891 8.03856L-0.000100136 0H8.0009L12.8429 6.48865L16.9999 0ZM15.8239 14.4267H17.2239L5.42391 1.57211H3.91191L15.8239 14.4267Z"></path>
+        </svg>
+      )}
+      View Profile
+    </a>
+  </div>
+</div>

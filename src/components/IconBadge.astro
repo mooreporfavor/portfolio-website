@@ -1,0 +1,16 @@
+---
+// src/components/IconBadge.astro
+export interface Props {
+  name: string;
+  imageUrl: string;
+  profileUrl: string;
+}
+
+const { name, imageUrl, profileUrl } = Astro.props;
+---
+<a href={profileUrl} target="_blank" rel="noopener noreferrer" class="group relative" title={name}>
+  <img class="h-16 w-16 rounded-full object-cover ring-2 ring-white hover:ring-blue-500 transition-all duration-300" src={imageUrl} alt={name} />
+  <div class="absolute bottom-full mb-2 w-max bg-gray-800 text-white text-xs rounded py-1 px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+    {name}
+  </div>
+</a>

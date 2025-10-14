@@ -1,0 +1,14 @@
+{
+  "title": "string",
+  "company": "string",
+  "period": "string (e.g., '2023 - Present' or 'Jan 2022 - Dec 2023')",
+  "summary": "string (A 1-2 sentence public-facing summary, suitable for LinkedIn).",
+  "problem": "string (A clear, concise statement of the problem or opportunity).",
+  "methodology": [
+    "string (A bullet point describing a key action or method used)."
+  ],
+  "outcome": "string (A specific, quantifiable outcome or result of the project).",
+  "skills": [
+    "string (A list of key skills or technologies used, e.g., 'Python', 'Stata', 'Cost-Benefit Analysis')."
+  ]
+}

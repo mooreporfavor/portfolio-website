@@ -1,0 +1,66 @@
+[
+  {
+    "title": "Chief of Operations / Director, Peace Corps Response",
+    "company": "United States Peace Corps",
+    "period": "2023 – 2024",
+    "summary": "Led the global relaunch of a premier international volunteer service program, managing a 40-person team and a $10M budget to rapidly scale operations post-pandemic.",
+    "problem": "The program needed to be rapidly and effectively rebuilt and scaled globally after a complete shutdown, requiring strategic operational management to meet renewed demand in over two dozen countries.",
+    "methodology": [
+      "Directed a $10M annual budget, optimizing resource allocation to support rapid scaling and operational efficiency.",
+      "Led the development and implementation of innovative service models, including the Virtual Service Pilot program, to expand engagement.",
+      "Built and maintained strategic partnerships with government agencies, NGOs, and private sector organizations to support growth."
+    ],
+    "outcome": "Achieved a 400% increase in program size within the first 9 months, successfully re-launching operations in 25 countries and placing over 300 volunteers in high-impact assignments.",
+    "skills": [
+      "Global Program Delivery",
+      "Team Leadership",
+      "Budget Management",
+      "Strategic Planning",
+      "Change Management",
+      "Public-Private Partnerships"
+    ]
+  },
+  {
+    "title": "Project Director, Morocco Employment",
+    "company": "Millennium Challenge Corporation (MCC)",
+    "period": "2015 – 2023",
+    "summary": "Designed and led a pioneering $30M innovative finance program to combat youth unemployment in Morocco, successfully pivoting the model based on market analysis to ensure viability and impact.",
+    "problem": "High youth unemployment in Morocco required an innovative solution, but the initial Social Impact Bond (SIB) model proved unworkable post-signature due to service provider capacity constraints and disproportionate transaction costs.",
+    "methodology": [
+      "Led the project from concept to inclusion as a $30M component in a signed U.S.-Morocco bilateral compact.",
+      "Conducted post-signature due diligence, market analysis, and financial modeling which revealed the SIB's lack of bankability.",
+      "Architected and managed a strategic pivot from the complex SIB to a more streamlined Results-Based Financing (RBF) model, securing partner government approval."
+    ],
+    "outcome": "Successfully established the Morocco Employment Lab (now a sustainable think tank led by Harvard’s EPoD & J-PAL) and initiated the reform of Morocco’s national labor market information system using AI and machine learning.",
+    "skills": [
+      "Innovative Finance (RBF, SIBs)",
+      "Project Structuring",
+      "Economic & Financial Analysis",
+      "Stakeholder Negotiation",
+      "Due Diligence & Risk Analysis",
+      "AI/Machine Learning"
+    ]
+  },
+  {
+    "title": "Division Chief, Strategy and Data",
+    "company": "United States Peace Corps",
+    "period": "2024 – Present",
+    "summary": "Directs the agency's strategic planning and data governance, architecting and deploying a global data science architecture to modernize executive decision-making across 60 countries.",
+    "problem": "Executive leadership lacked a centralized, data-driven framework for strategic planning and performance monitoring, hindering evidence-based decisions for global operations and recruitment.",
+    "methodology": [
+      "Architected the agency's global data science and analytics platform ('Mission Control') using Python (Pandas, Streamlit) for large-scale analysis.",
+      "Developed a first-ever country-specific, empirical recruitability index based on historical candidate data to guide strategic planning.",
+      "Deployed AI-enhanced Python workflows to relaunch and streamline an annual review of operations and strategic alignment for 60 country posts."
+    ],
+    "outcome": "Created a first-ever worldwide analytics dashboard of operational efficiency and candidate pipeline data, empowering senior leaders with the tools to reform key agency functions.",
+    "skills": [
+      "Strategic Planning",
+      "Data Governance",
+      "Data Science",
+      "Python (Pandas, Streamlit)",
+      "AI/Machine Learning",
+      "Data Visualization",
+      "Executive Leadership"
+    ]
+  }
+]

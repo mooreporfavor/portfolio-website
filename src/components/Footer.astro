@@ -1,0 +1,19 @@
+---
+// This defines the variable inside the code fence
+const currentYear = new Date().getFullYear();
+---
+<footer class="bg-gray-800 text-gray-300 mt-12">
+  <div class="container mx-auto px-6 py-8">
+    <div class="flex justify-between items-center">
+      <!-- This uses the variable defined above -->
+      <p>&copy; {currentYear} Ryan A. Moore. All rights reserved.</p>
+      
+      <!-- This is your Colophon -->
+      <div class="text-right text-sm">
+        <p class="font-semibold">Site Stack</p>
+        <p>Built with <a href="https://astro.build/" target="_blank" class="underline hover:text-white">Astro</a> & <a href="https://tailwindcss.com/" target="_blank" class="underline hover:text-white">Tailwind CSS</a>.</p>
+        <p>Hosted on <a href="https://vercel.com/" target="_blank" class="underline hover:text-white">Vercel</a>.</p>
+      </div>
+    </div>
+  </div>
+</footer>

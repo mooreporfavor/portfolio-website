@@ -23,3 +23,6 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 secrets/portfolio-ai-pipeline-771032564f36.json
+secrets/
+scripts/chrome_profile/
+data_sources/linkedin_download/
