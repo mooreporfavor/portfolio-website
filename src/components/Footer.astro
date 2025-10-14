@@ -1,5 +1,8 @@
 ---
 // src/components/Footer.astro
+import { Image } from 'astro:assets';
+import monogram from '../assets/monogram.jpg'; // <-- 1. Import your monogram image
+
 const currentYear = new Date().getFullYear();
 ---
 <footer class="bg-gray-800 text-gray-400 mt-16 border-t-4 border-gray-700">
@@ -17,30 +20,39 @@ const currentYear = new Date().getFullYear();
         <h3 class="font-bold text-lg text-white mb-4 uppercase tracking-wider">Navigate</h3>
         <nav class="flex flex-col space-y-2">
           <a href="/" class="hover:underline hover:text-white transition-colors duration-300">Home</a>
-          <a href="/about" class="hover:underline hover:text-white transition-colors duration-300">About</a>
+          <a href="/bio" class="hover:underline hover:text-white transition-colors duration-300">Bio</a>
           <a href="/portfolio" class="hover:underline hover:text-white transition-colors duration-300">Portfolio</a>
-          <a href="/activity" class="hover:underline hover:text-white transition-colors duration-300">Activity</a>
+          <a href="/socials" class="hover:underline hover:text-white transition-colors duration-300">Socials</a>
           <a href="/cv" class="hover:underline hover:text-white transition-colors duration-300">CV</a>
         </nav>
       </div>
 
-      <!-- Column 3: The Colophon (Your "About this Site" Section) -->
+      <!-- Column 3: The NEW Colophon with Monogram -->
       <div>
-        <h3 class="font-bold text-lg text-white mb-4 uppercase tracking-wider">Colophon</h3>
-        <p class="mb-4">
-          This site is a "meta" portfolio piece, built by me in collaboration with AI to showcase my work and technical skills.
+        <div class="flex items-center gap-4">
+          <!-- 2. The Monogram Image -->
+          <Image 
+            src={monogram} 
+            alt="Ryan A. Moore Monogram" 
+            class="h-16 w-16 rounded-md flex-shrink-0"
+          />
+          <!-- 3. The Colophon Text -->
+          <div class="flex-grow">
+            <p class="mb-2">
+              This site is a "meta" portfolio, built by me (with an assist from AI) to showcase my experience and my technical skills.
         </p>
         <div class="mb-4">
           <a 
             href="/portfolio/astro-tailwind-ryanamoore/" 
             class="font-semibold text-blue-400 hover:text-blue-300 hover:underline transition-colors duration-300"
           >
-            Read the Project Case Study &rarr;
+              Read the Case Study &rarr;
           </a>
+            <p class="text-xs text-gray-500 mt-2">
+              Built with Astro & Tailwind CSS. Deployed on Vercel.
+            </p>
+          </div>
         </div>
-        <p class="text-xs text-gray-500">
-          Built with Astro & Tailwind CSS. Deployed on Vercel.
-        </p>
       </div>
 
     </div>

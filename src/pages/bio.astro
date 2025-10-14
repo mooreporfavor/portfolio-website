@@ -1,0 +1,31 @@
+---
+// src/pages/bio.astro
+import Layout from '../layouts/Layout.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+import Languages from '../components/Languages.astro';
+import PcvReel from '../components/PcvReel.astro'
+import { Image } from 'astro:assets';
+import bioHeroImage from '../assets/about-hero.jpg';
+---
+<Layout title="Bio | Ryan A. Moore">
+  <!-- Bio Narrative Section -->
+  <div class="bg-white py-16">
+    <div class="container mx-auto px-6">
+      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+        <div class="md:col-span-1">
+          <Image src={bioHeroImage} alt="Ryan A. Moore" class="rounded-lg shadow-lg" />
+        </div>
+        <div class="md:col-span-2 prose prose-lg max-w-none text-gray-700">
+          <h1 class="text-4xl font-bold text-gray-900 mb-4">My Story</h1>
+          <p>For over two decades, I have been dedicated to driving meaningful impact in international development through rigorous data analysis and economic principles.</p>
+          <p>My core expertise lies at the intersection of economics, data science, and global development.</p>
+          <p>This website itself is a small reflection of my philosophy: a blend of strategic thinking and fit-for-purpose technical execution.</p>
+        </div>
+      </div>
+    <Languages />
+    </div>
+
+    <SocialLinks />
+  </div>
+  <PcvReel />
+</Layout>

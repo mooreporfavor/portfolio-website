@@ -2,6 +2,7 @@
 // src/pages/portfolio.astro
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import PhotoReel from '../components/PhotoReel.astro'; // <-- 1. Import the component
 
 // This fetches all files from src/content/projects
 const allProjects = await getCollection('projects');
@@ -12,7 +13,11 @@ const allProjects = await getCollection('projects');
     <div class="container mx-auto px-6">
       <h1 class="text-4xl font-bold text-gray-900 mb-12 text-center">Project Portfolio</h1>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- 2. Add the PhotoReel component here -->
+      <PhotoReel />
+
+      <!-- The grid of projects comes after the reel -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
         {allProjects.map(project => (
           <a href={`/portfolio/${project.slug}/`} class="block bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
             <h3 class="text-xl font-bold text-gray-900 mb-2">{project.data.title}</h3>

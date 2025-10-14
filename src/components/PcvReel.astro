@@ -1,0 +1,52 @@
+---
+// src/components/PcvReel.astro
+import { Image } from 'astro:assets';
+
+// This glob points to your new 'pcv-service' directory
+const allImages = await Astro.glob('../assets/pcv-service/**/*.{jpg,jpeg,png,webp}');
+
+const animationDuration = allImages.length * 5; 
+---
+
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">
+      Nearly 20 years committed to global development
+    </h2>
+
+    <div class="w-full overflow-hidden" style={`--duration: ${animationDuration}s`}>
+      <div class="flex animate-scroll">
+        <!-- Renders the images twice for a seamless loop -->
+        {allImages.map(img => (
+          <div class="flex-shrink-0 w-80 mx-4">
+            <Image 
+              src={img.default} 
+              alt="A photo from Peace Corps Volunteer service"
+              class="h-56 w-full object-cover rounded-lg shadow-md"
+            />
+          </div>
+        ))}
+        {allImages.map(img => (
+          <div class="flex-shrink-0 w-80 mx-4">
+            <Image 
+              src={img.default} 
+              alt="A photo from Peace Corps Volunteer service"
+              class="h-56 w-full object-cover rounded-lg shadow-md"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- This scoped style is identical to the other reel -->
+<style>
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+  }
+  .animate-scroll {
+    animation: scroll var(--duration) linear infinite;
+  }
+</style>

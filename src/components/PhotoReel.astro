@@ -1,0 +1,57 @@
+---
+// src/components/PhotoReel.astro
+import { Image } from 'astro:assets';
+
+// 1. This is the magic: it finds all image files in the specified directory.
+const allImages = await Astro.glob('../assets/development/**/*.{jpg,jpeg,png,webp}');
+
+// 2. We calculate the animation duration based on the number of images.
+//    This ensures the scroll speed feels consistent. (e.g., 5 seconds per image)
+const animationDuration = allImages.length * 5; 
+---
+
+<section class="py-16">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Field Notes & Snapshots</h2>
+    <p class="text-center text-gray-600 mb-10 max-w-2xl mx-auto">
+      A glimpse into the people, places, and projects that have shaped my work.
+    </p>
+
+    <!-- 3. The main container that creates the "reel" effect -->
+    <div class="w-full overflow-hidden" style={`--duration: ${animationDuration}s`}>
+      <div class="flex animate-scroll">
+        <!-- 4. We render the list of images TWICE for a seamless loop -->
+        {allImages.map(img => (
+          <div class="flex-shrink-0 w-80 mx-4">
+            <Image 
+              src={img.default} 
+              alt="A photo from a development project in the field"
+              class="h-56 w-full object-cover rounded-lg shadow-md"
+            />
+          </div>
+        ))}
+        {allImages.map(img => (
+          <div class="flex-shrink-0 w-80 mx-4">
+            <Image 
+              src={img.default} 
+              alt="A photo from a development project in the field"
+              class="h-56 w-full object-cover rounded-lg shadow-md"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. The CSS animation is defined here, scoped to this component -->
+<style>
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+  }
+
+  .animate-scroll {
+    animation: scroll var(--duration) linear infinite;
+  }
+</style>

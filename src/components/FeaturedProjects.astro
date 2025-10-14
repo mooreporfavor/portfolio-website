@@ -1,0 +1,28 @@
+---
+// src/components/FeaturedProjects.astro
+import { getCollection } from 'astro:content';
+
+const featuredProjects = await getCollection('projects', ({ data }) => {
+  return data.isFeatured === true;
+});
+---
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Featured Projects</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      {featuredProjects.map(project => (
+        <a href={`/portfolio/${project.slug}/`} class="block bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">{project.data.title}</h3>
+          <p class="text-sm font-semibold text-blue-600 mb-3">{project.data.client}</p>
+          <p class="text-gray-600 text-sm mb-4 line-clamp-3">{project.body.slice(0, 150)}...</p>
+          <span class="font-semibold text-blue-600 hover:underline">Read Case Study &rarr;</span>
+        </a>
+      ))}
+    </div>
+    <div class="text-center mt-12">
+      <a href="/portfolio" class="inline-block bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-blue-700 transition-colors">
+        View All Projects
+      </a>
+    </div>
+  </div>
+</section>
