@@ -1,0 +1,40 @@
+---
+// src/components/SectorExpertise.astro
+
+// We define the list of sectors here to keep the data separate from the presentation.
+const sectors = [
+  "Education",
+  "Labor Markets",
+  "Water and Sanitation",
+  "Results-based Financing",
+  "Transport",
+  "Private Sector",
+  "Agriculture"
+];
+---
+<section class="py-20 bg-gray-900 text-white">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      
+      <!-- Left Column: The "Punchline" -->
+      <div class="text-center md:text-left">
+        <p class="text-3xl text-gray-400 font-light">data, evidence, infrastructure...</p>
+        <h2 class="text-6xl font-extrabold tracking-wide uppercase">Solutions</h2>
+      </div>
+
+      <!-- Right Column: The List of Sectors -->
+      <div>
+        <ul class="grid grid-cols-2 gap-x-8 gap-y-4">
+          {sectors.map(sector => (
+            <li class="flex items-center text-lg">
+              <svg class="w-5 h-5 mr-3 text-blue-400 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.052-.143z" clip-rule="evenodd" />
+              </svg>
+              <span>{sector}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
