@@ -1,21 +1,41 @@
 ---
 // src/pages/index.astro
+import { Image } from 'astro:assets'; 
+import heroImage from '../assets/hero-speaking.jpg';
+
 import Layout from '../layouts/Layout.astro'; // Import the layout
 import BookingWidget from '../components/BookingWidget.astro';
+import KeyExpertise from '../components/KeyExpertise.astro';
+import SpeakingEngagements from '../components/SpeakingEngagements.astro';
 ---
 
 <Layout title="Ryan A. Moore | Portfolio">
   
-  <!-- Hero Section -->
-  <section class="text-center py-20 bg-white">
-    <div class="container mx-auto px-6">
-      <h1 class="text-5xl font-bold text-gray-900">Driving Impact Through Data and Economics</h1>
-      <p class="text-xl text-gray-600 mt-4 max-w-2xl mx-auto">
-        A portfolio showcasing 20+ years of experience in international development, program evaluation, and strategic analysis.
+  <!-- NEW, IMPROVED HERO SECTION -->
+  <section class="bg-white">
+    <div class="container mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <!-- Left Column: Image -->
+      <div>
+        <Image 
+          src={heroImage} 
+          alt="Ryan A. Moore speaking on a panel about international development"
+          class="rounded-lg shadow-2xl"
+        />
+      </div>
+      <!-- Right Column: Text -->
+      <div class="text-center md:text-left">
+        <h1 class="text-5xl font-bold text-gray-900 leading-tight">Ryan A. Moore</h1>
+        <p class="text-xl text-gray-600 mt-4">
+          Senior Strategy & Innovation Leader | Applying AI & Data Science to Solve Global Challenges | MCC | TechnoServe | Peace Corps Ecuador | Harvard | Purdue
       </p>
+      </div>
     </div>
   </section>
-  
+
+  <KeyExpertise />
+
+  <SpeakingEngagements />
+
   <BookingWidget />
 
 </Layout>

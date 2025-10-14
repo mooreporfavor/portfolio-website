@@ -1,0 +1,44 @@
+---
+import { Image } from 'astro:assets';
+import imgSummit from '../assets/speaking-summit.jpg';
+import imgCapeTown from '../assets/speaking-capetown.jpg';
+import imgMorocco from '../assets/speaking-morocco.jpg';
+
+const engagements = [
+  {
+    image: imgSummit,
+    alt: "Speaking at the Global Youth Economic Opportunity Summit",
+    title: "2023 Global Youth Economic Opportunity Summit",
+    url: "https://www.youtube.com/watch?v=p9GkhTiLfSs",
+    cta: "Watch Recording" // Custom Call to Action
+  },
+  {
+    image: imgCapeTown,
+    alt: "Speaking at the Jobs4Development Conference in Cape Town",
+    title: "2022 Jobs4Development Conference - Cape Town",
+    url: "https://jobsanddevelopmentconference.org/conferences-list/2022-conference-2/"
+  },
+  {
+    image: imgMorocco,
+    alt: "Speaking at the International RBF Seminar in Morocco",
+    title: "International RBF Seminar (2023) Morocco",
+    url: "https://www.linkedin.com/posts/mooreporfavor_rbfseminar-mcamorocco-activity-7022441949273972736-5RD1/"
+  }
+];
+---
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold text-gray-800 mb-12">Recent Speaking Engagements</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {engagements.map(event => (
+        <div class="group block overflow-hidden rounded-lg shadow-lg">
+          <Image src={event.image} alt={event.alt} class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500" />
+          <a href={event.url} target="_blank" rel="noopener noreferrer" class="block p-4 bg-gray-800 text-white hover:bg-gray-700 transition-colors">
+            <p class="font-bold truncate">{event.title}</p>
+            {event.cta && <p class="text-sm text-blue-400 font-semibold">{event.cta} &rarr;</p>}
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,37 @@
+---
+import { Image } from 'astro:assets';
+import imgData from '../assets/expertise-data.jpg';
+import imgLeadership from '../assets/expertise-leadership.jpg';
+import imgStrategy from '../assets/expertise-strategy.jpg';
+
+const expertiseAreas = [
+  {
+    image: imgData,
+    title: "Data which Drives Impactful Teams",
+    description: "Looking ahead and using the power of evidence and foresight to help future-proof projects and organizations."
+  },
+  {
+    image: imgLeadership,
+    title: "Experienced Senior Leadership",
+    description: "Refined a large team’s excellence in delivery, from global recruiting and budgeting to program development and onboarding."
+  },
+  {
+    image: imgStrategy,
+    title: "Strategy & Strategic Planning",
+    description: "Collaborating across boundaries and borders to maximize organizational cohesion and real-world impact."
+  }
+];
+---
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-6 text-center">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      {expertiseAreas.map(area => (
+        <div>
+          <Image src={area.image} alt={area.title} class="w-32 h-32 rounded-full mx-auto shadow-lg mb-6" />
+          <h3 class="text-xl font-bold text-gray-900 mb-2">{area.title}</h3>
+          <p class="text-gray-600">{area.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
