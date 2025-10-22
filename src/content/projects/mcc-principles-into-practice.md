@@ -1,0 +1,28 @@
+---
+title: "Synthesizing Evidence and Shaping Strategy for Workforce Development at MCC"
+client: "Millennium Challenge Corporation (MCC)"
+year: 2020
+track: "Global Development"
+tags: ["Workforce Development", "TVET", "Impact Evaluation Synthesis", "Strategy Development", "Change Management", "Service Delivery", "Accountability", "Results Framework"]
+isFeatured: true
+---
+
+### Problem
+
+MCC had invested significantly (over $148 million) in Technical and Vocational Education and Training (TVET) programs, but our independent evaluations revealed a troubling pattern: while projects were successful at building facilities and training people, they were consistently failing to improve graduates' job placement and income. This mirrored mixed results across the development sector. As an agency, we needed a rigorous assessment of *why* these investments weren't yielding the expected economic impacts. My challenge was to lead an effort that was simultaneously an analytical (evaluative) document synthesizing our past failures and successes, and a forward-looking change management piece to fundamentally reshape our agency's strategy for all future workforce development investments.
+
+### Methodology
+
+As co-author of this flagship "Principles into Practice" paper, my role was to synthesize complex evidence, diagnose the core systemic issues, and formulate a new strategic framework to guide the agency.
+
+* **Data Collection & Analysis:** I systematically reviewed and synthesized findings from eight independent impact and performance evaluations covering MCC's entire 'First Generation' TVET portfolio in countries like El Salvador, Mongolia, Morocco, and Namibia. I integrated these findings with insights from the broader academic literature and emerging lessons from our newer 'Second Generation' programs.
+* **Modeling & Technique:** The critical step was diagnosing the root cause of the disappointing results. I applied the World Bank's "Making Services Work for Poor People" accountability framework to analyze the broken relationships between job-seekers, training providers, policymakers, and employers. This analysis identified weak accountability—particularly the 'short route' between employers (as the ultimate clients) and TVET providers—as the central failure point. Based on this diagnosis, I co-developed a new, actionable Results Framework for all future MCC TVET programs, emphasizing clear pathways to impact (jobs and income) and embedding critical governance elements like employer linkages and feedback loops for accountability.
+* **Communication & Strategy:** I co-authored the paper to function explicitly as both an evaluative review and a forward-looking strategy document. I translated our complex evaluation findings and the theoretical accountability framework into five clear, actionable lessons for our program development staff. Furthermore, the paper proposed an "emerging toolkit" of promising interventions, like public-private governance models and results-based financing, and outlined necessary updates to MCC's internal procedures for economic analysis (Cost-Benefit Analysis), monitoring, and evaluation to ensure these lessons were embedded into our core business practices.
+
+### Outcome
+
+This paper became MCC's flagship analytical and strategic document for the workforce development sector, driving significant internal learning and fundamentally reshaping the agency's approach.
+
+* **Strategic Impact:** It formally consolidated lessons from nearly $150M in past investments and provided the core evidence-based framework that has guided all subsequent workforce development programs (totaling over $190M). It fundamentally shifted MCC's strategic focus away from just building schools and toward prioritizing demonstrable skills gaps, ensuring strong employer engagement and accountability (the 'short-route'), and adopting results-based mechanisms.
+* **Operational Impact:** The paper provided MCC staff with a clear diagnostic lens (the accountability framework) and practical design principles. It identified and promoted concrete, promising models, such as Morocco's employer-led Delegated Management Institutes and Results-Based Financing for job placement, which were subsequently incorporated into new programs. It also directly influenced updates to internal MCC guidance on project design, economic analysis, and M&E.
+* **Knowledge Impact:** By synthesizing MCC's substantial, multi-country evaluation evidence through the service delivery accountability lens, the paper contributed valuable insights to the international development community. It offered a structured way to diagnose common failure points and presented practical, evidence-informed lessons for improving workforce development outcomes globally.

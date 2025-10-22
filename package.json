@@ -9,9 +9,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.14",
+    "@astrojs/preact": "^4.1.1",
+    "@tailwindcss/vite": "^4.1.15",
     "astro": "^5.14.1",
-    "tailwindcss": "^4.1.14"
+    "preact": "^10.27.2",
+    "tailwindcss": "^4.1.15"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.19",

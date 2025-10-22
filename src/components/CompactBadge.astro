@@ -16,8 +16,8 @@ const { name, title, imageUrl, profileUrl, count } = Astro.props;
       <img class="h-14 w-14 rounded-full object-cover" src={imageUrl} alt={`Profile picture of ${name}`} />
     </div>
     <div>
-      <p class="font-bold text-gray-900 group-hover:text-blue-600">{name}</p>
-      <p class="text-sm text-gray-500">{count} Interactions</p>
+      <p class="font-serif font-bold text-brand-slate group-hover:text-blue-600">{name}</p>
+      <p class="text-sm text-brand-gray">{count} Interactions</p>
     </div>
   </div>
 </a>

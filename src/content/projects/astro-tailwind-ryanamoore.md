@@ -2,6 +2,7 @@
 title: "AI-Assisted Redevelopment of a Personal Portfolio Website"
 client: "Personal Project (ryanamoore.com)"
 year: 2025
+track: "Data Engineering & AI"
 tags: ["Full-Stack Development", "AI-Assisted Development", "Web Scraping", "Astro", "Python", "Selenium"]
 isFeatured: true
 ---

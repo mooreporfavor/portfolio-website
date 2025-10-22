@@ -1,0 +1,37 @@
+---
+title: "Rigorous Impact Evaluation of School Rehabilitation in Georgia"
+client: "Millennium Challenge Corporation (MCC) & Government of Georgia (MCA-Georgia)"
+year: 2014
+track: "Global Development"
+tags: ["Impact Evaluation", "Randomized Controlled Trial (RCT)", "Education Infrastructure", "Regression Discontinuity Design (RDD)", "Georgia", "Monitoring & Evaluation"]
+isFeatured: true
+---
+
+### Problem
+
+Decades of underinvestment following the Soviet era left much of Georgia's school infrastructure, particularly outside the capital, Tbilisi, in severe disrepair. Deficiencies such as non-functional heating systems relying on smoky wood stoves, inadequate lighting, poor sanitation, leaky roofs, and crumbling structures created unsafe and unconducive learning environments. Global development research highlights that such poor infrastructure negatively impacts student attendance (especially for girls, given sanitation issues), health, safety, instructional time, and ultimately learning outcomes. The Government of Georgia and MCC sought to address this through the Improving Learning Environment Infrastructure (ILEI) activity. The challenge was to rigorously measure the *causal* impact of these large-scale rehabilitation investments to justify the investment and inform future policy. Initial budget constraints suggested a Regression Discontinuity Design (RDD) might be the most feasible evaluation approach.
+
+### Methodology
+
+This evaluation employed a mixed-methods approach, centered on a rigorous impact evaluation design that evolved during project preparation.
+
+*   **Initial Design & Pivot to RCT:** The evaluation was initially designed as a Regression Discontinuity Design (RDD), leveraging a multi-criteria ranking score developed by MCC and MCA-Georgia to prioritize schools based on physical condition, student social vulnerability, enrollment size, and building utilization. However, revised cost estimates indicated that the budget could support rehabilitating a larger number of schools than initially anticipated. This presented a unique opportunity to pivot from the planned RDD to a more statistically powerful, school-level **Randomized Controlled Trial (RCT)**, which ultimately produced much more rigorous estimates by enabling stronger causal inference about the project's effects.
+*   **RCT Implementation:** A school-level RCT was implemented across regions outside Tbilisi. The randomization was stratified by region, minority language instruction (Armenian/Azeri), rural status, baseline school test scores, and whether a school had received preliminary design work under a prior phase. The rehabilitation and data collection were rolled out in three regional phases between 2014 and 2019. The final sample included 95 schools assigned to treatment and 81 assigned to control, out of which 88 treatment schools were ultimately rehabilitated.
+*   **Data Collection & Analysis:** A comprehensive mixed-methods data collection strategy was employed:
+    *   **Quantitative:** Baseline data were collected before rehabilitation began in each phase. Multiple follow-up rounds occurred, tracking outcomes for up to five years post-rehabilitation. Data sources included:
+        *   *Detailed Infrastructure Assessments:* Conducted by engineers measuring physical conditions, temperature, air quality (PM2.5, PM10), lighting levels, and system functionality.
+        *   *Student Learning Assessments:* Georgian, Math, and Science tests for secondary students.
+        *   *Surveys:* Administered to students, parents, teachers, and school directors covering perceptions of the learning environment, safety, time use, and facility satisfaction.
+        *   *Administrative Data:* Obtained from Georgia's Education Management Information System (EMIS) on enrollment, dropout rates, and graduation rates.
+    *   **Qualitative:** In-depth interviews with directors and teachers, alongside student focus groups, were conducted in a subsample of schools to explore the mechanisms behind observed impacts and understand implementation nuances.
+    *   **Analysis:** Impacts were estimated using Intention-to-Treat (ITT) and Treatment-on-the-Treated (TOT) models. Analyses included subgroup comparisons (e.g., pre/post-COVID-19 pandemic, gender, time since rehabilitation) and Principal Component Analysis (PCA) to create composite infrastructure indices.
+
+### Outcome
+
+The evaluation successfully leveraged the opportunity to implement a rigorous RCT, providing high-quality evidence on the impacts of school rehabilitation. The project itself yielded significant improvements, though student learning impacts were complex.
+
+*   **Evaluation Rigor & Knowledge Impact:** The pivot to an RCT yielded highly credible causal estimates, representing one of the most rigorous evaluations of large-scale school infrastructure rehabilitation globally. It provided crucial evidence on the multifaceted impacts of infrastructure (beyond just test scores), the potential timeline for effects to emerge (especially learning gains), and the confounding effects of external shocks like pandemics.
+*   **Project Impacts:**
+    *   **Infrastructure & Learning Environment:** The evaluation confirmed *dramatic and sustained improvements* in the physical condition of schools. This included structural integrity (walls, floors), functional central heating systems leading to warmer classrooms and significantly better air quality (large reductions in PM2.5/PM10), functional electrical and lighting systems, and vastly improved sanitation facilities. These changes led to significantly higher satisfaction among students and teachers and large increases in perceived school safety.
+    *   **Teaching & Learning Process:** Teachers and students reported a more conducive learning environment with fewer distractions related to cold, smoke, or poor lighting, allowing for more focused instructional time. While rehabilitated schools received and used new science labs more frequently, significant challenges emerged regarding scheduling, supplies, and pandemic-related restrictions limiting their full utilization.
+    *   **Student Outcomes:** Rehabilitation led to increased school enrollment, particularly a statistically significant increase in Grade 1 enrollment. However, there was **no overall significant impact on student test scores** (language, math, science) measured two years post-rehabilitation. This result was likely confounded by the COVID-19 pandemic; exploratory analysis showed potentially meaningful *positive* impacts on language and math scores for the subgroup of schools assessed *before* the pandemic. Furthermore, data collected 3-5 years post-rehabilitation showed suggestive *positive* impacts across all three subjects, hinting that learning gains may take longer to materialize. No impacts were found on student dropout or graduation rates.

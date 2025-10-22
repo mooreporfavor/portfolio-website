@@ -12,8 +12,7 @@ import FeaturedProjects from '../components/FeaturedProjects.astro';
 
 <Layout title="Ryan A. Moore | Portfolio">
   
-  <!-- NEW, IMPROVED HERO SECTION -->
-  <section class="bg-white">
+  <section class="bg-gradient-to-br from-brand-sand via-white to-white">
     <div class="container mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
       <!-- Left Column: Image -->
       <div>
@@ -25,20 +24,16 @@ import FeaturedProjects from '../components/FeaturedProjects.astro';
       </div>
       <!-- Right Column: Text -->
       <div class="text-center md:text-left">
-        <h1 class="text-5xl font-bold text-gray-900 leading-tight">Ryan A. Moore</h1>
-        <p class="text-xl text-gray-600 mt-4">
+        <h1 class="text-5xl lg:text-6xl font-serif font-bold text-brand-slate leading-tight">Ryan A. Moore</h1>
+        <p class="text-xl text-brand-slate mt-4">
           Senior Strategy & Innovation Leader | Applying AI & Data Science to Solve Global Challenges | MCC | TechnoServe | Peace Corps Ecuador | Harvard | Purdue
       </p>
       </div>
     </div>
   </section>
-
   <KeyExpertise />
-
   <FeaturedProjects />
-
   <SpeakingEngagements />
-
   <BookingWidget />
 
 </Layout>

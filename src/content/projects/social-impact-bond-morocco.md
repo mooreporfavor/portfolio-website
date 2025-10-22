@@ -2,6 +2,7 @@
 title: "Structuring a Social Impact Bond for Youth Employability"
 client: "Millennium Challenge Account-Morocco"
 year: 2018
+track: "Global Development"
 tags: ["Innovative Finance", "Results-Based Financing", "Labor Markets", "Impact Evaluation"]
 isFeatured: true
 ---

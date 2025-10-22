@@ -2,6 +2,7 @@
 title: "Peace Corps Post Recruitability Index"
 client: "Peace Corps Office of Global Operations"
 year: 2024
+track: "Data Engineering & AI"
 tags: ["Quantitative Analysis", "Index Development", "Cohort Analysis", "Data Visualization", "Strategic Planning"]
 isFeatured: false
 ---

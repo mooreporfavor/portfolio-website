@@ -1,0 +1,20 @@
+{
+  // --- Part 1: Define a custom terminal profile for this project ---
+  "terminal.integrated.profiles.windows": {
+    "Project Command Prompt": {
+      "path": "C:\\Windows\\System32\\cmd.exe",
+      "args": [
+        "/k",
+        ".\\scripts\\venv\\Scripts\\activate.bat"
+      ]
+    }
+  },
+
+  // --- Part 2: Set that custom profile as the default for this workspace ---
+  "terminal.integrated.defaultProfile.windows": "Project Command Prompt",
+
+  // --- Part 3 (Crucial): Tell the Python Extension which interpreter to use ---
+  // This helps with linting, debugging, and is good practice.
+  "python.defaultInterpreterPath": ".\\scripts\\venv\\Scripts\\python.exe",
+  "python.terminal.activateEnvironment": false // We are handling activation manually in Part 1
+}

@@ -2,6 +2,7 @@
 title: "De-Risking Private Investment in Sustainable Tourism"
 client: "International Finance Corporation (IFC) & Government of Solomon Islands"
 year: 2021
+track: "Global Development"
 tags: ["Blended Finance", "Due Diligence", "Public-Private Partnership", "Infrastructure"]
 isFeatured: false
 ---

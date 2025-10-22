@@ -2,6 +2,7 @@
 title: "Strategy Re-organization for a Global Volunteer Program"
 client: "United States Peace Corps"
 year: 2024
+track: "Leadership"
 tags: ["Leadership", "Change Management", "Data-Driven Strategy", "Operations"]
 isFeatured: true
 ---
