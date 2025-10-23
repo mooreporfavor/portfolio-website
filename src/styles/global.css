@@ -1,5 +1,6 @@
 /* src/styles/global.css */
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 [data-animate-on-scroll] {
   opacity: 0;
