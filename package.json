@@ -9,14 +9,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/preact": "^4.1.1",
-    "@tailwindcss/vite": "^4.1.15",
-    "astro": "^5.14.1",
-    "preact": "^10.27.2",
-    "tailwindcss": "^4.1.15"
-  },
-  "devDependencies": {
-    "@tailwindcss/typography": "^0.5.19",
-    "@types/ms": "^2.1.0"
+    "@astrojs/preact": "^3.5.0",
+    "@astrojs/tailwind": "^5.1.0",
+    "astro": "^4.11.0",
+    "preact": "^10.22.1",
+    "tailwindcss": "^3.4.4"
   }
 }

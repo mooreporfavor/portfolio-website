@@ -1,39 +1,11 @@
 // astro.config.mjs
-import { defineConfig } from 'astro/config';
+import { defineConfig, passthroughImageService } from 'astro/config';
 import preact from '@astrojs/preact';
-import tailwindcss from '@tailwindcss/vite';
-import typography from '@tailwindcss/typography'; // We need this for the plugins array
+import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  integrations: [
-    preact()
-  ],
-  vite: {
-    plugins: [
-      // This is where all configuration now lives.
-      tailwindcss({
-        config: {
-          // The `content` is handled automatically by the Vite plugin.
-          theme: {
-            extend: {
-              colors: {
-                'brand-slate': '#1a202c',
-                'brand-sand': '#f7fafc',
-                'brand-blue': '#2b6cb0',
-                'brand-gray': '#a0aec0',
-                'poop': '#785539', // <-- ADD THIS LINE FOR TESTING
-              },
-              fontFamily: {
-                sans: ['Lato', 'sans-serif'],
-                serif: ['Playfair Display', 'serif'],
-              }
-            },
-          },
-          plugins: [
-            typography() // We pass the imported plugin here.
-          ],
-        },
-      }),
-    ],
-  },
+  integrations: [preact(), tailwind()],
+  image: {
+    service: passthroughImageService()
+  }
 });

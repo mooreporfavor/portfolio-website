@@ -1,9 +1,7 @@
 ---
-/// <reference types="astro/client" />
 import { Image } from 'astro:assets';
-import type { ImageMetadata } from 'astro:assets'; // We need this type for our assertion
 
-const imageImports = await import.meta.glob('../assets/pcv-service/**/*.{jpg,jpeg,png,webp}');
+const imageImports = import.meta.glob('@/assets/pcv-service/**/*.{jpg,jpeg,png,webp}');
 const allImages = Object.values(imageImports);
 
 const animationDuration = allImages.length * 5; 
@@ -16,31 +14,24 @@ const animationDuration = allImages.length * 5;
     </h2>
     <div class="w-full overflow-hidden" style={`--duration: ${animationDuration}s`}>
       <div class="flex animate-scroll">
-        {allImages.map(async (getImage) => {
-          // THE FIX: Use a type assertion to tell TypeScript the exact shape
-          const image = await getImage() as { default: ImageMetadata };
-          return (
-            <div class="flex-shrink-0 w-80 mx-4">
-              <Image 
-                src={image.default} 
-                alt="A photo from Peace Corps Volunteer service"
-                class="h-56 w-full object-cover rounded-lg shadow-md"
-              />
-            </div>
-          );
-        })}
-        {allImages.map(async (getImage) => {
-          const image = await getImage() as { default: ImageMetadata };
-          return (
-            <div class="flex-shrink-0 w-80 mx-4">
-              <Image 
-                src={image.default} 
-                alt="A photo from Peace Corps Volunteer service"
-                class="h-56 w-full object-cover rounded-lg shadow-md"
-              />
-            </div>
-          );
-        })}
+        {allImages.map((imageLoader) => (
+          <div class="flex-shrink-0 w-80 mx-4">
+            <Image 
+              src={imageLoader()} 
+              alt="A photo from Peace Corps Volunteer service"
+              class="h-56 w-full object-cover rounded-lg shadow-md"
+            />
+          </div>
+        ))}
+        {allImages.map((imageLoader) => (
+          <div class="flex-shrink-0 w-80 mx-4" aria-hidden="true">
+            <Image 
+              src={imageLoader()} 
+              alt="A photo from Peace Corps Volunteer service"
+              class="h-56 w-full object-cover rounded-lg shadow-md"
+            />
+          </div>
+        ))}
       </div>
     </div>
   </div>
