@@ -1,9 +1,10 @@
 // src/components/AdvancedPortfolioFilter.jsx
-import { useState, useMemo } from 'preact/hooks';
+import { useState, useMemo, useEffect, useRef } from 'preact/hooks';
 
 export default function AdvancedPortfolioFilter({ projects }) {
   const [selectedTrack, setSelectedTrack] = useState('All');
   const [selectedSkill, setSelectedSkill] = useState('All');
+  const skillsContainerRef = useRef(null);
 
   const tracks = ['All', 'Global Development', 'Data Engineering & AI', 'Leadership'];
 
@@ -32,9 +33,29 @@ export default function AdvancedPortfolioFilter({ projects }) {
     setSelectedSkill('All');
   };
 
-  // ▼▼▼ ADD THIS LINE ▼▼▼
-  console.log('Rendering with selectedTrack:', selectedTrack);
-  // ▲▲▲ END OF ADDED LINE ▲▲▲
+  useEffect(() => {
+    if (!skillsContainerRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(skillsContainerRef.current);
+
+    return () => {
+      if (skillsContainerRef.current) {
+        observer.unobserve(skillsContainerRef.current);
+      }
+    };
+  }, [selectedTrack]);
 
   return (
     <div>
@@ -60,7 +81,7 @@ export default function AdvancedPortfolioFilter({ projects }) {
 
       {/* Secondary Filters: Skills */}
       {selectedTrack !== 'All' && relevantSkills.length > 1 && (
-        <div class="flex flex-wrap justify-center gap-2 mb-12 border-t border-gray-200 pt-8" data-animate-on-scroll>
+        <div ref={skillsContainerRef} class="flex flex-wrap justify-center gap-2 mb-12 border-t border-gray-200 pt-8" data-animate-on-scroll>
           {relevantSkills.map((skill) => {
             const isSkillActive = selectedSkill === skill;
             return (
