@@ -1,13 +1,9 @@
 ---
 // src/components/FeaturedThinkers.astro
-import interactions from '../data/featured_thinkers.json';
 import ProfileCard from './ProfileCard.astro'; // <-- IMPORT YOUR CHOSEN BADGE
 import thinkers from '../data/featured_thinkers.json'; // <-- Use the new curated file
 
 console.log(`[FeaturedThinkers] The component is about to render ${thinkers.length} cards.`);
-
-// Filter for people who you've added an image and title for
-const topThinkers = interactions.filter(p => p.imageUrl && p.title).slice(0, 8);
 ---
 <section class="py-16 bg-gray-100" data-animate-on-scroll>
   <div class="container mx-auto px-6">

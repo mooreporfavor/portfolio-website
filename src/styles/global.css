@@ -13,3 +13,21 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+@layer components {
+  .prose h1 {
+    @apply text-4xl font-bold mb-4;
+  }
+  .prose h2 {
+    @apply text-3xl font-bold mb-4;
+  }
+  .prose h3 {
+    @apply text-2xl font-bold mb-4;
+  }
+  .prose p {
+    @apply mb-4;
+  }
+  .prose a {
+    @apply text-blue-600 underline;
+  }
+}

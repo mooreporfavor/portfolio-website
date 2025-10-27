@@ -1,5 +1,15 @@
 ---
+/// <reference types="astro/client" />
 import { Image } from 'astro:assets';
+
+// Workaround for a stubborn type resolution issue.
+// Define a local type that matches the expected shape of ImageMetadata.
+type LocalImageMetadata = {
+  src: string;
+  width: number;
+  height: number;
+  format: 'png' | 'jpg' | 'jpeg' | 'tiff' | 'webp' | 'gif' | 'svg' | 'avif';
+}
 
 const imageImports = import.meta.glob('@/assets/development/**/*.{jpg,jpeg,png,webp}');
 const allImages = Object.values(imageImports);
@@ -14,24 +24,30 @@ const animationDuration = allImages.length * 5;
     </p>
     <div class="w-full overflow-hidden" style={`--duration: ${animationDuration}s`}>
       <div class="flex animate-scroll">
-        {allImages.map((imageLoader) => (
-          <div class="flex-shrink-0 w-80 mx-4">
-            <Image 
-              src={imageLoader()} 
-              alt="A photo from a development project in the field"
-              class="h-56 w-full object-cover rounded-lg shadow-md"
-            />
-          </div>
-        ))}
-        {allImages.map((imageLoader) => (
-          <div class="flex-shrink-0 w-80 mx-4" aria-hidden="true">
-            <Image 
-              src={imageLoader()} 
-              alt="A photo from a development project in the field"
-              class="h-56 w-full object-cover rounded-lg shadow-md"
-            />
-          </div>
-        ))}
+        {allImages.map(async (imageLoader) => {
+          const image = await imageLoader() as { default: LocalImageMetadata };
+          return (
+            <div class="flex-shrink-0 w-80 mx-4">
+              <Image 
+                src={image.default} 
+                alt="A photo from a development project in the field"
+                class="h-56 w-full object-cover rounded-lg shadow-md"
+              />
+            </div>
+          );
+        })}
+        {allImages.map(async (imageLoader) => {
+          const image = await imageLoader() as { default: LocalImageMetadata };
+          return (
+            <div class="flex-shrink-0 w-80 mx-4" aria-hidden="true">
+              <Image 
+                src={image.default} 
+                alt="A photo from a development project in the field"
+                class="h-56 w-full object-cover rounded-lg shadow-md"
+              />
+            </div>
+          );
+        })}
       </div>
     </div>
   </div>
