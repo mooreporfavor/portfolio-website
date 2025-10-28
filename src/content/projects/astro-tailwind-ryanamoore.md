@@ -26,3 +26,12 @@ The project successfully transformed my personal brand from a static, non-techni
 *   **Strategic Impact:** The site itself now serves as a primary case study, tangibly demonstrating cutting-edge skills in full-stack development, automation, and applied AI, rather than just listing them on a resume.
 *   **Operational Impact:** Created a semi-automated content pipeline where a Python script can be run periodically to gather fresh data on professional engagement, providing a data-driven and easily updatable feature for the website and reducing the need for manual content management.
 *   **Knowledge Impact:** Delivered a production-grade web application using an *en vogue* tech stack. The process required deep, hands-on debugging of the modern front-end toolchain and practical application of web scraping best practices, including session management and anti-botting countermeasures.
+
+### Relevant Links
+
+*   [Astro Framework](https://astro.build/)
+*   [Tailwind CSS](https://tailwindcss.com/)
+*   [Selenium](https://www.selenium.dev/)
+*   [Python](https://www.python.org/)
+*   [Vercel](https://vercel.com/)
+*   [JAMstack](https://jamstack.org/)
