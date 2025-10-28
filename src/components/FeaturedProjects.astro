@@ -6,13 +6,13 @@ const featuredProjects = await getCollection('projects', ({ data }) => {
   return data.isFeatured === true;
 });
 ---
-<section class="py-16 bg-gray-50" data-animate-on-scroll>
+<section class="py-16 bg-brand-gray" data-animate-on-scroll>
   <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-serif font-bold text-center text-brand-gray mb-12">Featured Projects</h2>
+    <h2 class="text-3xl font-serif font-bold text-center text-black mb-12">Featured Projects</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
       {featuredProjects.map(project => (
         <a href={`/portfolio/${project.slug}/`} class="block bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-          <h3 class="text-2xl font-serif font-bold text-brand-gray">{project.data.title}</h3>
+          <h3 class="text-2xl font-serif font-bold text-brand-slate">{project.data.title}</h3>
           <p class="text-sm font-semibold text-blue-600 mb-3">{project.data.client}</p>
           <p class="text-gray-600 text-sm mb-4 line-clamp-3">{project.body.slice(0, 150)}...</p>
           <span class="font-semibold text-blue-600 hover:underline">Read Case Study &rarr;</span>
