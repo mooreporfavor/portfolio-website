@@ -1,6 +1,6 @@
 ---
 // src/pages/admin/cv-genie.astro
-import Layout from '../../layouts/Layout.astro';
+import Layout from '../layouts/Layout.astro';
 ---
 <Layout title="CV Genie">
   <div class="container mx-auto px-6 py-12 max-w-4xl">
@@ -20,11 +20,11 @@ import Layout from '../../layouts/Layout.astro';
   </div>
 
   <script>
-    const generateBtn = document.getElementById('generate-btn');
-    const jobDescEl = document.getElementById('job-desc');
-    const resultContainer = document.getElementById('result-container');
-    const resultEl = document.getElementById('result');
-    const copyBtn = document.getElementById('copy-btn');
+    const generateBtn = document.getElementById('generate-btn') as HTMLButtonElement;
+    const jobDescEl = document.getElementById('job-desc') as HTMLTextAreaElement;
+    const resultContainer = document.getElementById('result-container') as HTMLDivElement;
+    const resultEl = document.getElementById('result') as HTMLPreElement;
+    const copyBtn = document.getElementById('copy-btn') as HTMLButtonElement;
 
     generateBtn.addEventListener('click', async () => {
       const jobDescription = jobDescEl.value;
