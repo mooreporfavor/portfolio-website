@@ -1,4 +1,3 @@
-
 # CVvault: The Master Curriculum Vitae of Ryan Andrew Moore
 
 ### I. CONTACT INFORMATION

@@ -18,7 +18,7 @@ export interface Props {
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const siteTitle = "Ryan A. Moore | International Development & Data";
+const siteTitle = "Ryan A. Moore | Gloabl Development, AI & Data";
 const siteDescription = "The professional portfolio of Ryan A. Moore, showcasing experience in international development, economics, and data analysis.";
 
 const { title, description, ogImage } = Astro.props;
@@ -28,6 +28,7 @@ const { title, description, ogImage } = Astro.props;
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#1a202c">
 
 <title>{title ? `${title} | ${siteTitle}` : siteTitle}</title>
 <meta name="description" content={description ?? siteDescription} />

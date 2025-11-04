@@ -1,17 +1,50 @@
 ---
 // src/components/Header.astro
+
+// This gets the current page's URL path, e.g., "/about" or "/portfolio"
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: "/bio", text: "Bio" },
+  { href: "/portfolio", text: "Portfolio" },
+  { href: "/socials", text: "Socials" },
+  { href: "/cv", text: "CV" },
+];
 ---
-<header class="bg-brand-sand border-b border-gray-200">
-  <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+<header class="bg-brand-sand border-b border-gray-200 sticky top-0 z-50 bg-opacity-80 backdrop-blur-md">
+  <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+    
+    <!-- Left Side: Your Name/Logo -->
     <div>
-      <a href="/" class="text-2xl font-serif font-bold text-brand-slate hover:text-brand-blue">Ryan A. Moore</a>
-      <p class="text-sm text-brand-gray">Global Development, AI & Data</p>
+      <a href="/" class="text-2xl font-serif font-bold text-brand-slate hover:text-brand-blue transition-colors duration-300">
+        Ryan A. Moore
+      </a>
+      <p class="text-sm font-sans-serif text-brand-gray">Global Development, AI & Data</p>
     </div>
-    <div class="space-x-6 text-brand-slate">
-      <a href="/bio" class="hover:underline hover:text-brand-blue">Bio</a>
-      <a href="/portfolio" class="hover:underline hover:text-brand-blue">Portfolio</a>
-      <a href="/socials" class="hover:underline hover:text-brand-blue">Socials</a>
-      <a href="/cv" class="hover:underline hover:text-brand-blue">CV</a>
+    
+    <!-- Right Side: The New "Pill" Navigation -->
+    <div class="flex items-center space-x-2 rounded-full bg-white shadow-sm p-1">
+      {navLinks.map(link => {
+        const isActive = currentPath === link.href || (link.href.startsWith('/portfolio') && currentPath.startsWith('/portfolio'));
+        return (
+          <a
+            href={link.href}
+            class:list={[
+              "relative px-4 py-2 text-sm font-semibold rounded-full transition-all duration-300 ease-in-out",
+              "focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2",
+              {
+                'bg-brand-blue text-white shadow-md': isActive,
+                'text-brand-slate hover:bg-gray-100': !isActive
+              }
+            ]}
+          >
+            {link.text}
+            {isActive && (
+              <span class="absolute -bottom-1 left-1/2 w-1/2 h-0.5 bg-brand-blue transform -translate-x-1/2"></span>
+            )}
+          </a>
+        )
+      })}
     </div>
   </nav>
 </header>

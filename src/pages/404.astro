@@ -1,0 +1,30 @@
+---
+// src/pages/404.astro
+import Layout from '../layouts/Layout.astro';
+import fourohfour from '../assets/404.png';
+import { Image } from 'astro:assets';
+---
+<Layout title="404: Not Found">
+  <div class="bg-white py-24">
+    <div class="container mx-auto px-6 text-center">
+      <div class="max-w-2xl mx-auto">
+        <h2 class="text-3xl font-serif font-bold text-brand-slate mb-6">404 - Page Not Found</h2>
+
+        <p class="text-lg text-brand-gray mb-12">
+          Sorry, the page you are looking for doesn't exist or has been moved.
+        </p>          <a 
+          href="/" 
+          class="inline-block bg-brand-blue text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-blue-700 transition-colors duration-300 transform hover:scale-105">
+          &larr; Go Back Home
+        </a>
+            <div class="max-w-2xl mx-auto">
+        <Image 
+            src={fourohfour} 
+            alt="404 Page Not Found" 
+            class="h-200 w-200 rounded-md flex-shrink-0"
+          />
+             </div>
+        </div>
+    </div>
+  </div>
+</Layout>
