@@ -1,7 +1,13 @@
 {
   "functions": {
     "api/generate-cv.py": {
-      "includeFiles": "src/data/CVvault.md"
+      "excludeFiles": [
+        "node_modules/**",
+        "scripts/**",
+        "secrets/**",
+        ".astro/**",
+        "dist/**"
+      ]
     }
   }
 }
