@@ -1,9 +1,7 @@
 {
   "functions": {
     "api/generate-cv.py": {
-      "includeFiles": [
-        "src/data/CVvault.md"
-      ]
+      "includeFiles": "src/data/CVvault.md"
     }
   }
 }
