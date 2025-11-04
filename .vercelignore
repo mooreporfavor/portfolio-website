@@ -1,18 +1,17 @@
 # Ignore the Python virtual environment for local scripts.
-# Vercel will create its own environment based on the root requirements.txt.
-scripts/venv/
+# The double-asterisk ensures it's found anywhere in the project.
+**/scripts/venv/
 
 # Ignore the saved browser profile from the local Selenium script.
-scripts/chrome_profile/
+**/scripts/chrome_profile/
 
-# Ignore the Node.js modules. The Python function does not need them.
-node_modules/
+# Ignore the Node.js modules.
+**/node_modules/
 
 # Ignore local environment variables and secret files.
-# Secrets should only be in Vercel's environment variables dashboard.
 .env
 .env*.local
-secrets/
+**/secrets/
 
 # Ignore the Git directory itself.
 .git/
