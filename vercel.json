@@ -1,13 +1,7 @@
 {
   "functions": {
     "api/generate-cv.py": {
-      "excludeFiles": [
-        "node_modules/**",
-        "scripts/**",
-        "secrets/**",
-        ".astro/**",
-        "dist/**"
-      ]
+      "excludeFiles": "node_modules/**,scripts/**,secrets/**,.astro/**,dist/**"
     }
   }
 }
