@@ -1,21 +1,12 @@
-# Ignore the Python virtual environment for local scripts.
-# The double-asterisk ensures it's found anywhere in the project.
-**/scripts/venv/
+# Directories to ignore completely
+node_modules
+scripts/venv
+scripts/chrome_profile
+secrets
+.astro
+dist
+.git
 
-# Ignore the saved browser profile from the local Selenium script.
-**/scripts/chrome_profile/
-
-# Ignore the Node.js modules.
-**/node_modules/
-
-# Ignore local environment variables and secret files.
+# Specific file patterns to ignore
 .env
 .env*.local
-**/secrets/
-
-# Ignore the Git directory itself.
-.git/
-
-# Ignore the Astro cache and build output directories.
-.astro/
-dist/
