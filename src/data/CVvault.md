@@ -37,7 +37,7 @@
 **United States Peace Corps** | Washington, DC
 **Chief of Operations / Director, Peace Corps Response** | 2023 – 2024
 *   Led a 40-person team to manage global operations for a premier international volunteer service program, overseeing all aspects from recruitment and programming to volunteer care and strategic partnerships.
-*   Achieved a 400% increase in program size in the first 9 months, re-launching operations in 25 countries and placing over 300 volunteers in high-impact assignments post-pandemic.
+*   Achieved a 200% increase in program size in the first 9 months, re-launching operations in over a dozen countries and placing over 300 volunteers in high-impact assignments post-pandemic.
 *   Directed a $10M annual budget, optimizing resource allocation to support rapid scaling and operational efficiency.
 *   Led the development and implementation of innovative service models, including spearheading the Virtual Service Pilot program, resulting in a 50% increase in program demand and expanded engagement to untapped volunteer populations.
 *   Championed and secured long-term funding for the Advancing Health Professionals (AHP) program, a flagship public-private partnership.
