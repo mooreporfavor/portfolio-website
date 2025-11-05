@@ -10,11 +10,12 @@ import Layout from '../layouts/Layout.astro';
     <div class="space-y-4">
       <textarea id="job-desc" class="w-full h-64 p-2 border border-gray-300 rounded-md font-mono text-sm focus:ring-2 focus:ring-brand-blue" placeholder="Paste job description here..."></textarea>
       <button id="generate-btn" class="bg-brand-blue text-white font-bold py-2 px-6 rounded-md hover:bg-blue-700 transition-transform duration-300 transform hover:scale-105 disabled:bg-gray-400 disabled:scale-100">Generate</button>
+      <p id="loading-message" class="text-sm text-gray-500 mt-2 hidden">This can take 30-60 seconds. Please be patient.</p>
     </div>
     
     <div id="result-container" class="mt-12 prose prose-lg max-w-none hidden">
       <h2 class="font-serif">Generated CV (Markdown)</h2>
-      <pre id="result" class="bg-gray-100 p-4 rounded-md whitespace-pre-wrap font-mono text-sm"></pre>
+      <pre id="result" class="bg-gray-100 p-4 rounded-md whitespace-pre-wrap font-mono text-sm text-gray-800"></pre>
       <button id="copy-btn" class="mt-4 bg-gray-600 text-white font-bold py-2 px-4 rounded-md hover:bg-gray-700">Copy to Clipboard</button>
     </div>
   </div>
@@ -25,6 +26,7 @@ import Layout from '../layouts/Layout.astro';
     const resultContainer = document.getElementById('result-container') as HTMLDivElement;
     const resultEl = document.getElementById('result') as HTMLPreElement;
     const copyBtn = document.getElementById('copy-btn') as HTMLButtonElement;
+    const loadingMessage = document.getElementById('loading-message') as HTMLParagraphElement;
 
     generateBtn.addEventListener('click', async () => {
       const jobDescription = jobDescEl.value;
@@ -35,6 +37,7 @@ import Layout from '../layouts/Layout.astro';
       
       generateBtn.textContent = 'Generating...';
       generateBtn.disabled = true;
+      loadingMessage.classList.remove('hidden');
 
       try {
         const response = await fetch('/api/generate-cv', {
@@ -58,6 +61,7 @@ import Layout from '../layouts/Layout.astro';
       } finally {
         generateBtn.textContent = 'Generate';
         generateBtn.disabled = false;
+        loadingMessage.classList.add('hidden');
       }
     });
 
