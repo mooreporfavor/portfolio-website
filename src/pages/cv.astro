@@ -24,14 +24,14 @@ import Layout from '../layouts/Layout.astro';
 
   <div class="container mx-auto px-6 py-12 max-w-4xl">
     <h2 class="text-3xl font-serif font-bold mb-4 text-brand-slate">Interactive AI CV Generator</h2>
-    <p class="mb-8 text-brand-gray">Welcome. This tool generates my professional summary using AI, grounded *only* in my real CV. Try a preset persona or paste a real job description.</p>
+    <p class="mb-8 text-brand-gray">Welcome. This tool generates my professional summary using AI, grounded *only* in my real CV. The buttons below generate comical versions, but you can use the text box to generate a real-life profile for roles like Chief Operating Officer, Chief Innovation Officer, or Data & AI Transformation Director.</p>
     
     <div class="space-y-4">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
-            <button class="preset-prompt-btn bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-md hover:bg-gray-300">The Hard-Boiled Detective</button>
-            <button class="preset-prompt-btn bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-md hover:bg-gray-300">M&E Director</button>
-            <button class="preset-prompt-btn bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-md hover:bg-gray-300">Data Scientist</button>
-            <button class="preset-prompt-btn bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-md hover:bg-gray-300">Product Manager</button>
+            <button class="preset-prompt-btn bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-md hover:bg-gray-300">Gumshoe Detective</button>
+            <button class="preset-prompt-btn bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-md hover:bg-gray-300">Mad Scientist</button>
+            <button class="preset-prompt-btn bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-md hover:bg-gray-300">Space Cowboy</button>
+            <button class="preset-prompt-btn bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-md hover:bg-gray-300">Time Traveler</button>
         </div>
       <textarea id="custom_prompt" class="w-full h-48 p-2 border border-gray-300 rounded-md font-mono text-sm focus:ring-2 focus:ring-brand-blue" maxlength="5000" placeholder="Or paste a job description here..."></textarea>
       <button id="generate_button" class="bg-brand-blue text-white font-bold py-2 px-6 rounded-md hover:bg-blue-700 transition-transform duration-300 transform hover:scale-105 disabled:bg-gray-400 disabled:scale-100">Generate</button>
