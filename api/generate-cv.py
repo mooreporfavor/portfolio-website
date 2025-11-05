@@ -58,7 +58,7 @@ class handler(BaseHTTPRequestHandler):
             """
 
             # --- 5. Call the Gemini API ---
-            model = genai.GenerativeModel('gemini-pro')
+            model = genai.GenerativeModel('gemini-pro-latest')
             response = model.generate_content(prompt)
 
             # --- 6. Send the successful response back to the browser ---
