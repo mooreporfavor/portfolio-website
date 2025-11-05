@@ -1,6 +1,8 @@
 ---
 // src/pages/cv.astro
-import Layout from '../layouts/Layout.astro';
+import Layout from '../layouts/Layout.astro'
+import SocialLinks from '../components/SocialLinks.astro';
+import { Image } from 'astro:assets';
 ---
 
 <Layout title="CV | Ryan A. Moore" description="Ryan Moore's Curriculum Vitae/Resume. For a detailed overview of my professional experience, skills, and accomplishments, please download my full CV.">
@@ -24,7 +26,7 @@ import Layout from '../layouts/Layout.astro';
 
   <div class="container mx-auto px-6 py-12 max-w-4xl">
     <h2 class="text-3xl font-serif font-bold mb-4 text-brand-slate">Interactive AI CV Generator</h2>
-    <p class="mb-8 text-brand-gray">Welcome. This tool generates my professional summary using AI, grounded *only* in my real CV. The buttons below generate comical versions, but you can use the text box to generate a real-life profile for roles like Chief Operating Officer, Chief Innovation Officer, or Data & AI Transformation Director.</p>
+    <p class="mb-8 text-brand-gray">Welcome. This tool generates my professional summary using AI, grounded <strong>only</strong> in my real CV. The buttons below generate comical versions, but you can use the text box to generate a real-life profile for roles like <strong>Chief Operating Officer</strong>, <strong>Chief Innovation Officer</strong>, or <strong>Data & AI Transformation Director</strong>.</p>
     
     <div class="space-y-4">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
@@ -44,7 +46,7 @@ import Layout from '../layouts/Layout.astro';
         <p id="output-summary"></p>
         <p id="output-skills" class="font-bold"></p>
       </div>
-      <p class="text-sm text-gray-600 mt-4">*This is an AI-generated demo. For my formal CV, please <a href="/Ryan-Moore-CV.pdf" download>click here</a>.*</p>
+      <p class="text-sm text-gray-600 mt-4">*This is an AI-generated demo. Please pardon any AI hallucinations, puns, or dad jokes. For my formal CV, please <a href="/Ryan-Moore-CV.pdf" download>click here</a>.*</p>
     </div>
   </div>
 
@@ -106,4 +108,5 @@ import Layout from '../layouts/Layout.astro';
       }
     });
   </script>
+  <SocialLinks />
 </Layout>
