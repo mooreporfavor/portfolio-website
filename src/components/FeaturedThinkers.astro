@@ -1,7 +1,9 @@
 ---
 // src/components/FeaturedThinkers.astro
-import ProfileCard from './ProfileCard.astro'; // <-- IMPORT YOUR CHOSEN BADGE
-import thinkers from '../data/featured_thinkers.json'; // <-- Use the new curated file
+import ProfileCard from '@/components/ProfileCard.astro'; // <-- IMPORT YOUR CHOSEN BADGE
+import thinkers from '@/data/featured_thinkers.json'; // <-- Use the new curated file
+
+const images = import.meta.glob('../assets/thinkers/*.{jpeg,jpg,png,gif}');
 
 console.log(`[FeaturedThinkers] The component is about to render ${thinkers.length} cards.`);
 ---
@@ -12,15 +14,19 @@ console.log(`[FeaturedThinkers] The component is about to render ${thinkers.leng
       This is a live look at the professionals whose work and insights I engage with most frequently on LinkedIn, based on an analysis of my activity.
     </p>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {thinkers.filter(person => person && person.imageUrl && person.authorName).map(person => (
-        <ProfileCard 
-          name={person.authorName}
-          title={person.title}
-          imageUrl={person.imageUrl}
-          profileUrl={person.profileUrl}
-          count={person.interactionCount}
-        />
-      ))}
+      {await Promise.all(thinkers.filter(person => person && person.imageUrl && person.authorName).map(async person => {
+        const imagePath = `../assets/thinkers/${person.imageUrl}`;
+        const image = await images[imagePath]();
+        return (
+          <ProfileCard 
+            name={person.authorName}
+            title={person.title}
+            imageUrl={(image as { default: { src: string } }).default.src}
+            profileUrl={person.profileUrl}
+            count={person.interactionCount}
+          />
+        );
+      }))}
     </div>
   </div>
 </section>

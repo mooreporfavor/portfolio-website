@@ -5,6 +5,12 @@
     "paths": {
       "@/assets/*": [
         "src/assets/*"
+      ],
+      "@/components/*": [
+        "src/components/*"
+      ],
+      "@/data/*": [
+        "src/data/*"
       ]
     },
     "jsx": "react-jsx",
