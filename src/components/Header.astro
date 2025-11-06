@@ -25,7 +25,7 @@ const navLinks = [
     <!-- Right Side: The New "Pill" Navigation -->
     <div class="flex items-center space-x-2 rounded-full bg-white shadow-sm p-1">
       {navLinks.map(link => {
-        const isActive = currentPath === link.href || (link.href.startsWith('/portfolio') && currentPath.startsWith('/portfolio'));
+        const isActive = currentPath.startsWith(link.href);
         return (
           <a
             href={link.href}
