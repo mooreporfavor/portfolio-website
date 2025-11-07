@@ -14,7 +14,7 @@ type LocalImageMetadata = {
 const imageImports = import.meta.glob('@/assets/pcv-service/**/*.{jpg,jpeg,png,webp}');
 const allImages = Object.values(imageImports);
 
-const animationDuration = allImages.length * 2; 
+const animationDuration = allImages.length * 1.5; 
 ---
 
 <section class="py-16 bg-brand-sand">
@@ -22,8 +22,8 @@ const animationDuration = allImages.length * 2;
     <h2 class="text-3xl font-serif font-bold text-center text-brand-slate mb-10">
       Nearly 20 years committed to global development
     </h2>
-    <div class="w-full overflow-hidden" style={`--duration: ${animationDuration}s`}>
-      <div class="flex animate-scroll">
+    <div class="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
+      <div class="flex-none flex items-center justify-center md:justify-start animate-infinite-scroll" style={`--duration: ${animationDuration}s`}>
         {allImages.map(async (imageLoader) => {
           const image = await imageLoader() as { default: LocalImageMetadata };
           return (
@@ -36,10 +36,12 @@ const animationDuration = allImages.length * 2;
             </div>
           );
         })}
+      </div>
+      <div class="flex-none flex items-center justify-center md:justify-start animate-infinite-scroll" style={`--duration: ${animationDuration}s`} aria-hidden="true">
         {allImages.map(async (imageLoader) => {
           const image = await imageLoader() as { default: LocalImageMetadata };
           return (
-            <div class="flex-shrink-0 w-80 mx-4" aria-hidden="true">
+            <div class="flex-shrink-0 w-80 mx-4">
               <Image 
                 src={image.default} 
                 alt="A photo from Peace Corps Volunteer service"
@@ -54,11 +56,14 @@ const animationDuration = allImages.length * 2;
 </section>
 
 <style>
-  @keyframes scroll {
+  @keyframes infinite-scroll {
     from { transform: translateX(0); }
     to { transform: translateX(-100%); }
   }
-  .animate-scroll {
-    animation: scroll var(--duration) linear infinite;
+  .animate-infinite-scroll {
+    animation: infinite-scroll var(--duration) linear infinite;
+  }
+  .animate-infinite-scroll:hover {
+    animation-play-state: paused;
   }
 </style>
