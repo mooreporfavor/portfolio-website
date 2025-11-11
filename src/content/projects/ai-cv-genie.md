@@ -9,7 +9,7 @@ isFeatured: true
 
 ### Problem
 
-Crafting tailored professional documents—whether a CV for a specific role, a bio for a conference, or a summary for a potential collaborator, is a high-effort, repetitive task. The challenge was to create a tool that could automate and optimize this customization, instantly generating a relevant, high-quality document by leveraging a master vault of my career history.
+Crafting tailored professional documents, whether a CV for a specific role, a bio for a conference, or a summary for a potential collaborator, is a high-effort, repetitive task. The challenge was to create a tool that could automate and optimize this customization, instantly generating a relevant, high-quality document by leveraging a master vault of my career history.
 
 ### Methodology
 
