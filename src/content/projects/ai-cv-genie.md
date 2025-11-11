@@ -9,14 +9,14 @@ isFeatured: true
 
 ### Problem
 
-Crafting tailored professional documents—whether a CV for a specific role, a bio for a conference, or a summary for a potential collaborator—is a high-effort, repetitive task. The challenge was to create a tool that could automate this customization, instantly generating a relevant, high-quality document by leveraging a master career history.
+Crafting tailored professional documents—whether a CV for a specific role, a bio for a conference, or a summary for a potential collaborator, is a high-effort, repetitive task. The challenge was to create a tool that could automate and optimize this customization, instantly generating a relevant, high-quality document by leveraging a master vault of my career history.
 
 ### Methodology
 
 I designed and built the "CV Genie," a private, AI-native tool integrated directly into my personal website. The project was approached with a bit of levity, framing the tool as a helpful assistant for a common professional chore.
 
-*   **Data Collection & Analysis:** The core knowledge base is a single, exhaustive `CVvault.md` file—a master "Single Source of Truth" containing every project, skill, and accomplishment. During the visioning phase, I used an "Insight-to-Impact Flywheel" framework to map user needs (mine, recruiters, collaborators) against technical feasibility, which led to prioritizing a "Simple Text Prompt" architecture for its immediate utility and low overhead.
-*   **Modeling & Technique:** Developed a Python serverless function deployed on Vercel. This function serves as an API endpoint that receives a target context (like a job description or a conference theme) from a hidden front-end page. It then dynamically constructs a detailed prompt, combining the full text of the `CVvault.md` as context with the target description and a set of instructions. This is then sent to the Google Gemini Pro API to generate the tailored output.
+*   **Data Collection & Analysis:** The core knowledge base is a single, exhaustive `CV vault` file, a master "Single Source of Truth" containing every project, skill, and accomplishment. During the visioning phase, I used an "Insight-to-Impact Flywheel" framework to map user needs (mine, recruiters, collaborators) against technical feasibility, which led to prioritizing a "Simple Text Prompt" architecture for its immediate utility and low overhead, while also building out more advanced back-end "Pro" model, which is "hidden" to avoid API usage spikes from bots.
+*   **Modeling & Technique:** Developed a Python serverless function deployed on Vercel. This function serves as an API endpoint that receives a target context (like a job description or a conference theme) from a hidden front-end page. It then dynamically constructs a detailed prompt, combining the full text of the `CV vault` as context with the target description and a set of instructions. This is then sent to the Google Gemini Pro API to generate the tailored output.
 *   **Development & Strategy:** The front-end was built as a simple HTML form on a hidden Astro page. The development was significantly accelerated using Gemini Code Assist as a pair-programmer, particularly for generating client-side JavaScript for the API `fetch` call and debugging the Python serverless function's deployment environment on Vercel.
 
 ### Outcome

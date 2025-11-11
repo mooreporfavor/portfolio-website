@@ -3,7 +3,7 @@ title: "Rigorous Impact Evaluation of School Rehabilitation in Georgia"
 client: "Millennium Challenge Corporation (MCC) & Government of Georgia (MCA-Georgia)"
 year: 2014
 track: "Global Development"
-tags: ["Impact Evaluation", "Randomized Controlled Trial (RCT)", "Education Infrastructure", "Regression Discontinuity Design (RDD)", "Georgia", "Monitoring & Evaluation"]
+tags: ["Impact Evaluation", "Randomized Control Trials (RCTs)", "Education Infrastructure", "Regression Discontinuity Design (RDD)", "Georgia", "Monitoring & Evaluation"]
 isFeatured: true
 ---
 
