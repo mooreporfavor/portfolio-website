@@ -33,7 +33,7 @@ This project delivered a complete, modern data platform that fundamentally trans
 *   **Strategic Impact:** The platform is now the **single source of truth** for the entire volunteer lifecycle, eliminating data silos and fostering universal trust in the metrics. By architecting the Gold Layer for machine learning, I delivered not just a reporting tool, but a foundational, **AI-ready infrastructure** that unlocks future capabilities like predictive forecasting and applicant risk modeling.
 
 *   **Operational Impact:**
-    *   **Performance:** End-user query and dashboard load times were reduced from minutes to **under one second**, enabling real-time operational monitoring.
+    *   **Performance:** Getting relevant metrics into the hands of end users was reduced from hours, days, or even weeks (e.g. end of fiscal year reporting) to **live, real-time operational monitoring**.
     *   **Efficiency:** The automated, end-to-end pipeline replaced dozens of hours per week of manual data wrangling and report building.
     *   **Agility:** The configuration-driven design allows the analytics team to add or modify dashboard KPIs in minutes, providing unprecedented responsiveness to leadership's evolving questions.
 
