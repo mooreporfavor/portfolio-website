@@ -2,6 +2,7 @@
 // src/pages/portfolio/[...slug].astro
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import { getImage } from 'astro:assets';
 
 // This function tells Astro to create a page for every project
 export async function getStaticPaths() {
@@ -15,6 +16,17 @@ export async function getStaticPaths() {
 const { project } = Astro.props;
 const { Content } = await project.render();
 const autoDescription = project.body.slice(0, 150) + '...';
+
+let heroImage;
+if (project.data.heroImage) {
+  heroImage = await getImage({
+    src: project.data.heroImage,
+    alt: `Hero image for ${project.data.title}`,
+    width: 1200,
+    height: 630,
+    format: 'webp',
+  });
+}
 ---
 
 <Layout title={project.data.title} description={autoDescription}>
@@ -22,6 +34,17 @@ const autoDescription = project.body.slice(0, 150) + '...';
     <div class="container mx-auto px-6">
       <div class="max-w-3xl mx-auto">
         
+        <!-- Hero Image -->
+        {heroImage && (
+          <div class="mb-12">
+            <img 
+              src={heroImage.src}
+              {...heroImage.attributes}
+              class="rounded-lg shadow-lg aspect-[1200/630] object-cover w-full"
+            />
+          </div>
+        )}
+
         <!-- Page Header -->
         <div class="text-center mb-12">
           <h1 class="text-4xl font-bold text-gray-900">{project.data.title}</h1>
