@@ -5,7 +5,7 @@ year: 2025
 track: "Leadership"
 tags: ["Executive Strategy", "AI Implementation", "Product Management", "Rapid Prototyping", "Change Management"]
 isFeatured: true
-heroImage: /src/assets/flywheel_infographic.png
+heroImage: "@/assets/flywheel_infographic.png"
 ---
 
 ### Problem
