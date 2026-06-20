@@ -19,13 +19,13 @@ const autoDescription = project.body.slice(0, 150) + '...';
 
 const images = import.meta.glob('/src/assets/**/*.{png,jpg,jpeg,webp,svg}');
 
-let heroImage;
+let heroImage: any;
 if (project.data.heroImage) {
   // Turn "@/assets/image.png" into "/src/assets/image.png"
   const imagePath = project.data.heroImage.replace('@/', '/src/');
 
   if (images[imagePath]) {
-    const imageModule = await images[imagePath]();
+    const imageModule = (await images[imagePath]()) as { default: any };
     heroImage = await getImage({
       src: imageModule.default,
       alt: `Hero image for ${project.data.title}`,

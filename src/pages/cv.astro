@@ -2,7 +2,7 @@
 // src/pages/cv.astro
 import Layout from '../layouts/Layout.astro'
 import SocialLinks from '../components/SocialLinks.astro';
-import { Image } from 'astro:assets';
+import AIBioGenerator from '../components/AIBioGenerator.astro';
 ---
 
 <Layout title="CV | Ryan A. Moore" description="Ryan Moore's Curriculum Vitae/Resume. For a detailed overview of my professional experience, skills, and accomplishments, please download my full CV.">
@@ -24,89 +24,9 @@ import { Image } from 'astro:assets';
     </div>
   </div>
 
-  <div class="container mx-auto px-6 py-12 max-w-4xl">
-    <h2 class="text-3xl font-serif font-bold mb-4 text-brand-slate">Interactive AI CV Generator</h2>
-    <p class="mb-8 text-brand-gray">Welcome. This tool generates my professional summary using AI, grounded <strong>only</strong> in my real CV. The buttons below generate comical versions, but you can use the text box to generate a real-life profile for roles like <strong>Chief Operating Officer</strong>, <strong>Chief Innovation Officer</strong>, or <strong>Data & AI Transformation Director</strong>.</p>
-    
-    <div class="space-y-4">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
-            <button class="preset-prompt-btn bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-md hover:bg-gray-300">Gumshoe Detective</button>
-            <button class="preset-prompt-btn bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-md hover:bg-gray-300">Mad Scientist</button>
-            <button class="preset-prompt-btn bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-md hover:bg-gray-300">Space Cowboy</button>
-            <button class="preset-prompt-btn bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-md hover:bg-gray-300">Time Traveler</button>
-        </div>
-      <textarea id="custom_prompt" class="w-full h-48 p-2 border border-gray-300 rounded-md font-mono text-sm focus:ring-2 focus:ring-brand-blue" maxlength="5000" placeholder="Or paste a job description here..."></textarea>
-      <button id="generate_button" class="bg-brand-blue text-white font-bold py-2 px-6 rounded-md hover:bg-blue-700 transition-transform duration-300 transform hover:scale-105 disabled:bg-gray-400 disabled:scale-100">Generate</button>
-      <p id="loading-message" class="text-sm text-gray-500 mt-2 hidden">This can take 30-60 seconds. Please be patient.</p>
-    </div>
-    
-    <div id="output_container" class="mt-12 prose prose-lg max-w-none hidden">
-      <div id="result" class="bg-gray-100 p-4 rounded-md whitespace-pre-wrap font-mono text-sm text-gray-800">
-        <h2 id="output-headline" class="font-serif"></h2>
-        <p id="output-summary"></p>
-        <p id="output-skills" class="font-bold"></p>
-      </div>
-      <p class="text-sm text-gray-600 mt-4">*This is an AI-generated demo. Please pardon any AI hallucinations, puns, or dad jokes. For my formal CV, please <a href="/Ryan-Moore-CV.pdf" download>click here</a>.*</p>
-    </div>
-  </div>
-
-  <script>
-    const generateBtn = document.getElementById('generate_button') as HTMLButtonElement;
-    const customPromptEl = document.getElementById('custom_prompt') as HTMLTextAreaElement;
-    const outputContainer = document.getElementById('output_container') as HTMLDivElement;
-    const resultEl = document.getElementById('result') as HTMLDivElement;
-    const headlineEl = document.getElementById('output-headline') as HTMLHeadingElement;
-    const summaryEl = document.getElementById('output-summary') as HTMLParagraphElement;
-    const skillsEl = document.getElementById('output-skills') as HTMLParagraphElement;
-    const loadingMessage = document.getElementById('loading-message') as HTMLParagraphElement;
-    const presetButtons = document.querySelectorAll('.preset-prompt-btn');
-
-    presetButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            customPromptEl.value = (button as HTMLButtonElement).innerText;
-            generateBtn.click();
-        });
-    });
-
-    generateBtn.addEventListener('click', async () => {
-      const user_prompt = customPromptEl.value;
-      if (!user_prompt.trim()) {
-        alert('Please enter a prompt or select a persona.');
-        return;
-      }
-      
-      generateBtn.textContent = 'Generating...';
-      generateBtn.disabled = true;
-      loadingMessage.classList.remove('hidden');
-      outputContainer.classList.add('hidden');
-
-      try {
-        const response = await fetch('/api/generate-profile', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ user_prompt })
-        });
-
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        headlineEl.textContent = data.headline;
-        summaryEl.textContent = data.summary;
-        skillsEl.textContent = data.skills;
-        outputContainer.classList.remove('hidden');
-
-      } catch (error) {
-        console.error("Error fetching tailored CV:", error);
-        alert(`An error occurred: ${error.message}`);
-      } finally {
-        generateBtn.textContent = 'Generate';
-        generateBtn.disabled = false;
-        loadingMessage.classList.add('hidden');
-      }
-    });
-  </script>
+  <AIBioGenerator 
+    title="Interactive AI CV Generator" 
+    descriptionHtml="Welcome. This tool generates my professional summary using AI, grounded <strong>only</strong> in my real CV. The buttons below generate comical versions, but you can use the text box to generate a real-life profile for roles like <strong>Chief Operating Officer</strong>, <strong>Chief Innovation Officer</strong>, or <strong>Data & AI Transformation Director</strong>." 
+  />
   <SocialLinks />
 </Layout>

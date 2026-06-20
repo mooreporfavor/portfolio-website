@@ -90,7 +90,7 @@ class handler(BaseHTTPRequestHandler):
             generation_config = {
                 "response_mime_type": "application/json",
             }
-            model = genai.GenerativeModel('gemini-flash-lite-latest', generation_config=generation_config)
+            model = genai.GenerativeModel('gemini-3.5-flash', generation_config=generation_config)
             response = model.generate_content(prompt)
 
             # --- 6. Parse the response and send it ---

@@ -18,10 +18,15 @@ export interface Props {
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const siteTitle = "Ryan A. Moore | Gloabl Development, AI & Data";
+const siteTitle = "Ryan A. Moore | Global Development, AI & Data";
 const siteDescription = "The professional portfolio of Ryan A. Moore, showcasing experience in international development, economics, and data analysis.";
 
 const { title, description, ogImage } = Astro.props;
+
+// Avoid duplicating Ryan's name if the page title already includes it
+const displayTitle = title 
+  ? (title.includes("Ryan") ? title : `${title} | Ryan A. Moore`)
+  : siteTitle;
 ---
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
@@ -30,11 +35,11 @@ const { title, description, ogImage } = Astro.props;
 <link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#1a202c">
 
-<title>{title ? `${title} | ${siteTitle}` : siteTitle}</title>
+<title>{displayTitle}</title>
 <meta name="description" content={description ?? siteDescription} />
 
 {/* Open Graph / LinkedIn / Facebook */}
-<meta property="og:title" content={title ?? siteTitle} />
+<meta property="og:title" content={displayTitle} />
 <meta property="og:description" content={description ?? siteDescription} />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:image" content={new URL(ogImage?.src ?? defaultOgImage.src, Astro.site)} />
@@ -42,6 +47,6 @@ const { title, description, ogImage } = Astro.props;
 
 {/* Twitter */}
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content={title ?? siteTitle} />
+<meta name="twitter:title" content={displayTitle} />
 <meta name="twitter:description" content={description ?? siteDescription} />
 <meta name="twitter:image" content={new URL(ogImage?.src ?? defaultOgImage.src, Astro.site)} />

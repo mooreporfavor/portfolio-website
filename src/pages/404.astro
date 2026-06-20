@@ -10,20 +10,21 @@ import { Image } from 'astro:assets';
       <div class="max-w-2xl mx-auto">
         <h2 class="text-3xl font-serif font-bold text-brand-slate mb-6">404 - Page Not Found</h2>
 
-        <p class="text-lg text-brand-gray mb-12">
+        <p class="text-lg text-brand-gray mb-8">
           Sorry, the page you are looking for doesn't exist or has been moved.
-        </p>          <a 
+        </p>
+        <a 
           href="/" 
-          class="inline-block bg-brand-blue text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-blue-700 transition-colors duration-300 transform hover:scale-105">
+          class="inline-block bg-brand-blue text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-blue-700 transition-colors duration-300 transform hover:scale-105 mb-12">
           &larr; Go Back Home
         </a>
-            <div class="max-w-2xl mx-auto">
-        <Image 
+        <div class="flex justify-center">
+          <Image 
             src={fourohfour} 
             alt="404 Page Not Found" 
-            class="h-200 w-200 rounded-md flex-shrink-0"
+            class="h-[200px] w-[200px] rounded-md object-cover shadow-md"
           />
-             </div>
+        </div>
         </div>
     </div>
   </div>

@@ -15,5 +15,13 @@
     },
     "jsx": "react-jsx",
     "jsxImportSource": "preact"
-  }
+  },
+  "exclude": [
+    "dist",
+    "node_modules",
+    ".astro",
+    "public",
+    "scripts",
+    "secrets"
+  ]
 }

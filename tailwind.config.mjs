@@ -6,10 +6,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        'brand-slate': '#1a202c',
-        'brand-sand': '#f7fafc',
-        'brand-blue': '#2b6cb0',
-        'brand-gray': '#a0aec0',
+        'brand-slate': '#111827',
+        'brand-sand': '#faf7f2',
+        'brand-blue': '#1e3a8a',
+        'brand-gray': '#4b5563',
       },
       fontFamily: {
         sans: ['Lato', 'sans-serif'],

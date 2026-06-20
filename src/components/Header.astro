@@ -11,7 +11,7 @@ const navLinks = [
   { href: "/cv", text: "CV" },
 ];
 ---
-<header class="bg-brand-sand border-b border-gray-200 sticky top-0 z-50 bg-opacity-80 backdrop-blur-md">
+<header class="sticky top-0 z-50 w-full bg-brand-sand/75 backdrop-blur-lg border-b border-black/[0.04] shadow-[0_2px_20px_rgba(0,0,0,0.02)]">
   <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
     
     <!-- Left Side: Your Name/Logo -->
@@ -19,7 +19,7 @@ const navLinks = [
       <a href="/" class="text-2xl font-serif font-bold text-brand-slate hover:text-brand-blue transition-colors duration-300">
         Ryan A. Moore
       </a>
-      <p class="text-sm font-sans-serif text-brand-gray">Global Development, AI & Data</p>
+      <p class="text-sm font-sans text-brand-gray">Global Development, AI & Data</p>
     </div>
     
     <!-- Right Side: The New "Pill" Navigation -->
@@ -34,7 +34,7 @@ const navLinks = [
               "focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2",
               {
                 'bg-brand-blue text-white shadow-md': isActive,
-                'text-brand-slate hover:bg-gray-100': !isActive
+                'text-brand-slate hover:bg-black/[0.04]': !isActive
               }
             ]}
           >
