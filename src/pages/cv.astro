@@ -1,32 +1,128 @@
 ---
 // src/pages/cv.astro
-import Layout from '../layouts/Layout.astro'
+import Layout from '../layouts/Layout.astro';
 import SocialLinks from '../components/SocialLinks.astro';
 import AIBioGenerator from '../components/AIBioGenerator.astro';
+
+const competencies = [
+  {
+    category: "Executive & Strategic Leadership",
+    skills: ["Multi-Million Portfolio Governance", "Cross-Functional & Global Team Leadership", "Strategic Planning & OKRs", "High-Stakes Government Advisory"]
+  },
+  {
+    category: "Econometrics & Rigorous Evaluation",
+    skills: ["Randomized Controlled Trials (RCTs)", "Regression Discontinuity Design (RDD)", "Cost-Benefit & Economic Analysis", "TVET & Workforce Analytics"]
+  },
+  {
+    category: "Innovative Finance & Policy",
+    skills: ["Results-Based Financing (RBF)", "Social Impact Bonds (SIBs)", "Public-Private Partnerships (PPPs)", "Blended Capital Structuring"]
+  },
+  {
+    category: "AI & Data Engineering",
+    skills: ["Generative AI & LLM Copilots", "Modern Data Platform Architecture", "Interactive Analytics & BI", "Master Data Vault Systems"]
+  }
+];
 ---
 
-<Layout title="CV | Ryan A. Moore" description="Ryan Moore's Curriculum Vitae/Resume. For a detailed overview of my professional experience, skills, and accomplishments, please download my full CV.">
-  <div class="bg-white py-16">
-    <div class="container mx-auto px-6 text-center">
-      <div class="max-w-2xl mx-auto">
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">Curriculum Vitae</h1>
-        <p class="text-lg text-gray-600 mb-8">
-          For a detailed overview of my professional experience, skills, and accomplishments, please download my full CV.
+<Layout 
+  title="Curriculum Vitae & Credentials | Ryan A. Moore" 
+  description="Executive curriculum vitae, career experience, education, and competencies of Ryan A. Moore — Senior Strategy & Innovation Leader."
+>
+  <div class="py-16 md:py-24">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Top CV Hero Header -->
+      <div class="max-w-4xl mx-auto text-center mb-16" data-animate-on-scroll>
+        <div class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-blue-50 text-brand-blue border border-blue-200/80 text-xs font-bold uppercase tracking-wider mb-4">
+          Verified Credentials
+        </div>
+        <h1 class="text-4xl sm:text-5xl font-serif font-bold text-brand-slate tracking-tight">
+          Curriculum Vitae & Experience
+        </h1>
+        <p class="text-base sm:text-lg text-slate-600 mt-4 leading-relaxed max-w-2xl mx-auto">
+          Over 20 years driving strategy, evidence-based economic policy, and technology innovation across global institutions.
         </p>
-        <a 
-          href="/Ryan-Moore-CV.pdf" 
-          download
-          class="inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105"
-        >
-          Download CV (PDF)
-        </a>
+
+        <!-- Download Action Card -->
+        <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a 
+            href="/Ryan-Moore-CV.pdf" 
+            download
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-brand-blue hover:bg-blue-800 text-white font-semibold shadow-lg shadow-blue-900/20 hover:shadow-xl transition-all duration-300 hover:scale-102 group"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <span>Download Official CV (PDF)</span>
+          </a>
+
+          <a 
+            href="/cv-genie" 
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-semibold border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300"
+          >
+            <svg class="w-5 h-5 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            <span>Tailor CV with AI Genie</span>
+          </a>
+        </div>
       </div>
+
+      <!-- Core Competencies Matrix -->
+      <div class="max-w-4xl mx-auto mb-16" data-animate-on-scroll>
+        <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-lg">
+          <h2 class="text-2xl font-serif font-bold text-brand-slate mb-8 text-center sm:text-left">
+            Core Competencies & Capabilities
+          </h2>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            {competencies.map(comp => (
+              <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200/80">
+                <h3 class="text-sm font-bold uppercase tracking-wider text-brand-blue mb-4 flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-brand-accent"></span>
+                  {comp.category}
+                </h3>
+                <ul class="space-y-2.5">
+                  {comp.skills.map(s => (
+                    <li class="flex items-center text-xs font-medium text-slate-700">
+                      <svg class="w-4 h-4 text-emerald-600 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.052-.143z" clip-rule="evenodd" />
+                      </svg>
+                      <span>{s}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <!-- Education Section -->
+          <div class="mt-8 pt-8 border-t border-slate-200 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="p-5 rounded-2xl bg-white border border-slate-200">
+              <span class="text-xs font-bold text-brand-accent uppercase tracking-wide">Graduate Degree</span>
+              <h4 class="text-base font-serif font-bold text-brand-slate mt-1">Master in Public Administration (MPA/ID)</h4>
+              <p class="text-xs text-slate-600 mt-0.5">Harvard University, John F. Kennedy School of Government</p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white border border-slate-200">
+              <span class="text-xs font-bold text-brand-accent uppercase tracking-wide">Undergraduate Degree</span>
+              <h4 class="text-base font-serif font-bold text-brand-slate mt-1">Bachelor of Science</h4>
+              <p class="text-xs text-slate-600 mt-0.5">Purdue University</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Interactive AI Copilot Section -->
+      <AIBioGenerator 
+        title="Interactive AI CV & Bio Generator" 
+        descriptionHtml="Generate customized executive profiles on the fly using AI grounded <strong>only</strong> in verified master CV data. Test executive personas or paste your company's role requirements below." 
+      />
+
+      <!-- Socials -->
+      <SocialLinks />
+
     </div>
   </div>
-
-  <AIBioGenerator 
-    title="Interactive AI CV Generator" 
-    descriptionHtml="Welcome. This tool generates my professional summary using AI, grounded <strong>only</strong> in my real CV. The buttons below generate comical versions, but you can use the text box to generate a real-life profile for roles like <strong>Chief Operating Officer</strong>, <strong>Chief Innovation Officer</strong>, or <strong>Data & AI Transformation Director</strong>." 
-  />
-  <SocialLinks />
 </Layout>

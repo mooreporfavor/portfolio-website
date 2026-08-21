@@ -1,19 +1,29 @@
 ---
 // src/components/FeaturedThinkers.astro
-import ProfileCard from '@/components/ProfileCard.astro'; // <-- IMPORT YOUR CHOSEN BADGE
-import thinkers from '@/data/featured_thinkers.json'; // <-- Use the new curated file
+import ProfileCard from '@/components/ProfileCard.astro';
+import thinkers from '@/data/featured_thinkers.json';
 
 const images = import.meta.glob('../assets/thinkers/*.{jpeg,jpg,png,gif}');
-
-console.log(`[FeaturedThinkers] The component is about to render ${thinkers.length} cards.`);
 ---
-<section class="py-16 bg-gray-100" data-animate-on-scroll>
-  <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Valued Colleagues & Thinkers</h2>
-    <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-      This is a live look at the professionals whose work and insights I engage with most frequently on LinkedIn, based on an analysis of my activity.
-    </p>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+<section class="py-16 md:py-24" data-animate-on-scroll>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-blue-50 text-brand-blue border border-blue-200/80 text-xs font-bold uppercase tracking-wider mb-4">
+        Intellectual Network
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-serif font-bold text-brand-slate tracking-tight">
+        Valued Colleagues & Thinkers
+      </h2>
+      <p class="mt-4 text-base text-slate-600 leading-relaxed">
+        A transparent look at the global leaders, econometricians, and innovators whose research and insights I engage with most frequently on LinkedIn.
+      </p>
+    </div>
+
+    <!-- Thinkers Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
       {await Promise.all(thinkers.filter(person => person && person.imageUrl && person.authorName).map(async person => {
         const imagePath = `../assets/thinkers/${person.imageUrl}`;
         const image = await images[imagePath]();
@@ -28,5 +38,6 @@ console.log(`[FeaturedThinkers] The component is about to render ${thinkers.leng
         );
       }))}
     </div>
+
   </div>
 </section>

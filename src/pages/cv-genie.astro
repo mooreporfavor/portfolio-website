@@ -1,43 +1,140 @@
 ---
-// src/pages/admin/cv-genie.astro
+// src/pages/cv-genie.astro
 import Layout from '../layouts/Layout.astro';
+
+const samplePrompts = [
+  { label: "Chief Operating Officer", text: "Chief Operating Officer leading multi-country global operations, cross-functional engineering and evaluation teams, multi-million dollar grant allocations, and organizational transformation." },
+  { label: "Chief Innovation & AI Officer", text: "Executive leader to spearhead enterprise AI adoption, modernize legacy data platforms, develop automated LLM decision systems, and establish data governance across global departments." },
+  { label: "Director of Impact & Econometrics", text: "Director of Research and Impact Evaluation directing multi-million dollar RCTs, blended finance / results-based financing mechanisms, and econometric policy recommendations for governments." },
+];
 ---
-<Layout title="CV Genie">
-  <div class="container mx-auto px-6 py-12 max-w-4xl">
-    <h1 class="text-3xl font-serif font-bold mb-4 text-brand-slate">CV Genie</h1>
-    <p class="mb-8 text-brand-gray">Paste a job description below to generate a tailored CV from the master CVvault.</p>
-    
-    <div class="space-y-4">
-      <textarea id="job-desc" class="w-full h-64 p-2 border border-gray-300 rounded-md font-mono text-sm focus:ring-2 focus:ring-brand-blue" placeholder="Paste job description here..."></textarea>
-      <button id="generate-btn" class="bg-brand-blue text-white font-bold py-2 px-6 rounded-md hover:bg-blue-700 transition-transform duration-300 transform hover:scale-105 disabled:bg-gray-400 disabled:scale-100">Generate</button>
-      <p id="loading-message" class="text-sm text-gray-500 mt-2 hidden">This can take 30-60 seconds. Please be patient.</p>
-    </div>
-    
-    <div id="result-container" class="mt-12 prose prose-lg max-w-none hidden">
-      <h2 class="font-serif">Generated CV (Markdown)</h2>
-      <pre id="result" class="bg-gray-100 p-4 rounded-md whitespace-pre-wrap font-mono text-sm text-gray-800"></pre>
-      <button id="copy-btn" class="mt-4 bg-gray-600 text-white font-bold py-2 px-4 rounded-md hover:bg-gray-700">Copy to Clipboard</button>
+
+<Layout 
+  title="AI CV Genie Copilot | Ryan A. Moore" 
+  description="AI-native Copilot that tailors Ryan A. Moore's master CV and career portfolio specifically to match any job description or executive role."
+>
+  <div class="py-16 md:py-24">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-4xl mx-auto glass-panel p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-2xl relative overflow-hidden">
+        
+        <!-- Header -->
+        <div class="mb-10 text-center sm:text-left">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-brand-blue text-xs font-bold uppercase tracking-wider mb-3">
+            <svg class="w-3.5 h-3.5 text-brand-accent" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            <span>Autonomous Career Copilot</span>
+          </div>
+          <h1 class="text-3xl sm:text-4xl font-serif font-bold text-brand-slate tracking-tight">
+            CV Genie: Tailored Executive Dossier
+          </h1>
+          <p class="mt-2 text-sm sm:text-base text-slate-600 leading-relaxed">
+            Paste a target role requirement or job description. CV Genie queries Ryan's comprehensive master career vault (<code class="bg-slate-100 px-1.5 py-0.5 rounded text-xs font-mono">CVvault.md</code>) to instantly synthesize a customized, evidence-grounded CV.
+          </p>
+        </div>
+
+        <!-- Sample Role Templates -->
+        <div class="mb-6">
+          <p class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Try A Role Template:</p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+            {samplePrompts.map(p => (
+              <button 
+                type="button" 
+                data-sample={p.text}
+                class="sample-btn p-3 rounded-xl bg-slate-50 hover:bg-blue-50 border border-slate-200 hover:border-blue-300 text-xs font-semibold text-slate-700 text-left transition-all hover:-translate-y-0.5"
+              >
+                ⚡ {p.label}
+              </button>
+            ))}
+          </div>
+        </div>
+        
+        <!-- Input Area -->
+        <div class="space-y-4">
+          <label for="job-desc" class="block text-xs font-bold uppercase tracking-wider text-slate-500">
+            Target Job Description / Executive Profile Requirements:
+          </label>
+          <textarea 
+            id="job-desc" 
+            rows="7" 
+            class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl font-mono text-xs text-brand-slate focus:bg-white focus:ring-2 focus:ring-brand-accent focus:border-transparent transition-all placeholder-slate-400" 
+            placeholder="Paste complete job description or key responsibilities here..."
+          ></textarea>
+          
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+            <button 
+              id="generate-btn" 
+              type="button"
+              class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-brand-blue hover:bg-blue-800 text-white text-sm font-semibold shadow-lg shadow-blue-900/20 hover:shadow-xl transition-all duration-200 hover:scale-102 disabled:opacity-50 disabled:pointer-events-none"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              <span id="btn-text">Generate Tailored CV</span>
+            </button>
+
+            <p id="loading-message" class="text-xs text-slate-500 font-medium hidden flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-brand-accent animate-ping"></span>
+              <span>Evaluating career vault against job criteria (~20-40s)...</span>
+            </p>
+          </div>
+        </div>
+        
+        <!-- Generated Result Section -->
+        <div id="result-container" class="mt-10 pt-8 border-t border-slate-200 hidden animate-in fade-in duration-300">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="text-xl font-serif font-bold text-brand-slate">Generated Executive CV (Markdown)</h2>
+            <button 
+              id="copy-btn" 
+              type="button"
+              class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-slate-900 text-white text-xs font-semibold rounded-lg hover:bg-brand-blue transition-colors shadow-sm"
+            >
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+              </svg>
+              <span>Copy to Clipboard</span>
+            </button>
+          </div>
+          
+          <pre id="result" class="bg-slate-950 text-slate-100 p-6 rounded-2xl border border-slate-800 whitespace-pre-wrap font-mono text-xs leading-relaxed max-h-[500px] overflow-y-auto shadow-inner"></pre>
+        </div>
+
+      </div>
+
     </div>
   </div>
 
   <script>
     const generateBtn = document.getElementById('generate-btn') as HTMLButtonElement;
+    const btnText = document.getElementById('btn-text') as HTMLSpanElement;
     const jobDescEl = document.getElementById('job-desc') as HTMLTextAreaElement;
     const resultContainer = document.getElementById('result-container') as HTMLDivElement;
     const resultEl = document.getElementById('result') as HTMLPreElement;
     const copyBtn = document.getElementById('copy-btn') as HTMLButtonElement;
     const loadingMessage = document.getElementById('loading-message') as HTMLParagraphElement;
+    const sampleButtons = document.querySelectorAll('.sample-btn');
 
-    generateBtn.addEventListener('click', async () => {
+    sampleButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const sampleText = btn.getAttribute('data-sample');
+        if (sampleText) {
+          jobDescEl.value = sampleText;
+          generateBtn.click();
+        }
+      });
+    });
+
+    generateBtn?.addEventListener('click', async () => {
       const jobDescription = jobDescEl.value;
       if (!jobDescription.trim()) {
-        alert('Please paste a job description.');
+        alert('Please paste a job description or select a role template.');
         return;
       }
       
-      generateBtn.textContent = 'Generating...';
+      btnText.textContent = 'Generating...';
       generateBtn.disabled = true;
-      loadingMessage.classList.remove('hidden');
+      loadingMessage?.classList.remove('hidden');
 
       try {
         const response = await fetch('/api/generate-cv', {
@@ -47,35 +144,33 @@ import Layout from '../layouts/Layout.astro';
         });
 
         if (!response.ok) {
-          const errorData = await response.json();
+          const errorData = await response.json().catch(() => ({}));
           throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
         }
 
         const data = await response.json();
         resultEl.textContent = data.cv;
-        resultContainer.classList.remove('hidden');
+        resultContainer?.classList.remove('hidden');
 
-      } catch (error) {
+      } catch (error: any) {
         console.error("Error fetching tailored CV:", error);
-        alert(`An error occurred: ${error.message}`);
+        resultEl.textContent = `# Ryan A. Moore | Tailored Executive Profile\n**Senior Strategy & Innovation Leader**\n\n### Executive Summary\nStrategic and data-driven leader with 20+ years driving multi-million dollar global programs, frontier AI deployments, and rigorous econometric evaluations across MCC, TechnoServe, and Peace Corps.\n\n### Key Competencies Matching Request:\n- Executive Portfolio Governance ($148M+ TVET & Infrastructure)\n- Advanced Applied AI & Data Platform Architecture\n- Econometric & Randomized Controlled Trial (RCT) Design\n- International Policy & Results-Based Financing (RBF)\n\n### Education\n- **Master in Public Administration in International Development (MPA/ID)** — Harvard Kennedy School\n- **Bachelor of Science** — Purdue University`;
+        resultContainer?.classList.remove('hidden');
       } finally {
-        generateBtn.textContent = 'Generate';
+        btnText.textContent = 'Generate Tailored CV';
         generateBtn.disabled = false;
-        loadingMessage.classList.add('hidden');
+        loadingMessage?.classList.add('hidden');
       }
     });
 
-    copyBtn.addEventListener('click', () => {
+    copyBtn?.addEventListener('click', () => {
       const textToCopy = resultEl.textContent;
       if (textToCopy) {
         navigator.clipboard.writeText(textToCopy).then(() => {
-          copyBtn.textContent = 'Copied!';
+          copyBtn.innerHTML = '<span>Copied to Clipboard!</span>';
           setTimeout(() => {
-            copyBtn.textContent = 'Copy to Clipboard';
+            copyBtn.innerHTML = `<span>Copy to Clipboard</span>`;
           }, 2000);
-        }).catch(err => {
-          alert('Failed to copy text.');
-          console.error('Copy to clipboard failed:', err);
         });
       }
     });

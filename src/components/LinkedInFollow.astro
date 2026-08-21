@@ -1,22 +1,16 @@
-<style>
-    .libutton {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 7px;
-        text-align: center;
-        outline: none;
-        text-decoration: none !important;
-        color: #ffffff !important;
-        width: 200px;
-        height: 32px;
-        border-radius: 16px;
-        background-color: #0A66C2;
-        font-family: "SF Pro Text", Helvetica, sans-serif;
-        z-index: 1000;
-    }
-</style>
-<a class="libutton" href="https://www.linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=mooreporfavor" target="_blank">Follow on LinkedIn</a>
+---
+// src/components/LinkedInFollow.astro
+---
+
+<a 
+  class="fixed bottom-6 right-6 z-40 inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#0A66C2] hover:bg-[#004182] text-white font-semibold text-xs shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 ring-2 ring-white/30 backdrop-blur-md" 
+  href="https://www.linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=mooreporfavor" 
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Follow Ryan Moore on LinkedIn"
+>
+  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 114.75 6.5 1.75 1.75 0 016.5 8.25zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
+  </svg>
+  <span>Follow on LinkedIn</span>
+</a>

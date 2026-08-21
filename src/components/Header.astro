@@ -1,50 +1,166 @@
 ---
 // src/components/Header.astro
+import { Image } from 'astro:assets';
+import monogramImage from '../assets/monogram.jpg';
 
-// This gets the current page's URL path, e.g., "/about" or "/portfolio"
 const currentPath = Astro.url.pathname;
 
 const navLinks = [
+  { href: "/", text: "Home" },
   { href: "/bio", text: "Bio" },
   { href: "/portfolio", text: "Portfolio" },
-  { href: "/socials", text: "Socials" },
-  { href: "/cv", text: "CV" },
+  { href: "/cv", text: "CV & Experience" },
+  { href: "/socials", text: "Network & Socials" },
 ];
 ---
-<header class="sticky top-0 z-50 w-full bg-brand-sand/75 backdrop-blur-lg border-b border-black/[0.04] shadow-[0_2px_20px_rgba(0,0,0,0.02)]">
-  <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-    
-    <!-- Left Side: Your Name/Logo -->
-    <div>
-      <a href="/" class="text-2xl font-serif font-bold text-brand-slate hover:text-brand-blue transition-colors duration-300">
-        Ryan A. Moore
+
+<header class="sticky top-0 z-50 w-full transition-all duration-300 backdrop-blur-xl bg-white/85 border-b border-slate-200/60 shadow-[0_4px_20px_-4px_rgba(15,23,42,0.04)]">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      
+      <!-- Brand Logo / Monogram Seal -->
+      <a href="/" class="group flex items-center gap-3.5 focus:outline-none focus:ring-2 focus:ring-brand-accent rounded-2xl p-1 -ml-1">
+        <div class="relative flex-shrink-0">
+          <div class="absolute -inset-1 bg-gradient-to-tr from-brand-accent/20 to-blue-400/20 rounded-full blur-xs opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <Image 
+            src={monogramImage} 
+            alt="Ryan A. Moore Seal Logo" 
+            class="relative h-11 w-11 rounded-full object-cover border border-slate-200/90 shadow-sm group-hover:scale-105 transition-transform duration-300 ring-1 ring-slate-100" 
+          />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-lg font-serif font-bold text-brand-slate tracking-tight group-hover:text-brand-accent transition-colors duration-200">
+            Ryan A. Moore
+          </span>
+          <span class="text-[10px] font-semibold tracking-wider uppercase text-slate-500">
+            Strategy &bull; AI &bull; Global Impact
+          </span>
+        </div>
       </a>
-      <p class="text-sm font-sans text-brand-gray">Global Development, AI & Data</p>
+      
+      <!-- Desktop Navigation Pills -->
+      <nav class="hidden md:flex items-center space-x-1.5 p-1.5 rounded-full bg-slate-100/80 border border-slate-200/80 shadow-inner">
+        {navLinks.map(link => {
+          const isActive = link.href === "/" 
+            ? currentPath === "/" || currentPath === "" 
+            : currentPath.startsWith(link.href);
+          return (
+            <a
+              href={link.href}
+              class:list={[
+                "relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-accent",
+                {
+                  'bg-white text-brand-blue font-semibold shadow-sm ring-1 ring-slate-900/5': isActive,
+                  'text-slate-600 hover:text-brand-slate hover:bg-white/60': !isActive
+                }
+              ]}
+            >
+              {link.text}
+              {isActive && (
+                <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+              )}
+            </a>
+          );
+        })}
+      </nav>
+
+      <!-- Right Action: Connect / Calendar CTA -->
+      <div class="hidden lg:flex items-center gap-3">
+        <a
+          href="/cv-genie"
+          class="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-brand-blue bg-blue-50/80 hover:bg-blue-100 border border-blue-200/60 rounded-full transition-all duration-200 hover:scale-105"
+        >
+          <svg class="w-3.5 h-3.5 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          <span>AI CV Copilot</span>
+        </a>
+        <a 
+          href="/#connect" 
+          class="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white bg-brand-slate hover:bg-brand-blue rounded-full shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5"
+        >
+          Connect
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <div class="flex md:hidden">
+        <button
+          id="mobile-menu-btn"
+          type="button"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          class="p-2 rounded-xl text-slate-700 hover:text-brand-blue hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-brand-accent transition-colors"
+        >
+          <svg id="menu-icon-open" class="w-6 h-6 block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
     </div>
-    
-    <!-- Right Side: The New "Pill" Navigation -->
-    <div class="flex items-center space-x-2 rounded-full bg-white shadow-sm p-1">
+  </div>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200/80 bg-white/95 backdrop-blur-xl px-6 py-5 shadow-xl animate-in slide-in-from-top duration-200">
+    <div class="flex flex-col space-y-2">
       {navLinks.map(link => {
-        const isActive = currentPath.startsWith(link.href);
+        const isActive = link.href === "/" 
+          ? currentPath === "/" || currentPath === "" 
+          : currentPath.startsWith(link.href);
         return (
           <a
             href={link.href}
             class:list={[
-              "relative px-4 py-2 text-sm font-semibold rounded-full transition-all duration-300 ease-in-out",
-              "focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2",
+              "flex items-center justify-between px-4 py-3 text-base rounded-xl font-medium transition-colors",
               {
-                'bg-brand-blue text-white shadow-md': isActive,
-                'text-brand-slate hover:bg-black/[0.04]': !isActive
+                'bg-blue-50/80 text-brand-blue font-semibold': isActive,
+                'text-slate-700 hover:bg-slate-100': !isActive
               }
             ]}
           >
-            {link.text}
-            {isActive && (
-              <span class="absolute -bottom-1 left-1/2 w-1/2 h-0.5 bg-brand-blue transform -translate-x-1/2"></span>
-            )}
+            <span>{link.text}</span>
+            {isActive && <span class="w-2 h-2 rounded-full bg-brand-accent"></span>}
           </a>
-        )
+        );
       })}
+      <div class="pt-4 border-t border-slate-100 flex flex-col gap-2">
+        <a
+          href="/cv-genie"
+          class="flex items-center justify-center gap-2 px-4 py-3 text-sm font-semibold text-brand-blue bg-blue-50 hover:bg-blue-100 rounded-xl transition-colors"
+        >
+          <svg class="w-4 h-4 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          <span>AI CV Copilot</span>
+        </a>
+        <a 
+          href="/#connect" 
+          class="flex items-center justify-center px-4 py-3 text-sm font-semibold text-white bg-brand-slate hover:bg-brand-blue rounded-xl transition-colors"
+        >
+          Let's Connect
+        </a>
+      </div>
     </div>
-  </nav>
+  </div>
 </header>
+
+<script>
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('menu-icon-open');
+  const iconClose = document.getElementById('menu-icon-close');
+
+  if (menuBtn && mobileMenu && iconOpen && iconClose) {
+    menuBtn.addEventListener('click', () => {
+      const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', String(!isExpanded));
+      mobileMenu.classList.toggle('hidden');
+      iconOpen.classList.toggle('hidden');
+      iconClose.classList.toggle('hidden');
+    });
+  }
+</script>

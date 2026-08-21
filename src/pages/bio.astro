@@ -3,36 +3,166 @@
 import Layout from '../layouts/Layout.astro';
 import SocialLinks from '../components/SocialLinks.astro';
 import Languages from '../components/Languages.astro';
-import PcvReel from '../components/PcvReel.astro'
+import PcvReel from '../components/PcvReel.astro';
 import { Image } from 'astro:assets';
 import bioHeroImage from '../assets/about-hero.jpg';
 import AIBioGenerator from '../components/AIBioGenerator.astro';
+
+const careerMilestones = [
+  {
+    period: "2024 — Present",
+    role: "Division Chief, Strategy & Data | Chief of Operations",
+    org: "United States Peace Corps",
+    desc: "Directing strategic planning across 60+ global posts; engineered 'Mission Control' real-time Python analytics architecture; doubled volunteer delivery (300+ placed) across 30 countries managing a $10M annual budget."
+  },
+  {
+    period: "2015 — 2023",
+    role: "Director, Evaluation & Labor Markets",
+    org: "Millennium Challenge Corporation (MCC)",
+    desc: "Directed a portfolio of 25+ causal impact evaluations covering $1.4B+ in sovereign infrastructure, TVET, and energy investments. Co-founded the Morocco Employment Lab with MIT J-PAL & Harvard; led MCC's first $30M Results-Based Financing program."
+  },
+  {
+    period: "2012 — 2015",
+    role: "Associate Director, Monitoring & Evaluation",
+    org: "Millennium Challenge Corporation (MCC)",
+    desc: "Supervised technical redesign of Georgia's $148M+ public infrastructure evaluation to an RCT; authored econometric resource allocation models in STATA and open data validation pipelines."
+  },
+  {
+    period: "2011 — 2012",
+    role: "Global Value Chains & Agribusiness Consultant",
+    org: "PROCOMER Costa Rica & TechnoServe Mexico",
+    desc: "Conducted supply chain and trade diagnostics for manufacturing SMEs; co-authored international trade policy recommendations with Prof. Dani Rodrik."
+  },
+  {
+    period: "2006 — 2009",
+    role: "Peace Corps Volunteer",
+    org: "Peace Corps Ecuador",
+    desc: "3 years of grassroots economic development, agro-enterprise growth, and youth leadership across rural and urban communities in Ecuador."
+  }
+];
 ---
-<Layout title="Bio | Ryan A. Moore" description="Brief Bio of Ryan A. Moore.">
-  <!-- Bio Narrative Section -->
-  <div class="bg-white py-16">
-    <div class="container mx-auto px-6">
-      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-        <div class="md:col-span-1">
-          <Image src={bioHeroImage} alt="Ryan A. Moore" class="rounded-lg shadow-lg" />
+
+<Layout title="My Story & Bio | Ryan A. Moore" description="Detailed biography, background, and career journey of Ryan A. Moore — Senior Strategy & Innovation Leader at the intersection of international development, economics, and AI.">
+  
+  <div class="py-16 md:py-24">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Bio Narrative Card -->
+      <div class="max-w-5xl mx-auto bg-white rounded-3xl border border-slate-200/90 shadow-xl p-8 sm:p-12 md:p-16 mb-20" data-animate-on-scroll>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          <!-- Portrait & Credential Sidebar (4 cols) -->
+          <div class="lg:col-span-4 space-y-6">
+            <div class="relative group">
+              <div class="absolute -inset-2 bg-gradient-to-tr from-blue-500/20 to-indigo-500/20 rounded-3xl blur-xl opacity-75"></div>
+              <Image 
+                src={bioHeroImage} 
+                alt="Ryan A. Moore" 
+                class="relative rounded-2xl shadow-lg w-full object-cover aspect-[4/5] border border-slate-100" 
+              />
+            </div>
+
+            <!-- Quick Profile Badges -->
+            <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-3">
+              <div class="flex items-center gap-2 text-xs font-bold text-slate-700">
+                <span class="w-2 h-2 rounded-full bg-brand-blue"></span>
+                <span>MPA/ID &bull; Harvard Kennedy School</span>
+              </div>
+              <div class="flex items-center gap-2 text-xs font-bold text-slate-700">
+                <span class="w-2 h-2 rounded-full bg-brand-accent"></span>
+                <span>B.S. &bull; Purdue University</span>
+              </div>
+              <div class="flex items-center gap-2 text-xs font-bold text-slate-700">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span>Returned Peace Corps Volunteer (Ecuador)</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Editorial Narrative (8 cols) -->
+          <div class="lg:col-span-8 space-y-6 text-slate-700 leading-relaxed">
+            
+            <div class="border-b border-slate-100 pb-6">
+              <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-brand-blue text-xs font-bold uppercase tracking-wider mb-2">
+                Executive Profile
+              </div>
+              <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-brand-slate tracking-tight">
+                My Story & Philosophy
+              </h1>
+            </div>
+
+            <p class="text-lg text-slate-800 font-serif leading-relaxed">
+              For over two decades, I have been dedicated to driving meaningful impact in international development through rigorous data analysis, economic principles, and technological foresight.
+            </p>
+
+            <p>
+              My career has spanned complex global challenges—from evaluating the multi-million dollar effectiveness of school rehabilitation and TVET programs across Georgia and Morocco, to shaping novel results-based financing mechanisms and leading high-performing teams across continents.
+            </p>
+
+            <blockquote class="border-l-4 border-brand-accent bg-blue-50/60 py-3 px-5 rounded-r-xl italic text-slate-800 text-base font-medium">
+              "The most pressing global and institutional challenges can only be solved when rigorous evidence is paired with modern technical execution."
+            </blockquote>
+
+            <p>
+              My core expertise lies at the nexus of senior leadership, econometrics, machine learning, and infrastructure strategy. Whether structuring randomized controlled trials (RCTs), architecting modern cloud telemetry pipelines, or deploying LLM copilots for executive productivity, the objective remains constant: empowering decision-makers with clarity and truth.
+            </p>
+
+            <p>
+              When I'm not running data pipelines or experimenting with the latest frontier AI models, you can find me passionately cheering for Sevilla Fútbol Club or planning my next international expedition.
+            </p>
+
+            <!-- Language Proficiency Component -->
+            <Languages />
+
+          </div>
+
         </div>
-        <div class="md:col-span-2 prose prose-lg max-w-none text-brand-slate">
-          <h1 class="text-4xl font-serif font-bold text-brand-slate mb-4">My Story</h1>
-                  
-          <p>For over two decades, I have been dedicated to driving meaningful impact in international development through rigorous data analysis and economic principles. My career has been a journey through diverse challenges, from evaluating the effectiveness of multi-million dollar development projects to shaping financing strategies for global climate initiatives.</p>
-          <br>
-          <p>My core expertise lies at the intersection of leadership, economics, data science, and global infrastructure development. I believe that the most pressing global challenges can only be solved with evidence-based strategies, and I have built my skills around generating that evidence. Whether it's through complex econometric modeling, pragmatic program evaluation, or clear data visualization, my goal is always the same: to provide decision-makers with the clarity they need to act effectively.</p>
-          <br>
-          <p>This website itself is a small reflection of my philosophy: a blend of strategic thinking and technical execution. Built with a modern, efficient tech stack, it serves not only as a portfolio of my past work but as a living example of my commitment to continuous learning and applying the right tools to the task at hand.</p>
-          <br>
-          <p>When I'm not analyzing data or playing with the latest AI tools, you can find me watching Sevilla Futbol Club or planning my next international adventure.</p>
+
+      </div>
+
+      <!-- Career Journey Milestones Timeline -->
+      <div class="max-w-5xl mx-auto mb-20" data-animate-on-scroll>
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-wider mb-2">
+            Track Record
+          </div>
+          <h2 class="text-3xl font-serif font-bold text-brand-slate tracking-tight">
+            Career Milestones & Journey
+          </h2>
+        </div>
+
+        <div class="space-y-4">
+          {careerMilestones.map((m) => (
+            <div class="glass-panel p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1">
+              <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-2">
+                <h3 class="text-lg font-serif font-bold text-brand-slate">{m.role}</h3>
+                <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-blue-50 text-brand-blue border border-blue-200/60 w-fit">
+                  {m.period}
+                </span>
+              </div>
+              <p class="text-xs font-bold text-brand-accent uppercase tracking-wide mb-2">{m.org}</p>
+              <p class="text-sm text-slate-600 leading-relaxed">{m.desc}</p>
+            </div>
+          ))}
         </div>
       </div>
-    <Languages />
-    </div>
 
-    <SocialLinks />
+      <!-- Peace Corps Photo Reel -->
+      <PcvReel />
+
+      <!-- Interactive AI Bio Generator -->
+      <div class="mt-20">
+        <AIBioGenerator />
+      </div>
+
+      <!-- Social Links -->
+      <div class="mt-20">
+        <SocialLinks />
+      </div>
+
+    </div>
   </div>
-  <PcvReel />
-  <AIBioGenerator />
+
 </Layout>

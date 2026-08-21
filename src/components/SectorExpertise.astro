@@ -1,39 +1,51 @@
 ---
 // src/components/SectorExpertise.astro
 
-// We define the list of sectors here to keep the data separate from the presentation.
 const sectors = [
-  "Education",
-  "Results-based Financing (RBF)",
-  "Labor Markets",
-  "AI/Data Engineering",
-  "Water and Sanitation Infrastructure",
-  "Analytics Platforms",
-  "Transport Infrastructure",
-  "Private Sector"
+  { name: "Education & TVET", desc: "Rigorous RCT evaluations, curriculum reform & infrastructure", icon: "academic" },
+  { name: "Results-Based Financing (RBF)", desc: "Social impact bonds, milestone payouts & verified metrics", icon: "chart" },
+  { name: "Labor Markets & Workforce", desc: "Econometric models, youth employability & placement systems", icon: "users" },
+  { name: "AI & Data Engineering", desc: "LLM agents, vector stores, data warehouses & analytics pipelines", icon: "cpu" },
+  { name: "Water & Sanitation", desc: "Infrastructure modernization, utility delivery & service impact", icon: "water" },
+  { name: "Analytics Platforms", desc: "Mission control dashboards, executive reporting & telemetry", icon: "platform" },
+  { name: "Transport Infrastructure", desc: "Regional corridors, economic cost-benefit & trade transit", icon: "road" },
+  { name: "Private Sector Growth", desc: "Public-private partnerships, SME finance & blended capital", icon: "briefcase" }
 ];
 ---
-<section class="py-20 bg-brand-slate text-brand-sand" data-animate-on-scroll>
-  <div class="container mx-auto px-6">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-      <div class="text-center md:text-left">
-        <p class="text-3xl text-brand-gray font-light">data, evidence, infrastructure...</p>
-        <h2 class="text-6xl font-serif font-extrabold tracking-wide uppercase">Solutions</h2>
-      </div>
 
-      <!-- Right Column: The List of Sectors -->
-      <div>
-        <ul class="grid grid-cols-2 gap-x-8 gap-y-2">
-          {sectors.map(sector => (
-            <li class="flex items-center text-lg">
-              <svg class="w-5 h-5 mr-3 text-blue-400 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.052-.143z" clip-rule="evenodd" />
-              </svg>
-              <span>{sector}</span>
-            </li>
-          ))}
-        </ul>
+<section class="py-16 mb-12 bg-white rounded-3xl border border-slate-200 shadow-md p-8 md:p-12 relative overflow-hidden" data-animate-on-scroll>
+  <div class="max-w-6xl mx-auto">
+    
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-brand-blue text-xs font-bold uppercase tracking-wider mb-2">
+        Domain Mastery
       </div>
+      <h2 class="text-2xl sm:text-3xl font-serif font-bold text-brand-slate tracking-tight">
+        Sector Expertise & Strategic Solutions
+      </h2>
+      <p class="text-xs sm:text-sm text-slate-500 mt-2">
+        Deep multi-sector experience delivering evidence-backed results across complex global domains.
+      </p>
     </div>
+
+    <!-- 4x2 Grid of Sector Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {sectors.map(sector => (
+        <div class="p-5 rounded-2xl bg-slate-50/80 hover:bg-blue-50/60 border border-slate-200/80 hover:border-blue-200 transition-all duration-300 hover:-translate-y-1 group">
+          <div class="w-8 h-8 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-brand-accent shadow-2xs mb-3 group-hover:scale-110 transition-transform">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-sm font-bold text-brand-slate group-hover:text-brand-blue transition-colors mb-1">
+            {sector.name}
+          </h3>
+          <p class="text-xs text-slate-500 leading-relaxed">
+            {sector.desc}
+          </p>
+        </div>
+      ))}
+    </div>
+
   </div>
 </section>

@@ -3,10 +3,60 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: #2563eb;
+    color: #ffffff;
+  }
+}
+
+/* Ambient dynamic background lighting */
+.bg-mesh-light {
+  background-color: #faf8f5;
+  background-image: 
+    radial-gradient(at 10% 10%, rgba(37, 99, 235, 0.04) 0px, transparent 50%),
+    radial-gradient(at 90% 20%, rgba(2, 132, 199, 0.05) 0px, transparent 50%),
+    radial-gradient(at 50% 90%, rgba(217, 119, 6, 0.03) 0px, transparent 50%);
+}
+
+.bg-mesh-dark {
+  background-color: #0b132b;
+  background-image: 
+    radial-gradient(at 15% 15%, rgba(37, 99, 235, 0.15) 0px, transparent 55%),
+    radial-gradient(at 85% 25%, rgba(2, 132, 199, 0.12) 0px, transparent 50%),
+    radial-gradient(at 50% 85%, rgba(67, 56, 202, 0.15) 0px, transparent 55%);
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.03);
+}
+
+.glass-panel-dark {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
+}
+
+/* Scroll reveal transitions */
 [data-animate-on-scroll] {
   opacity: 0;
-  transform: translateY(2rem); /* Start 2rem lower */
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transform: translateY(1.5rem);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
 [data-animate-on-scroll].is-visible {
@@ -14,20 +64,54 @@
   transform: translateY(0);
 }
 
+/* Micro-interaction & badge styles */
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  transition: all 0.2s ease-in-out;
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 50%, #1e3a8a 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
 @layer components {
   .prose h1 {
-    @apply text-4xl font-bold mb-4;
+    @apply text-3xl md:text-4xl font-serif font-bold text-brand-slate mb-6 leading-tight tracking-tight;
   }
   .prose h2 {
-    @apply text-3xl font-bold mb-4;
+    @apply text-2xl md:text-3xl font-serif font-bold text-brand-slate mt-10 mb-4 leading-snug tracking-tight border-b border-gray-100 pb-2;
   }
   .prose h3 {
-    @apply text-2xl font-bold mb-4;
+    @apply text-xl md:text-2xl font-serif font-semibold text-brand-slate mt-8 mb-3;
   }
   .prose p {
-    @apply mb-4;
+    @apply mb-5 text-gray-700 leading-relaxed text-base md:text-lg;
+  }
+  .prose ul {
+    @apply my-5 space-y-2 list-disc list-outside pl-6 text-gray-700;
+  }
+  .prose ol {
+    @apply my-5 space-y-2 list-decimal list-outside pl-6 text-gray-700;
+  }
+  .prose blockquote {
+    @apply border-l-4 border-brand-accent bg-blue-50/50 py-3 px-5 my-6 rounded-r-lg italic text-gray-800;
   }
   .prose a {
-    @apply text-blue-600 underline;
+    @apply text-brand-accent font-medium hover:text-brand-blue underline decoration-brand-accent/40 hover:decoration-brand-blue transition-colors;
+  }
+  .prose strong {
+    @apply font-bold text-brand-slate;
   }
 }

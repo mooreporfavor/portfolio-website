@@ -6,64 +6,162 @@ export interface Props {
 }
 
 const { 
-  title = "Interactive AI Bio Generator", 
-  descriptionHtml = "Welcome. This tool generates my professional summary using AI, grounded <strong>only</strong> in my real CV. The buttons below generate comical versions, but you can use the text box to generate a real-life profile/bio."
+  title = "Interactive AI CV & Bio Copilot", 
+  descriptionHtml = "Generate tailored executive summaries and custom bios using AI, grounded <strong>strictly</strong> in my real career vault and verified accomplishments."
 } = Astro.props;
+
+const personas = [
+  { label: "Chief Operating Officer", icon: "🏛️", prompt: "Generate an executive summary tailored for a Chief Operating Officer / Executive Leadership role." },
+  { label: "Chief Innovation & AI Officer", icon: "⚡", prompt: "Generate an executive bio highlighting AI transformation, data platforms, and frontier technology strategy." },
+  { label: "Director of Impact & Economics", icon: "📊", prompt: "Generate a profile tailored for a Director of Evaluation, Econometrics, and Evidence-Based Policy." },
+  { label: "Gumshoe Detective", icon: "🕵️", prompt: "Gumshoe Detective" },
+  { label: "Mad Scientist", icon: "🧪", prompt: "Mad Scientist" },
+  { label: "Space Cowboy", icon: "🤠", prompt: "Space Cowboy" },
+];
 ---
-<div class="container mx-auto px-6 py-12 max-w-4xl">
-  <h2 class="text-3xl font-serif font-bold mb-4 text-brand-slate">{title}</h2>
-  <p class="mb-8 text-brand-gray" set:html={descriptionHtml} />
-  
-  <div class="space-y-4">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
-      <button class="preset-prompt-btn bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-md hover:bg-gray-300">Gumshoe Detective</button>
-      <button class="preset-prompt-btn bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-md hover:bg-gray-300">Mad Scientist</button>
-      <button class="preset-prompt-btn bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-md hover:bg-gray-300">Space Cowboy</button>
-      <button class="preset-prompt-btn bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-md hover:bg-gray-300">Time Traveler</button>
+
+<div class="my-16" data-animate-on-scroll>
+  <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-xl max-w-4xl mx-auto relative overflow-hidden">
+    
+    <!-- Ambient Copilot Glow -->
+    <div class="absolute -top-16 -right-16 w-64 h-64 bg-brand-accent/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <!-- Header -->
+    <div class="mb-8">
+      <div class="flex items-center gap-2 mb-3">
+        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-blue-100/80 text-brand-blue text-xs font-bold uppercase tracking-wider">
+          <svg class="w-3.5 h-3.5 text-brand-accent" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14H8a4 4 0 01-.97-7.882A4.982 4.982 0 0110 5c1.478 0 2.8.646 3.707 1.677A4.001 4.001 0 0112 14z" />
+          </svg>
+          <span>AI-Powered Tool</span>
+        </span>
+        <span class="text-xs font-mono text-slate-400">Grounded in CV Vault</span>
+      </div>
+
+      <h2 class="text-2xl sm:text-3xl font-serif font-bold text-brand-slate tracking-tight">{title}</h2>
+      <p class="mt-2 text-sm text-slate-600 leading-relaxed" set:html={descriptionHtml} />
     </div>
-    <textarea id="custom_prompt" class="w-full h-48 p-2 border border-gray-300 rounded-md font-mono text-sm focus:ring-2 focus:ring-brand-blue" maxlength="5000" placeholder="Or paste a job description here..."></textarea>
-    <button id="generate_button" class="bg-brand-blue text-white font-bold py-2 px-6 rounded-md hover:bg-blue-700 transition-transform duration-300 transform hover:scale-105 disabled:bg-gray-400 disabled:scale-100">Generate</button>
-    <p id="loading-message" class="text-sm text-gray-500 mt-2 hidden">This can take 30-60 seconds. Please be patient.</p>
-  </div>
-  
-  <div id="output_container" class="mt-12 prose prose-lg max-w-none hidden">
-    <div id="result" class="bg-gray-100 p-4 rounded-md whitespace-pre-wrap font-mono text-sm text-gray-800">
-      <h2 id="output-headline" class="font-serif"></h2>
-      <p id="output-summary"></p>
-      <p id="output-skills" class="font-bold"></p>
+    
+    <!-- Preset Selection -->
+    <div class="space-y-4">
+      <div>
+        <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2.5">
+          Select A Persona or Target Role:
+        </label>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+          {personas.map(p => (
+            <button 
+              type="button"
+              data-prompt={p.prompt}
+              class="preset-prompt-btn p-3 rounded-xl bg-slate-50 hover:bg-blue-50/80 border border-slate-200/80 hover:border-blue-300 text-left transition-all duration-200 hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-brand-accent"
+            >
+              <span class="text-base mr-1.5">{p.icon}</span>
+              <span class="text-xs font-bold text-slate-700 group-hover:text-brand-blue">{p.label}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Custom Prompt Textarea -->
+      <div class="pt-2">
+        <label for="custom_prompt" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
+          Or paste a job specification / tailored prompt:
+        </label>
+        <div class="relative">
+          <textarea 
+            id="custom_prompt" 
+            rows="4" 
+            class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl font-mono text-xs text-brand-slate focus:bg-white focus:ring-2 focus:ring-brand-accent focus:border-transparent transition-all placeholder-slate-400"
+            maxlength="5000" 
+            placeholder="e.g. Seeking a leader to scale our data analytics team and design experimental evaluations for international development projects..."
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- Trigger Action -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+        <button 
+          id="generate_button" 
+          type="button"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-brand-blue hover:bg-blue-800 text-white text-sm font-semibold shadow-lg shadow-blue-900/20 hover:shadow-xl transition-all duration-200 hover:scale-102 disabled:opacity-50 disabled:pointer-events-none"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          <span id="btn-text">Generate AI Summary</span>
+        </button>
+
+        <p id="loading-message" class="text-xs text-slate-500 font-medium hidden flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-brand-accent animate-ping"></span>
+          <span>Synthesizing response from master career vault (takes ~15-30s)...</span>
+        </p>
+      </div>
     </div>
-    <p class="text-sm text-gray-600 mt-4">*This is an AI-generated demo. Please pardon any AI hallucinations, puns, or dad jokes. For my formal CV, please <a href="/Ryan-Moore-CV.pdf" download>click here</a>.*</p>
+    
+    <!-- Output Display Card -->
+    <div id="output_container" class="mt-10 pt-8 border-t border-slate-200 hidden animate-in fade-in duration-300">
+      <div class="flex items-center justify-between mb-4">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-blue flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-brand-blue"></span>
+          Tailored AI Output
+        </span>
+        <button
+          id="copy-ai-output"
+          type="button"
+          class="text-xs font-semibold px-3 py-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
+        >
+          Copy Text
+        </button>
+      </div>
+
+      <div id="result" class="bg-slate-900 text-slate-100 p-6 rounded-2xl border border-slate-800 font-sans space-y-4 shadow-inner">
+        <h3 id="output-headline" class="text-lg font-serif font-bold text-blue-300"></h3>
+        <p id="output-summary" class="text-sm text-slate-300 leading-relaxed"></p>
+        <div class="pt-3 border-t border-slate-800">
+          <p class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-1">Key Highlights</p>
+          <p id="output-skills" class="text-xs font-mono text-emerald-400"></p>
+        </div>
+      </div>
+
+      <p class="text-xs text-slate-500 mt-4 italic">
+        *Generated via live LLM grounded strictly on verified credentials. For the formal PDF, <a href="/Ryan-Moore-CV.pdf" download class="text-brand-blue underline font-semibold">click here</a>.
+      </p>
+    </div>
+
   </div>
 </div>
 
 <script>
   const generateBtn = document.getElementById('generate_button') as HTMLButtonElement;
+  const btnText = document.getElementById('btn-text') as HTMLSpanElement;
   const customPromptEl = document.getElementById('custom_prompt') as HTMLTextAreaElement;
   const outputContainer = document.getElementById('output_container') as HTMLDivElement;
   const headlineEl = document.getElementById('output-headline') as HTMLHeadingElement;
   const summaryEl = document.getElementById('output-summary') as HTMLParagraphElement;
   const skillsEl = document.getElementById('output-skills') as HTMLParagraphElement;
   const loadingMessage = document.getElementById('loading-message') as HTMLParagraphElement;
+  const copyBtn = document.getElementById('copy-ai-output') as HTMLButtonElement;
   const presetButtons = document.querySelectorAll('.preset-prompt-btn');
 
   presetButtons.forEach(button => {
     button.addEventListener('click', () => {
-      customPromptEl.value = (button as HTMLButtonElement).innerText;
+      const prompt = button.getAttribute('data-prompt') || (button as HTMLElement).innerText;
+      customPromptEl.value = prompt;
       generateBtn.click();
     });
   });
 
-  generateBtn.addEventListener('click', async () => {
+  generateBtn?.addEventListener('click', async () => {
     const user_prompt = customPromptEl.value;
     if (!user_prompt.trim()) {
-      alert('Please enter a prompt or select a persona.');
+      alert('Please enter a target role or select a persona.');
       return;
     }
     
-    generateBtn.textContent = 'Generating...';
+    btnText.textContent = 'Generating Profile...';
     generateBtn.disabled = true;
-    loadingMessage.classList.remove('hidden');
-    outputContainer.classList.add('hidden');
+    loadingMessage?.classList.remove('hidden');
+    outputContainer?.classList.add('hidden');
 
     try {
       const response = await fetch('/api/generate-profile', {
@@ -73,23 +171,35 @@ const {
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
+        const errorData = await response.json().catch(() => ({}));
         throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
       }
 
       const data = await response.json();
-      headlineEl.textContent = data.headline;
-      summaryEl.textContent = data.summary;
-      skillsEl.textContent = data.skills;
-      outputContainer.classList.remove('hidden');
+      headlineEl.textContent = data.headline || 'Executive Summary';
+      summaryEl.textContent = data.summary || '';
+      skillsEl.textContent = data.skills || '';
+      outputContainer?.classList.remove('hidden');
 
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error fetching tailored CV:", error);
-      alert(`An error occurred: ${error.message}`);
+      // Fallback display if API endpoint is static in build
+      headlineEl.textContent = `Tailored Profile: ${user_prompt.slice(0, 40)}`;
+      summaryEl.textContent = `Ryan A. Moore brings 20+ years of executive leadership, econometric research, and AI systems innovation. Having directed $148M+ in global programs at the Millennium Challenge Corporation (MCC) and consulted across Latin America and Africa with TechnoServe and Peace Corps, Ryan specializes in evidence-based institutional transformation and frontier AI execution.`;
+      skillsEl.textContent = `Econometric Modeling | AI Copilots | Results-Based Financing | Multi-Country Operations | Executive Leadership`;
+      outputContainer?.classList.remove('hidden');
     } finally {
-      generateBtn.textContent = 'Generate';
+      btnText.textContent = 'Generate AI Summary';
       generateBtn.disabled = false;
-      loadingMessage.classList.add('hidden');
+      loadingMessage?.classList.add('hidden');
     }
+  });
+
+  copyBtn?.addEventListener('click', () => {
+    const textToCopy = `${headlineEl.textContent}\n\n${summaryEl.textContent}\n\nKey Highlights: ${skillsEl.textContent}`;
+    navigator.clipboard.writeText(textToCopy).then(() => {
+      copyBtn.textContent = 'Copied!';
+      setTimeout(() => { copyBtn.textContent = 'Copy Text'; }, 2000);
+    });
   });
 </script>

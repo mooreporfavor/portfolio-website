@@ -1,4 +1,5 @@
 ---
+// src/components/KeyExpertise.astro
 import { Image } from 'astro:assets';
 import imgData from '../assets/expertise-data.jpg';
 import imgLeadership from '../assets/expertise-leadership.webp';
@@ -7,31 +8,95 @@ import imgStrategy from '../assets/expertise-strategy.jpg';
 const expertiseAreas = [
   {
     image: imgData,
+    tag: "Data Systems & AI",
+    tagColor: "bg-blue-50 text-brand-blue border-blue-200/60",
     title: "Data which Drives Impactful Teams",
-    description: "Looking ahead and using the power of evidence and foresight to help future-proof projects and organizations."
+    description: "Looking ahead and using the power of evidence and foresight to help future-proof projects and organizations.",
+    points: ["Econometric & RCT Evaluations", "Modern AI & LLM Copilots", "Evidence-based Architecture"]
   },
   {
     image: imgLeadership,
+    tag: "Executive Leadership",
+    tagColor: "bg-emerald-50 text-emerald-800 border-emerald-200/60",
     title: "Experienced Senior Leadership",
-    description: "Refined a large team’s excellence in delivery, from global recruiting and budgeting to program development and onboarding."
+    description: "Refined a large team’s excellence in delivery, from global recruiting and budgeting to program development and onboarding.",
+    points: ["Global Talent & Team Scaling", "Multi-Million Budget Oversight", "Institutional Change Delivery"]
   },
   {
     image: imgStrategy,
+    tag: "Strategic Innovation",
+    tagColor: "bg-amber-50 text-amber-800 border-amber-200/60",
     title: "Strategy & Strategic Planning",
-    description: "Collaborating across boundaries and borders to maximize organizational cohesion and real-world impact."
+    description: "Collaborating across boundaries and borders to maximize organizational cohesion and real-world impact.",
+    points: ["Results-Based Financing (RBF)", "Cross-Border Partnerships", "High-Stakes Policy Design"]
   }
 ];
 ---
-<section class="py-16 bg-gray-50" data-animate-on-scroll>
-  <div class="container mx-auto px-6 text-center">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+
+<section class="py-24 bg-white relative overflow-hidden" data-animate-on-scroll>
+  <!-- Background subtle pattern -->
+  <div class="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:16px_16px] opacity-40 pointer-events-none"></div>
+
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-bold uppercase tracking-wider mb-3">
+        Core Pillars
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-serif font-bold text-brand-slate tracking-tight">
+        Leadership at the intersection of evidence, strategy & tech.
+      </h2>
+      <p class="mt-4 text-base sm:text-lg text-slate-600">
+        Three foundational strengths cultivated over two decades of solving complex institutional and societal problems.
+      </p>
+    </div>
+
+    <!-- Bento Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
       {expertiseAreas.map(area => (
-        <div>
-          <Image src={area.image} alt={area.title} class="w-32 h-32 rounded-full mx-auto shadow-lg mb-6" />
-          <h3 class="text-2xl font-serif font-bold text-brand-slate mb-2">{area.title}</h3>
-            <p class="text-brand-gray">{area.description}</p>
+        <div class="group relative bg-white rounded-2xl p-8 border border-slate-200/80 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between">
+          
+          <div>
+            <!-- Top Row: Avatar & Badge -->
+            <div class="flex items-center justify-between mb-6">
+              <div class="relative">
+                <div class="absolute -inset-1 bg-gradient-to-r from-brand-blue to-cyan-500 rounded-full blur opacity-0 group-hover:opacity-40 transition-opacity duration-300"></div>
+                <Image 
+                  src={area.image} 
+                  alt={area.title} 
+                  class="relative w-20 h-20 rounded-full object-cover shadow-md border-2 border-white ring-1 ring-slate-200" 
+                />
+              </div>
+              <span class={`text-xs font-semibold px-3 py-1 rounded-full border ${area.tagColor}`}>
+                {area.tag}
+              </span>
+            </div>
+
+            <!-- Content -->
+            <h3 class="text-xl font-serif font-bold text-brand-slate mb-3 group-hover:text-brand-accent transition-colors">
+              {area.title}
+            </h3>
+            <p class="text-sm text-slate-600 leading-relaxed mb-6">
+              {area.description}
+            </p>
+          </div>
+
+          <!-- Feature Bullets -->
+          <div class="pt-4 border-t border-slate-100 space-y-2">
+            {area.points.map(pt => (
+              <div class="flex items-center text-xs font-medium text-slate-700">
+                <svg class="w-3.5 h-3.5 text-brand-accent mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.052-.143z" clip-rule="evenodd" />
+                </svg>
+                <span>{pt}</span>
+              </div>
+            ))}
+          </div>
+
         </div>
       ))}
     </div>
+
   </div>
 </section>

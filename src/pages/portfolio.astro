@@ -6,19 +6,41 @@ import PhotoReel from '../components/PhotoReel.astro';
 import SectorExpertise from '../components/SectorExpertise.astro';
 import AdvancedPortfolioFilter from '../components/AdvancedPortfolioFilter.jsx';
 
-// This fetches all files from src/content/projects
+// Fetch all project markdown files
 const allProjects = await getCollection('projects');
 ---
 
-<Layout title="Portfolio | Ryan A. Moore" description="Welcome to the project portfolio of Ryan A. Moore. Senior Strategy & Innovation Leader | Applying AI & Data Science to Solve Global Challenges | MCC | TechnoServe | Peace Corps Ecuador | Harvard | Purdue; data, evidence, infrastructure;Solutions;Education;Labor Markets;Water and Sanitation;Results-based Financing;Transport;Private Sector;Agriculture">
-  <div class="bg-white py-16">
-    <div class="container mx-auto px-6">
-      <h1 class="text-4xl font-serif font-bold text-brand-slate mb-12 text-center">Project Portfolio</h1>
+<Layout 
+  title="Project Portfolio & Case Studies | Ryan A. Moore" 
+  description="Explore the case studies and project portfolio of Ryan A. Moore across Global Development, Applied AI & Data Engineering, and Senior Leadership."
+>
+  <div class="py-16 md:py-24">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Portfolio Hero Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16" data-animate-on-scroll>
+        <div class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-blue-50 text-brand-blue border border-blue-200/80 text-xs font-bold uppercase tracking-wider mb-4">
+          Interactive Case Archive
+        </div>
+        <h1 class="text-4xl sm:text-5xl font-serif font-bold text-brand-slate tracking-tight">
+          Project Portfolio & Research
+        </h1>
+        <p class="text-base sm:text-lg text-slate-600 mt-4 leading-relaxed">
+          Comprehensive evaluations, strategic blueprints, and machine learning copilots developed for governments, multilaterals, and high-growth initiatives.
+        </p>
+      </div>
+
+      <!-- Sector Matrix -->
       <SectorExpertise />
-      <div class="mt-16">
+
+      <!-- Interactive Filter & Project Grid -->
+      <div class="mt-12 mb-24">
         <AdvancedPortfolioFilter client:load projects={allProjects} />
       </div>
-    <PhotoReel />
+
+      <!-- Field Photo Reel -->
+      <PhotoReel />
+
     </div>
   </div>
 </Layout>

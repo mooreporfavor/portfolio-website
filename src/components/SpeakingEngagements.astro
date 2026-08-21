@@ -1,4 +1,5 @@
 ---
+// src/components/SpeakingEngagements.astro
 import { Image } from 'astro:assets';
 import imgSummit from '../assets/speaking-summit.jpg';
 import imgCapeTown from '../assets/hero-speaking.jpg';
@@ -9,36 +10,108 @@ const engagements = [
     image: imgSummit,
     alt: "Speaking at the Global Youth Economic Opportunity Summit",
     title: "2023 Global Youth Economic Opportunity Summit",
+    venue: "Washington, D.C.",
+    topic: "Youth Employment & TVET Impact",
     url: "https://www.youtube.com/watch?v=p9GkhTiLfSs",
-    cta: "Watch Recording" // Custom Call to Action
+    cta: "Watch Recording",
+    isVideo: true
   },
   {
     image: imgCapeTown,
     alt: "Speaking at the Jobs4Development Conference in Cape Town",
-    title: "2022 Jobs4Development Conference - Cape Town",
-    url: "https://jobsanddevelopmentconference.org/conferences-list/2022-conference-2/"
+    title: "Jobs4Development Conference",
+    venue: "Cape Town, South Africa",
+    topic: "Global Labor Markets & Evidence",
+    url: "https://jobsanddevelopmentconference.org/conferences-list/2022-conference-2/",
+    cta: "Conference Details",
+    isVideo: false
   },
   {
     image: imgMorocco,
     alt: "Speaking at the International RBF Seminar in Morocco",
-    title: "International RBF Seminar (2023) Morocco",
-    url: "https://www.linkedin.com/posts/mooreporfavor_rbfseminar-mcamorocco-activity-7022441949273972736-5RD1/"
+    title: "International RBF Seminar",
+    venue: "Rabat, Morocco",
+    topic: "Results-Based Financing & Social Bonds",
+    url: "https://www.linkedin.com/posts/mooreporfavor_rbfseminar-mcamorocco-activity-7022441949273972736-5RD1/",
+    cta: "View Highlights",
+    isVideo: false
   }
 ];
 ---
-<section class="py-16 bg-white" data-animate-on-scroll>
-  <div class="container mx-auto px-6 text-center">
-    <h2 class="text-3xl font-bold text-gray-800 mb-12 font-serif">Recent Speaking Engagements</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+<section class="py-24 bg-slate-50 relative overflow-hidden" data-animate-on-scroll>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-brand-blue text-xs font-bold uppercase tracking-wider mb-3">
+        Thought Leadership & Talks
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-serif font-bold text-brand-slate tracking-tight">
+        Speaking Engagements & Keynotes
+      </h2>
+      <p class="mt-3 text-slate-600 text-base">
+        Sharing rigorous research, AI innovations, and policy frameworks on global stages.
+      </p>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
       {engagements.map(event => (
-        <div class="group block overflow-hidden rounded-lg shadow-lg">
-          <Image src={event.image} alt={event.alt} class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500" />
-          <a href={event.url} target="_blank" rel="noopener noreferrer" class="block p-4 bg-gray-800 text-white hover:bg-gray-700 transition-colors">
-            <p class="font-bold truncate">{event.title}</p>
-            {event.cta && <p class="text-sm text-blue-400 font-semibold">{event.cta} &rarr;</p>}
-          </a>
-        </div>
+        <a 
+          href={event.url} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="group block bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1.5"
+        >
+          <!-- Image with overlay -->
+          <div class="relative h-56 overflow-hidden bg-slate-900">
+            <Image 
+              src={event.image} 
+              alt={event.alt} 
+              class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 opacity-90 group-hover:opacity-100" 
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+
+            {/* Video or Venue Badge */}
+            <div class="absolute top-3 left-3">
+              <span class="px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-xs font-medium border border-white/20">
+                {event.venue}
+              </span>
+            </div>
+
+            {event.isVideo && (
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-12 h-12 rounded-full bg-red-600/90 text-white flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-red-600 transition-all">
+                  <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              </div>
+            )}
+          </div>
+
+          <!-- Content Details -->
+          <div class="p-6">
+            <p class="text-xs font-semibold text-brand-accent uppercase tracking-wide mb-1">
+              {event.topic}
+            </p>
+            <h3 class="text-lg font-serif font-bold text-brand-slate mb-4 group-hover:text-brand-blue transition-colors line-clamp-2">
+              {event.title}
+            </h3>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-700">
+              <span class="text-brand-blue group-hover:underline flex items-center gap-1">
+                {event.cta} &rarr;
+              </span>
+              <svg class="w-4 h-4 text-slate-400 group-hover:text-brand-blue transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </div>
+          </div>
+        </a>
       ))}
     </div>
+
   </div>
 </section>

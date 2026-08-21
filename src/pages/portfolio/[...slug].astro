@@ -4,24 +4,26 @@ import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import { getImage } from 'astro:assets';
 
-// This function tells Astro to create a page for every project
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
-  return projects.map(project => ({
+  return projects.map((project, index) => ({
     params: { slug: project.slug },
-    props: { project },
+    props: { 
+      project,
+      prevProject: index > 0 ? projects[index - 1] : null,
+      nextProject: index < projects.length - 1 ? projects[index + 1] : null,
+    },
   }));
 }
 
-const { project } = Astro.props;
+const { project, prevProject, nextProject } = Astro.props;
 const { Content } = await project.render();
-const autoDescription = project.body.slice(0, 150) + '...';
+const autoDescription = project.body.slice(0, 160).replace(/<[^>]*>?/gm, '').replace(/[#*`[\]()]/g, '') + '...';
 
 const images = import.meta.glob('/src/assets/**/*.{png,jpg,jpeg,webp,svg}');
 
 let heroImage: any;
 if (project.data.heroImage) {
-  // Turn "@/assets/image.png" into "/src/assets/image.png"
   const imagePath = project.data.heroImage.replace('@/', '/src/');
 
   if (images[imagePath]) {
@@ -35,40 +37,148 @@ if (project.data.heroImage) {
     });
   }
 }
+
+const getTrackBadgeClass = (track: string) => {
+  switch(track) {
+    case 'Global Development':
+      return 'bg-emerald-50 text-emerald-800 border-emerald-200';
+    case 'Data Engineering & AI':
+      return 'bg-blue-50 text-brand-blue border-blue-200';
+    case 'Leadership':
+      return 'bg-amber-50 text-amber-800 border-amber-200';
+    default:
+      return 'bg-slate-100 text-slate-700 border-slate-200';
+  }
+};
 ---
 
-<Layout title={project.data.title} description={autoDescription}>
-  <div class="bg-white py-16">
-    <div class="container mx-auto px-6">
-      <div class="max-w-3xl mx-auto">
+<Layout title={`${project.data.title} | Case Study`} description={autoDescription}>
+  <div class="py-12 md:py-20">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Top Navigation & Breadcrumbs -->
+      <div class="max-w-4xl mx-auto mb-8 flex items-center justify-between">
+        <nav class="flex items-center space-x-2 text-xs font-semibold text-slate-500">
+          <a href="/" class="hover:text-brand-blue transition-colors">Home</a>
+          <span>/</span>
+          <a href="/portfolio" class="hover:text-brand-blue transition-colors">Portfolio</a>
+          <span>/</span>
+          <span class="text-brand-slate font-bold truncate max-w-[200px] sm:max-w-xs">{project.data.title}</span>
+        </nav>
+
+        <a 
+          href="/portfolio" 
+          class="inline-flex items-center gap-1 text-xs font-bold text-brand-blue hover:underline"
+        >
+          &larr; All Projects
+        </a>
+      </div>
+
+      <!-- Main Case Study Card -->
+      <article class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200/90 shadow-xl overflow-hidden p-6 sm:p-12 md:p-16">
         
-        <!-- Hero Image -->
+        <!-- Header Metadata Bar -->
+        <div class="mb-10 pb-8 border-b border-slate-100 space-y-6">
+          
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <span class={`text-xs font-semibold px-3 py-1 rounded-full border ${getTrackBadgeClass(project.data.track)}`}>
+              {project.data.track}
+            </span>
+            <span class="text-xs font-mono font-medium text-slate-400 bg-slate-50 px-3 py-1 rounded-full border border-slate-200">
+              Project Year: {project.data.year}
+            </span>
+          </div>
+
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-brand-slate tracking-tight leading-tight">
+            {project.data.title}
+          </h1>
+
+          <!-- Client & Metadata Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
+            <div>
+              <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Client / Institution</p>
+              <p class="text-sm font-semibold text-brand-slate mt-0.5">{project.data.client}</p>
+            </div>
+            <div>
+              <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Core Tags</p>
+              <div class="flex flex-wrap gap-1.5 mt-1">
+                {project.data.tags.map((tag: string) => (
+                  <span class="bg-white border border-slate-200 text-slate-700 text-xs font-medium px-2 py-0.5 rounded-md">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Featured Hero Image -->
         {heroImage && (
-          <div class="mb-12">
+          <div class="mb-12 rounded-2xl overflow-hidden shadow-lg border border-slate-100">
             <img 
               src={heroImage.src}
               {...heroImage.attributes}
-              class="rounded-lg shadow-lg aspect-[1200/630] object-cover w-full"
+              class="aspect-[16/9] object-cover w-full"
             />
           </div>
         )}
 
-        <!-- Page Header -->
-        <div class="text-center mb-12">
-          <h1 class="text-4xl font-bold text-gray-900">{project.data.title}</h1>
-          <p class="text-lg text-gray-500 mt-2">{project.data.client} &bull; {project.data.year}</p>
+        <!-- Markdown Case Study Body -->
+        <div class="prose prose-lg max-w-none text-slate-700">
+          <Content />
         </div>
 
-        <!-- The Markdown Content -->
-        <article class="prose prose-lg max-w-none">
-          <Content />
-        </article>
-        
-        <!-- Back Link -->
-        <div class="text-center mt-12">
-          <a href="/portfolio" class="text-brand-blue hover:underline">&larr; Back to Portfolio</a>
+        <!-- Bottom Author Bio / Colophon -->
+        <div class="mt-16 pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brand-blue text-white font-serif font-bold flex items-center justify-center text-sm shadow-sm">
+              RM
+            </div>
+            <div>
+              <p class="text-xs font-bold text-brand-slate">Ryan A. Moore</p>
+              <p class="text-[11px] text-slate-500">Senior Strategy & Innovation Leader</p>
+            </div>
+          </div>
+
+          <a 
+            href="/#connect" 
+            class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-slate-900 text-white text-xs font-semibold hover:bg-brand-blue transition-colors shadow-sm"
+          >
+            <span>Inquire About This Work</span>
+            &rarr;
+          </a>
         </div>
+
+      </article>
+
+      <!-- Next & Previous Case Study Pagination -->
+      <div class="max-w-4xl mx-auto mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {prevProject ? (
+          <a 
+            href={`/portfolio/${prevProject.slug}/`} 
+            class="group p-6 bg-white rounded-2xl border border-slate-200 hover:border-blue-300 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+          >
+            <div>
+              <p class="text-xs font-semibold text-slate-400 group-hover:text-brand-blue transition-colors">&larr; Previous Case Study</p>
+              <p class="text-sm font-serif font-bold text-brand-slate mt-1 group-hover:text-brand-accent line-clamp-1">{prevProject.data.title}</p>
+            </div>
+          </a>
+        ) : <div />}
+
+        {nextProject ? (
+          <a 
+            href={`/portfolio/${nextProject.slug}/`} 
+            class="group p-6 bg-white rounded-2xl border border-slate-200 hover:border-blue-300 shadow-sm hover:shadow-md transition-all flex flex-col justify-between text-right"
+          >
+            <div>
+              <p class="text-xs font-semibold text-slate-400 group-hover:text-brand-blue transition-colors">Next Case Study &rarr;</p>
+              <p class="text-sm font-serif font-bold text-brand-slate mt-1 group-hover:text-brand-accent line-clamp-1">{nextProject.data.title}</p>
+            </div>
+          </a>
+        ) : <div />}
       </div>
+
     </div>
   </div>
 </Layout>

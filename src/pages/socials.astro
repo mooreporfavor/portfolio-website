@@ -6,16 +6,22 @@ import SocialScraping from '../components/SocialScraping.astro';
 import SocialLinks from '../components/SocialLinks.astro';
 import LinkedInFollow from '../components/LinkedInFollow.astro';
 ---
-<Layout title="Socials | Ryan A. Moore" description="Social media handles of Ryan A. Moore, links to the profiles of respected colleagues and thinkers, brief description of data sourcing for social media interaction counts.">
 
+<Layout 
+  title="Network & Valued Thinkers | Ryan A. Moore" 
+  description="Connect with Ryan A. Moore on LinkedIn, explore his active professional network of global thinkers, and learn about the automated Python data pipeline behind the metrics."
+>
+  <div class="py-12 md:py-16">
+    <!-- 1. Featured Thinkers Section -->
+    <FeaturedThinkers />
+    
+    <!-- 2. Socials Scraping Project Summary -->
+    <SocialScraping />
+    
+    <!-- 3. Connect & Follow -->
+    <SocialLinks />
 
-  
-  <!-- 1. Featured Thinkers Section -->
-  <FeaturedThinkers />
-  <!-- 2. Socials Scraping Project Summary -->
-  <SocialScraping />
-  <!-- 3. Follow me -->
-  <SocialLinks />
-
-  <LinkedInFollow />
+    <!-- 4. Floating LinkedIn Follow Button -->
+    <LinkedInFollow />
+  </div>
 </Layout>

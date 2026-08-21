@@ -5,59 +5,110 @@ import monogram from '../assets/monogram.jpg';
 
 const currentYear = new Date().getFullYear();
 ---
-<footer class="bg-brand-slate text-brand-sand mt-16 border-t-4 border-gray-700">
-  <div class="container mx-auto px-6 py-12">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
 
-      <!-- Column 1: Brand & Copyright -->
-      <div class="space-y-4">
-        <h3 class="font-bold text-lg text-white font-serif">Ryan A. Moore</h3>
-        <p class="text-brand-gray">&copy; {currentYear} All rights reserved.</p>
-      </div>
+<footer class="bg-brand-navy text-slate-300 mt-24 border-t border-slate-800 relative overflow-hidden">
+  <!-- Subtle ambient glow in footer background -->
+  <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-48 bg-brand-accent/10 blur-3xl pointer-events-none rounded-full"></div>
 
-      <!-- Column 2: Site Navigation -->
-      <div>
-        <h3 class="font-bold text-lg text-white mb-4 uppercase tracking-wider font-serif">Navigate</h3>
-        <nav class="flex flex-col space-y-2">
-          <a href="/" class="text-brand-sand hover:text-white hover:underline transition-colors duration-300">Home</a>
-          <a href="/bio" class="text-brand-sand hover:text-white hover:underline transition-colors duration-300">Bio</a>
-          <a href="/portfolio" class="text-brand-sand hover:text-white hover:underline transition-colors duration-300">Portfolio</a>
-          <a href="/socials" class="text-brand-sand hover:text-white hover:underline transition-colors duration-300">Socials</a>
-          <a href="/cv" class="text-brand-sand hover:text-white hover:underline transition-colors duration-300">CV</a>
-        </nav>
-      </div>
+  <div class="container mx-auto px-6 pt-16 pb-12 relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-slate-800/80">
 
-      <!-- Column 3: The Colophon with Monogram & GitHub Link -->
-      <div>
-        <div class="flex items-start gap-4">
-          <Image src={monogram} alt="Ryan A. Moore Monogram" class="h-16 w-16 rounded-md flex-shrink-0" />
-          <div class="flex-grow">
-            <p class="mb-2 text-brand-sand">
-              This site is a "meta" portfolio, built to both showcase my experience and my technical skills.
+      <!-- Column 1: Brand & Executive Identity -->
+      <div class="md:col-span-2 space-y-4">
+        <div class="flex items-center gap-3.5">
+          <Image 
+            src={monogram} 
+            alt="Ryan A. Moore Seal Logo" 
+            class="h-12 w-12 rounded-full object-cover ring-2 ring-slate-700 shadow-md flex-shrink-0" 
+          />
+          <div>
+            <h3 class="font-serif font-bold text-xl text-white tracking-tight">Ryan A. Moore</h3>
+            <p class="text-xs text-slate-400 font-medium tracking-wide uppercase">Senior Strategy & Innovation Leader</p>
+          </div>
+        </div>
+        
+        <p class="text-sm text-slate-400 max-w-md leading-relaxed">
+          Bridging executive leadership, econometrics, AI, and data science to tackle complex global challenges and future-proof organizations worldwide.
         </p>
-        <div class="mb-4">
-          <a 
-            href="/portfolio/astro-tailwind-ryanamoore/" 
-            class="font-semibold text-brand-sand hover:text-white hover:underline transition-colors duration-300"
+
+        <div class="pt-2 flex flex-wrap items-center gap-3">
+          <a
+            href="https://github.com/mooreporfavor/portfolio-website"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800/90 hover:bg-slate-700 text-xs font-semibold text-slate-200 border border-slate-700 transition-all hover:border-slate-500"
           >
-              Read the Case Study &rarr;
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd"></path>
+            </svg>
+            <span>View Source on GitHub</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/mooreporfavor/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-blue-900/40 hover:bg-blue-900/60 text-xs font-semibold text-blue-300 border border-blue-800/60 transition-colors"
+          >
+            <span>LinkedIn</span>
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Column 2: Navigation -->
+      <div class="space-y-3">
+        <h4 class="font-serif font-bold text-white text-base tracking-wide uppercase">Navigate</h4>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="/" class="hover:text-white transition-colors duration-200">Home</a></li>
+          <li><a href="/bio" class="hover:text-white transition-colors duration-200">My Story & Bio</a></li>
+          <li><a href="/portfolio" class="hover:text-white transition-colors duration-200">Project Portfolio</a></li>
+          <li><a href="/cv" class="hover:text-white transition-colors duration-200">Curriculum Vitae</a></li>
+          <li><a href="/socials" class="hover:text-white transition-colors duration-200">Valued Thinkers & Network</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Featured Case Studies & Meta Colophon -->
+      <div class="space-y-3">
+        <h4 class="font-serif font-bold text-white text-base tracking-wide uppercase">Meta Portfolio</h4>
+        <div class="flex items-start gap-3 bg-slate-900/80 p-3.5 rounded-xl border border-slate-800">
+          <Image src={monogram} alt="Ryan A. Moore Monogram" class="h-12 w-12 rounded-lg object-cover flex-shrink-0 ring-1 ring-white/10" />
+          <div class="text-xs space-y-1.5">
+            <p class="text-slate-300 leading-snug">
+              Engineered with Astro 5, Tailwind CSS, Preact & AI toolchains.
+            </p>
+            <a 
+              href="/portfolio/astro-tailwind-ryanamoore/" 
+              class="inline-flex items-center text-brand-accent hover:text-blue-400 font-semibold transition-colors"
+            >
+              Read Architecture Study &rarr;
             </a>
-            
-            <!-- ▼▼▼ THIS IS THE NEW BLOCK ▼▼▼ -->
-            <div class="mt-4 pt-4 border-t border-brand-gray flex items-center gap-4">
-              <a href="https://github.com/mooreporfavor/portfolio-website" target="_blank" rel="noopener noreferrer" class="flex items-center text-brand-gray hover:text-brand-sand transition-colors duration-300">
-                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd"></path>
-                </svg>
-                <span>View Codebase</span>
-              </a>
-            </div>
-            <!-- ▲▲▲ END OF NEW BLOCK ▲▲▲ -->
-            
           </div>
         </div>
       </div>
 
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+      <p>&copy; {currentYear} Ryan A. Moore. All rights reserved.</p>
+      
+      <div class="flex items-center gap-6">
+        <a href="/cv-genie" class="hover:text-slate-300 transition-colors">CV Genie</a>
+        <a href="/#connect" class="hover:text-slate-300 transition-colors">Book a Meeting</a>
+        <button
+          onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+          class="inline-flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors focus:outline-none"
+        >
+          <span>Back to top</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </footer>
