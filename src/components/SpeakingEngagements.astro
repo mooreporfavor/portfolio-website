@@ -4,12 +4,23 @@ import { Image } from 'astro:assets';
 import imgSummit from '../assets/speaking-summit.jpg';
 import imgCapeTown from '../assets/hero-speaking.jpg';
 import imgMorocco from '../assets/speaking-morocco.webp';
+import imgLeadership from '../assets/expertise-leadership.webp';
 
 const engagements = [
   {
+    image: imgLeadership,
+    alt: "2026 CPIA Leadership Conference",
+    title: "2026 CPIA Leadership Conference",
+    venue: "Naples, Florida",
+    topic: "Executive Strategy & Operational Leadership",
+    url: "https://www.eventsquid.com/event.cfm?id=32025",
+    cta: "Conference Details",
+    isVideo: false
+  },
+  {
     image: imgSummit,
     alt: "Speaking at the Global Youth Economic Opportunity Summit",
-    title: "2023 Global Youth Economic Opportunity Summit",
+    title: "Global Youth Economic Opportunity Summit",
     venue: "Washington, D.C.",
     topic: "Youth Employment & TVET Impact",
     url: "https://www.youtube.com/watch?v=p9GkhTiLfSs",
@@ -51,12 +62,12 @@ const engagements = [
         Speaking Engagements & Keynotes
       </h2>
       <p class="mt-3 text-slate-600 text-base">
-        Sharing rigorous research, AI innovations, and policy frameworks on global stages.
+        Sharing rigorous research, operational strategies, and policy frameworks on global stages.
       </p>
     </div>
 
     <!-- Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
       {engagements.map(event => (
         <a 
           href={event.url} 
