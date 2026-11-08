@@ -4,29 +4,62 @@ import Layout from '../layouts/Layout.astro';
 import SocialLinks from '../components/SocialLinks.astro';
 import AIBioGenerator from '../components/AIBioGenerator.astro';
 
+const executiveRoles = [
+  {
+    role: "Vice President of Policy Innovation",
+    org: "The New Foreign Assistance (TNFA)",
+    period: "Oct 2026 — Present",
+    isCurrent: true,
+    highlights: [
+      "Directs policy innovation and statutory design for a modern U.S. economic statecraft architecture—integrating Sovereign Growth Compacts (MCC), Commercial De-Risking & Blended Finance (DFC), and Pay-for-Outcomes delivery.",
+      "Leads program cycle design, procurement reform blueprints, and empirical growth diagnostics to lift binding constraints to private investment and crowd in commercial capital."
+    ]
+  },
+  {
+    role: "Division Chief, Strategy & Data | Chief of Operations",
+    org: "United States Peace Corps",
+    period: "2023 — Oct 2026",
+    isCurrent: false,
+    highlights: [
+      "Architected 'Mission Control' Python/Streamlit analytics platform across 60+ country posts and directed agency-wide strategic planning and data governance.",
+      "Led a 40-person global team and $10M+ annual budget as Chief of Operations, doubling volunteer delivery (300+ placed) in 9 months."
+    ]
+  },
+  {
+    role: "Director, Evaluation & Labor Markets | Associate Director, M&E",
+    org: "Millennium Challenge Corporation (MCC)",
+    period: "2012 — 2023",
+    isCurrent: false,
+    highlights: [
+      "Directed 25+ rigorous causal evaluations ($1.4B+ sovereign infrastructure, energy, and TVET portfolios) and co-founded the Morocco Employment Lab with Harvard EPoD & MIT J-PAL.",
+      "Structured MCC's first $30M Results-Based Financing (RBF) mechanism and joint MCC-IFC blended finance facilities."
+    ]
+  }
+];
+
 const competencies = [
   {
     category: "Executive & Strategic Leadership",
-    skills: ["Multi-Million Portfolio Governance", "Cross-Functional & Global Team Leadership", "Strategic Planning & OKRs", "High-Stakes Government Advisory"]
+    skills: ["Multi-Million Portfolio Governance", "Cross-Functional & Global Team Leadership", "Strategic Planning & OKRs", "High-Stakes Government & Legislative Advisory"]
   },
   {
     category: "Econometrics & Rigorous Evaluation",
-    skills: ["Randomized Controlled Trials (RCTs)", "Regression Discontinuity Design (RDD)", "Cost-Benefit & Economic Analysis", "TVET & Workforce Analytics"]
+    skills: ["Growth Diagnostics (HRV Framework)", "Randomized Controlled Trials (RCTs)", "Cost-Benefit & Economic Rate of Return (ERR)", "TVET & Workforce Analytics"]
   },
   {
-    category: "Innovative Finance & Policy",
-    skills: ["Results-Based Financing (RBF)", "Social Impact Bonds (SIBs)", "Public-Private Partnerships (PPPs)", "Blended Capital Structuring"]
+    category: "Innovative Finance & Economic Statecraft",
+    skills: ["Results-Based Financing (RBF)", "Commercial De-Risking & Blended Finance", "Sovereign Compact Structuring", "Public-Private Partnerships (PPPs)"]
   },
   {
     category: "AI & Data Engineering",
-    skills: ["Generative AI & LLM Copilots", "Modern Data Platform Architecture", "Interactive Analytics & BI", "Master Data Vault Systems"]
+    skills: ["Generative AI & LLM Policy Copilots", "Modern Data Platform Architecture", "Interactive Analytics & BI (Python/Streamlit)", "Master Data Vault Systems"]
   }
 ];
 ---
 
 <Layout 
   title="Curriculum Vitae & Credentials | Ryan A. Moore" 
-  description="Executive curriculum vitae, career experience, education, and competencies of Ryan A. Moore — Senior Strategy & Innovation Leader."
+  description="Executive curriculum vitae, career experience, education, and competencies of Ryan A. Moore — Vice President of Policy Innovation at The New Foreign Assistance (TNFA)."
 >
   <div class="py-16 md:py-24">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -37,7 +70,7 @@ const competencies = [
           Verified Credentials
         </div>
         <h1 class="text-4xl sm:text-5xl font-serif font-bold text-brand-slate tracking-tight">
-          Curriculum Vitae & Experience
+          Curriculum Vitae &amp; Experience
         </h1>
         <p class="text-base sm:text-lg text-slate-600 mt-4 leading-relaxed max-w-2xl mx-auto">
           Over 20 years driving strategy, evidence-based economic policy, and technology innovation across global institutions.
@@ -68,11 +101,60 @@ const competencies = [
         </div>
       </div>
 
-      <!-- Core Competencies Matrix -->
-      <div class="max-w-4xl mx-auto mb-16" data-animate-on-scroll>
+      <!-- Core Competencies & Executive Experience Matrix -->
+      <div class="max-w-4xl mx-auto mb-16 space-y-10" data-animate-on-scroll>
+
+        <!-- Executive Leadership Roles -->
+        <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-lg">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-8">
+            <h2 class="text-2xl font-serif font-bold text-brand-slate">
+              Executive Leadership &amp; Experience
+            </h2>
+            <a href="/bio" class="text-xs font-bold text-brand-blue hover:underline">
+              View Full Career Timeline &rarr;
+            </a>
+          </div>
+
+          <div class="space-y-5">
+            {executiveRoles.map(item => (
+              <div class:list={[
+                "p-6 rounded-2xl border transition-all",
+                item.isCurrent
+                  ? "bg-gradient-to-r from-blue-50/50 via-white to-white border-blue-200 border-l-4 border-l-brand-accent shadow-xs"
+                  : "bg-slate-50/80 border-slate-200/80"
+              ]}>
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-1.5">
+                  <div class="flex flex-wrap items-center gap-2">
+                    <h3 class="text-base sm:text-lg font-serif font-bold text-brand-slate">{item.role}</h3>
+                    {item.isCurrent && (
+                      <span class="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                        Current
+                      </span>
+                    )}
+                  </div>
+                  <span class="text-xs font-mono font-bold text-brand-blue bg-white px-2.5 py-1 rounded-full border border-slate-200 w-fit">
+                    {item.period}
+                  </span>
+                </div>
+                <p class="text-xs font-bold text-brand-accent uppercase tracking-wide mb-3">{item.org}</p>
+                <ul class="space-y-1.5">
+                  {item.highlights.map(h => (
+                    <li class="flex items-start text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      <span class="w-1.5 h-1.5 rounded-full bg-brand-accent mt-2 mr-2.5 flex-shrink-0"></span>
+                      <span>{h}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Competencies & Education -->
         <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-lg">
           <h2 class="text-2xl font-serif font-bold text-brand-slate mb-8 text-center sm:text-left">
-            Core Competencies & Capabilities
+            Core Competencies &amp; Capabilities
           </h2>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">

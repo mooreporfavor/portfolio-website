@@ -10,39 +10,51 @@ import AIBioGenerator from '../components/AIBioGenerator.astro';
 
 const careerMilestones = [
   {
-    period: "2024 — Present",
+    period: "Oct 2026 — Present",
+    role: "Vice President of Policy Innovation",
+    org: "The New Foreign Assistance (TNFA)",
+    isCurrent: true,
+    desc: "Leading policy innovation, statutory design, and applied economic research to build an agile, market-oriented U.S. foreign assistance architecture—integrating Sovereign Growth Compacts (MCC), Commercial De-Risking & Blended Finance (DFC), and Pay-for-Outcomes delivery with modern data science and growth diagnostics."
+  },
+  {
+    period: "2024 — 2026",
     role: "Division Chief, Strategy & Data | Chief of Operations",
     org: "United States Peace Corps",
-    desc: "Directing strategic planning across 60+ global posts; engineered 'Mission Control' real-time Python analytics architecture; doubled volunteer delivery (300+ placed) across 30 countries managing a $10M annual budget."
+    isCurrent: false,
+    desc: "Directed strategic planning across 60+ global posts; engineered 'Mission Control' real-time Python analytics architecture; doubled volunteer delivery (300+ placed) across 30 countries managing a $10M annual budget."
   },
   {
     period: "2015 — 2023",
     role: "Director, Evaluation & Labor Markets",
     org: "Millennium Challenge Corporation (MCC)",
+    isCurrent: false,
     desc: "Directed a portfolio of 25+ causal impact evaluations covering $1.4B+ in sovereign infrastructure, TVET, and energy investments. Co-founded the Morocco Employment Lab with MIT J-PAL & Harvard; led MCC's first $30M Results-Based Financing program."
   },
   {
     period: "2012 — 2015",
     role: "Associate Director, Monitoring & Evaluation",
     org: "Millennium Challenge Corporation (MCC)",
+    isCurrent: false,
     desc: "Supervised technical redesign of Georgia's $148M+ public infrastructure evaluation to an RCT; authored econometric resource allocation models in STATA and open data validation pipelines."
   },
   {
     period: "2011 — 2012",
     role: "Global Value Chains & Agribusiness Consultant",
     org: "PROCOMER Costa Rica & TechnoServe Mexico",
+    isCurrent: false,
     desc: "Conducted supply chain and trade diagnostics for manufacturing SMEs; co-authored international trade policy recommendations with Prof. Dani Rodrik."
   },
   {
     period: "2006 — 2009",
     role: "Peace Corps Volunteer",
     org: "Peace Corps Ecuador",
+    isCurrent: false,
     desc: "3 years of grassroots economic development, agro-enterprise growth, and youth leadership across rural and urban communities in Ecuador."
   }
 ];
 ---
 
-<Layout title="My Story & Bio | Ryan A. Moore" description="Detailed biography, background, and career journey of Ryan A. Moore — Senior Strategy & Innovation Leader at the intersection of international development, economics, and AI.">
+<Layout title="My Story & Bio | Ryan A. Moore" description="Detailed biography, background, and career journey of Ryan A. Moore — Vice President of Policy Innovation at The New Foreign Assistance (TNFA) and Senior Strategy & Innovation Leader.">
   
   <div class="py-16 md:py-24">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -65,6 +77,10 @@ const careerMilestones = [
 
             <!-- Quick Profile Badges -->
             <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-3">
+              <div class="flex items-center gap-2 text-xs font-bold text-brand-blue">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>VP of Policy Innovation &bull; TNFA</span>
+              </div>
               <div class="flex items-center gap-2 text-xs font-bold text-slate-700">
                 <span class="w-2 h-2 rounded-full bg-brand-blue"></span>
                 <span>MPA/ID &bull; Harvard Kennedy School</span>
@@ -89,7 +105,7 @@ const careerMilestones = [
                 Executive Profile
               </div>
               <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-brand-slate tracking-tight">
-                My Story & Philosophy
+                My Story &amp; Philosophy
               </h1>
             </div>
 
@@ -98,19 +114,19 @@ const careerMilestones = [
             </p>
 
             <p>
-              My career has spanned complex global challenges—from evaluating the multi-million dollar effectiveness of school rehabilitation and TVET programs across Georgia and Morocco, to shaping novel results-based financing mechanisms and leading high-performing teams across continents.
+              After 15+ years as a foreign assistance insider across the <strong>Millennium Challenge Corporation (MCC)</strong> and the <strong>U.S. Peace Corps</strong>—evaluating multi-million dollar infrastructure and TVET compacts, pioneering results-based financing mechanisms, and engineering global data platforms—I stepped outside government to join <strong>The New Foreign Assistance (TNFA)</strong> as <strong>Vice President of Policy Innovation</strong>.
             </p>
 
             <blockquote class="border-l-4 border-brand-accent bg-blue-50/60 py-3 px-5 rounded-r-xl italic text-slate-800 text-base font-medium">
-              "The most pressing global and institutional challenges can only be solved when rigorous evidence is paired with modern technical execution."
+              "When we lift binding constraints to growth, partner with capable sovereign governments, and hold ourselves to empirical accountability, aid becomes an engine for self-reliance."
             </blockquote>
 
             <p>
-              My core expertise lies at the nexus of senior leadership, econometrics, machine learning, and infrastructure strategy. Whether structuring randomized controlled trials (RCTs), architecting modern cloud telemetry pipelines, or deploying LLM copilots for executive productivity, the objective remains constant: empowering decision-makers with clarity and truth.
+              At TNFA, I focus on architecting an agile, market-oriented U.S. foreign assistance system that backs first-mover firms, pays for verified outcomes, and applies growth diagnostics and modern data science. Across every chapter of my career, the objective remains constant: empowering decision-makers with clarity, accountability, and verifiable truth.
             </p>
 
             <p>
-              When I'm not running data pipelines or experimenting with the latest frontier AI models, you can find me passionately cheering for Sevilla Fútbol Club or planning my next international expedition.
+              When I'm not designing policy plumbing, running econometric pipelines, or experimenting with the latest frontier AI models, you can find me passionately cheering for Sevilla Fútbol Club or planning my next international expedition.
             </p>
 
             <!-- Language Proficiency Component -->
@@ -129,16 +145,34 @@ const careerMilestones = [
             Track Record
           </div>
           <h2 class="text-3xl font-serif font-bold text-brand-slate tracking-tight">
-            Career Milestones & Journey
+            Career Milestones &amp; Journey
           </h2>
         </div>
 
         <div class="space-y-4">
           {careerMilestones.map((m) => (
-            <div class="glass-panel p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1">
-              <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-2">
-                <h3 class="text-lg font-serif font-bold text-brand-slate">{m.role}</h3>
-                <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-blue-50 text-brand-blue border border-blue-200/60 w-fit">
+            <div class:list={[
+              "glass-panel p-6 sm:p-8 rounded-2xl border shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1",
+              m.isCurrent
+                ? "border-blue-200 border-l-4 border-l-brand-accent bg-gradient-to-r from-blue-50/40 via-white/95 to-white/90"
+                : "border-slate-200/80"
+            ]}>
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                <div class="flex flex-wrap items-center gap-2.5">
+                  <h3 class="text-lg font-serif font-bold text-brand-slate">{m.role}</h3>
+                  {m.isCurrent && (
+                    <span class="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-100/90 text-emerald-800 border border-emerald-200">
+                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                      Current Role
+                    </span>
+                  )}
+                </div>
+                <span class:list={[
+                  "text-xs font-mono font-bold px-3 py-1 rounded-full border w-fit",
+                  m.isCurrent
+                    ? "bg-brand-blue text-white border-brand-blue shadow-2xs"
+                    : "bg-blue-50 text-brand-blue border-blue-200/60"
+                ]}>
                   {m.period}
                 </span>
               </div>

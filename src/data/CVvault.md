@@ -9,7 +9,8 @@
 *(A collection of summaries and headlines used for tailored applications)*
 
 **Headline Variations:**
-*   Global Development Leader | Deep Knowledge of Peace Corps Programming
+*   Vice President of Policy Innovation | Architecting Modern U.S. Economic Statecraft & Foreign Assistance
+*   Global Development Leader | Deep Knowledge of MCC & Peace Corps Programming
 *   Social Impact & Volunteer Engagement | Strategic Planning & Execution
 *   Global Development Leader | Education Expertise | Grantmaking Specialist
 *   Results-Oriented Senior Leader | Chief of Operations | Excellence in MERL
@@ -20,14 +21,22 @@
 *   Economic & Finance Specialist | Project Structuring & Analysis
 
 **Summary Profile Variations:**
+*   **(Policy Innovation & Economic Statecraft Focus):** Vice President of Policy Innovation at The New Foreign Assistance (TNFA) and former federal executive across the Millennium Challenge Corporation (MCC) and U.S. Peace Corps with 20+ years steering international economic policy, applied econometrics, and AI-enabled data platforms. Leads statutory and operational design for a modern U.S. foreign assistance architecture combining Sovereign Growth Compacts, Commercial De-Risking & Blended Finance (DFC), and Pay-for-Outcomes delivery.
 *   **(Operations & Economics Focus):** A dynamic and results-oriented senior leader with nearly 20 years of experience managing complex global programs, driving data-informed strategy, and leading high-performing teams. Proven expertise in financial and economic analysis, innovative program structuring (including Results-Based Financing), and operational oversight in multinational environments. Adept at navigating complex stakeholder negotiations with government and private sector partners to deliver measurable results and enhance organizational performance.
-*   **(MERL & Program Management Focus):** Accomplished economist, Chief of Operations and former MERL Director, with nearly 15 years of experience designing and managing large, complex programs, leading interdisciplinary teams, and conducting rigorous technical analysis. Specific skills include strategic planning, data governance, representation/public diplomacy, executive and team leadership, program measurement, evaluation and other economic analysis. Deep technical experience in workforce and labor market policy, results-based financing, and agricultural development. Proven ability to design, implement, and evaluate high-impact programs, build strategic partnerships, and lead change initiatives.
-*   **(Innovative Finance Focus):** An Economics and Finance Specialist with 18 years of experience in project structuring, economic and financial analysis, and innovative finance within a multilateral development context. Proven expertise in assessing the financial viability of investments, designing novel financial instruments (RBF, SIBs), and leading due diligence for large-scale development projects, including in the Asia-Pacific region. Combines rigorous quantitative analysis with high-level stakeholder negotiation to structure impactful and financially sound programs.
+*   **(MERL & Program Management Focus):** Accomplished economist, Vice President of Policy Innovation, former Chief of Operations and MERL Director, with 20 years of experience designing and managing large, complex programs, leading interdisciplinary teams, and conducting rigorous technical analysis. Specific skills include strategic planning, data governance, representation/public diplomacy, executive and team leadership, program measurement, evaluation and other economic analysis. Deep technical experience in workforce and labor market policy, results-based financing, and agricultural development. Proven ability to design, implement, and evaluate high-impact programs, build strategic partnerships, and lead change initiatives.
+*   **(Innovative Finance Focus):** An Economics and Finance Specialist with 20 years of experience in project structuring, economic and financial analysis, and innovative finance within a bilateral and multilateral development context. Proven expertise in assessing the financial viability of investments, designing novel financial instruments (RBF, SIBs), and leading due diligence for large-scale development projects, including in the Asia-Pacific region. Combines rigorous quantitative analysis with high-level stakeholder negotiation to structure impactful and financially sound programs.
 
 ### III. PROFESSIONAL EXPERIENCE
 
+**The New Foreign Assistance (TNFA)** | Washington, DC
+**Vice President of Policy Innovation** | Oct 2026 – Present
+*   **Foreign Assistance Architecture & Policy Innovation:** Directs policy innovation and statutory design for a modern U.S. economic statecraft framework—integrating Sovereign Growth Compacts (MCC), Commercial De-Risking & Blended Finance (DFC), and Pay-for-Outcomes delivery within the realigned Department of State.
+*   **Program Cycle & Procurement Reform:** Designs operational and legislative blueprints to modernize bilateral assistance delivery, scale threshold programs as agile pre-compact on-ramps, and eliminate procurement bottlenecks to crowd in private investment.
+*   **Applied Growth Diagnostics & Empirical Research:** Leads empirical research applying Hausmann-Rodrik-Velasco (HRV) growth diagnostics and cross-country econometric data to identify binding constraints to private investment and align bilateral assistance with sovereign growth trajectories.
+*   **AI-Enabled Policy & Decision Systems:** Develops AI-assisted research workflows and quantitative decision tools to support policy white papers, Congressional briefings, and interagency strategy.
+
 **United States Peace Corps** | Washington, DC
-**Division Chief, Strategy and Data** | Sep 2024 – Present
+**Division Chief, Strategy and Data** | Sep 2024 – Oct 2026
 *   Directs the agency's comprehensive strategic planning process and data governance programs, establishing performance frameworks to modernize decision-making for executive leadership.
 *   Architects the agency's global data science and analytics architecture—known as "Mission Control"—using Python (Pandas, Numpy, Streamlit) to enable large-scale data analysis and drive evidence-based strategic decisions.
 *   Develops and launches a first-ever country-specific, empirical recruitability index based on revealed candidate preferences and historical placement data, providing a key data-driven tool for strategic planning.
@@ -175,6 +184,8 @@
 
 ### VIII. PUBLIC SPEAKING & TRAINING
 
+*   **Featured Podcast Guest (Upcoming)** | *The Pursuit of Purpose* with Chris Kiefer | 2026
+*   **Speaker** | 2026 CPIA Leadership Conference | Nashville, TN | 2026
 *   **Plenary Panelist** | Global Youth Economic Opportunity Summit | 2023
 *   **Plenary Panelist & Closing Speaker** | International RBF Seminar (Morocco) | 2023
 *   **Highlighted Panelist** | Jobs and Development Conference | World Bank/IZA/UNU-WIDER, South Africa | Dec 2022
@@ -186,9 +197,9 @@
 ### IX. SKILLS & COMPETENCIES
 
 *   **Leadership & Management:** Strategic Planning, Data-Driven Operations, Portfolio Management, Executive Leadership, Global Program Delivery, Team Leadership & Mentoring, Change Management.
-*   **Finance & Economics:** Economic & Financial Analysis, Innovative Finance (RBF, SIBs), Project Structuring, Public-Private Partnerships (PPPs), Economic Impact Modeling (ERR), Due Diligence & Risk Analysis, Climate Finance.
+*   **Finance & Economics:** Economic & Financial Analysis, Growth Diagnostics (HRV Framework), Innovative Finance (RBF, SIBs), Project Structuring, Public-Private Partnerships (PPPs), Economic Impact Modeling (ERR), Due Diligence & Risk Analysis, Commercial De-Risking.
 *   **Technical & Thematic:** Program Design & Implementation, Monitoring & Evaluation (M&E), Development Effectiveness, Econometric Analysis, Sustainable Infrastructure, Energy Sector Analysis, Policy & Regulatory Reform, Education & Employability Programming.
-*   **Stakeholder & Communication:** Stakeholder Negotiation, Donor Reporting, Capacity Building, Knowledge Management & Dissemination, Cross-Cultural Communication.
+*   **Stakeholder & Communication:** Congressional & Legislative Advisory (HFAC/SFRC/SFOPS), Stakeholder Negotiation, Donor Reporting, Capacity Building, Knowledge Management & Dissemination, Cross-Cultural Communication.
 
 ### X. GLOBAL EXPERIENCE
 

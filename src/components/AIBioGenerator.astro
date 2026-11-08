@@ -185,8 +185,8 @@ const personas = [
       console.error("Error fetching tailored CV:", error);
       // Fallback display if API endpoint is static in build
       headlineEl.textContent = `Tailored Profile: ${user_prompt.slice(0, 40)}`;
-      summaryEl.textContent = `Ryan A. Moore brings 20+ years of executive leadership, econometric research, and AI systems innovation. Having directed $148M+ in global programs at the Millennium Challenge Corporation (MCC) and consulted across Latin America and Africa with TechnoServe and Peace Corps, Ryan specializes in evidence-based institutional transformation and frontier AI execution.`;
-      skillsEl.textContent = `Econometric Modeling | AI Copilots | Results-Based Financing | Multi-Country Operations | Executive Leadership`;
+      summaryEl.textContent = `Ryan A. Moore serves as Vice President of Policy Innovation at The New Foreign Assistance (TNFA) and brings 20+ years of executive leadership, econometric research, and AI systems innovation across the Millennium Challenge Corporation (MCC), U.S. Peace Corps, and TechnoServe. Ryan specializes in modernizing U.S. economic statecraft, computational growth diagnostics, and frontier AI execution.`;
+      skillsEl.textContent = `Growth Diagnostics | Economic Statecraft | AI Copilots | Results-Based Financing | Multi-Country Operations | Executive Leadership`;
       outputContainer?.classList.remove('hidden');
     } finally {
       btnText.textContent = 'Generate AI Summary';
