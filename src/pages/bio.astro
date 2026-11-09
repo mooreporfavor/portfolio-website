@@ -7,12 +7,14 @@ import PcvReel from '../components/PcvReel.astro';
 import { Image } from 'astro:assets';
 import bioHeroImage from '../assets/about-hero.jpg';
 import AIBioGenerator from '../components/AIBioGenerator.astro';
+import { tnfaUrl } from '../utils/utm';
 
 const careerMilestones = [
   {
     period: "Oct 2026 — Present",
     role: "Vice President of Policy Innovation",
     org: "The New Foreign Assistance (TNFA)",
+    orgUrl: tnfaUrl('bio-milestones-org_card'),
     isCurrent: true,
     desc: "Leading policy innovation, statutory design, and applied economic research to build an agile, market-oriented U.S. foreign assistance architecture—integrating Sovereign Growth Compacts (MCC), Commercial De-Risking & Blended Finance (DFC), and Pay-for-Outcomes delivery with modern data science and growth diagnostics."
   },
@@ -79,7 +81,14 @@ const careerMilestones = [
             <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-3">
               <div class="flex items-center gap-2 text-xs font-bold text-brand-blue">
                 <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span>VP of Policy Innovation &bull; TNFA</span>
+                <a
+                  href={tnfaUrl('bio-sidebar-role_badge')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:underline"
+                >
+                  VP of Policy Innovation &bull; TNFA &nearr;
+                </a>
               </div>
               <div class="flex items-center gap-2 text-xs font-bold text-slate-700">
                 <span class="w-2 h-2 rounded-full bg-brand-blue"></span>
@@ -114,7 +123,7 @@ const careerMilestones = [
             </p>
 
             <p>
-              After 15+ years as a foreign assistance insider across the <strong>Millennium Challenge Corporation (MCC)</strong> and the <strong>U.S. Peace Corps</strong>—evaluating multi-million dollar infrastructure and TVET compacts, pioneering results-based financing mechanisms, and engineering global data platforms—I stepped outside government to join <strong>The New Foreign Assistance (TNFA)</strong> as <strong>Vice President of Policy Innovation</strong>.
+              After 15+ years as a foreign assistance insider across the <strong>Millennium Challenge Corporation (MCC)</strong> and the <strong>U.S. Peace Corps</strong>—evaluating multi-million dollar infrastructure and TVET compacts, pioneering results-based financing mechanisms, and engineering global data platforms—I stepped outside government to join <a href={tnfaUrl('bio-narrative-inline_link')} target="_blank" rel="noopener noreferrer" class="font-bold text-brand-slate hover:text-brand-blue underline decoration-blue-300/80 hover:decoration-brand-blue underline-offset-4 transition-colors">The New Foreign Assistance (TNFA)</a> as <strong>Vice President of Policy Innovation</strong>.
             </p>
 
             <blockquote class="border-l-4 border-brand-accent bg-blue-50/60 py-3 px-5 rounded-r-xl italic text-slate-800 text-base font-medium">
@@ -176,7 +185,19 @@ const careerMilestones = [
                   {m.period}
                 </span>
               </div>
-              <p class="text-xs font-bold text-brand-accent uppercase tracking-wide mb-2">{m.org}</p>
+              {m.orgUrl ? (
+                <a
+                  href={m.orgUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1 text-xs font-bold text-brand-accent hover:text-brand-blue uppercase tracking-wide mb-2 hover:underline transition-colors"
+                >
+                  <span>{m.org}</span>
+                  <span>&nearr;</span>
+                </a>
+              ) : (
+                <p class="text-xs font-bold text-brand-accent uppercase tracking-wide mb-2">{m.org}</p>
+              )}
               <p class="text-sm text-slate-600 leading-relaxed">{m.desc}</p>
             </div>
           ))}

@@ -5,6 +5,7 @@ import imgSummit from '../assets/speaking-summit.jpg';
 import imgCapeTown from '../assets/hero-speaking.jpg';
 import imgMorocco from '../assets/speaking-morocco.webp';
 import imgCpia from '../assets/speaking-cpia.png';
+import { tnfaUrl, withUtm } from '../utils/utm';
 
 const engagements = [
   {
@@ -13,7 +14,7 @@ const engagements = [
     title: "2026 CPIA Leadership Conference",
     venue: "Nashville, Tennessee",
     topic: "Executive Strategy & Operational Leadership",
-    url: "https://www.eventsquid.com/event.cfm?id=32025",
+    url: withUtm("https://www.eventsquid.com/event.cfm?id=32025", { content: "home-speaking-cpia_2026" }),
     cta: "Conference Details",
     isVideo: false
   },
@@ -23,7 +24,7 @@ const engagements = [
     title: "Global Youth Economic Opportunity Summit",
     venue: "Washington, D.C.",
     topic: "Youth Employment & TVET Impact",
-    url: "https://www.youtube.com/watch?v=p9GkhTiLfSs",
+    url: withUtm("https://www.youtube.com/watch?v=p9GkhTiLfSs", { content: "home-speaking-gyeo_summit" }),
     cta: "Watch Recording",
     isVideo: true
   },
@@ -33,7 +34,7 @@ const engagements = [
     title: "Jobs4Development Conference",
     venue: "Cape Town, South Africa",
     topic: "Global Labor Markets & Evidence",
-    url: "https://jobsanddevelopmentconference.org/conferences-list/2022-conference-2/",
+    url: withUtm("https://jobsanddevelopmentconference.org/conferences-list/2022-conference-2/", { content: "home-speaking-jobs4dev_2022" }),
     cta: "Conference Details",
     isVideo: false
   },
@@ -43,7 +44,7 @@ const engagements = [
     title: "International RBF Seminar",
     venue: "Rabat, Morocco",
     topic: "Results-Based Financing & Social Bonds",
-    url: "https://www.linkedin.com/posts/mooreporfavor_rbfseminar-mcamorocco-activity-7022441949273972736-5RD1/",
+    url: withUtm("https://www.linkedin.com/posts/mooreporfavor_rbfseminar-mcamorocco-activity-7022441949273972736-5RD1/", { content: "home-speaking-rbf_seminar" }),
     cta: "View Highlights",
     isVideo: false
   }
@@ -96,7 +97,7 @@ const engagements = [
             </h3>
 
             <p class="text-xs sm:text-sm text-slate-300 max-w-2xl leading-relaxed">
-              Upcoming conversation exploring purpose-driven executive leadership, AI-native operations, and rebuilding the architecture of U.S. foreign assistance at <strong>The New Foreign Assistance (TNFA)</strong>.
+              Upcoming conversation exploring purpose-driven executive leadership, AI-native operations, and rebuilding the architecture of U.S. foreign assistance at <a href={tnfaUrl('home-podcast-inline_link')} target="_blank" rel="noopener noreferrer" class="font-bold text-white hover:text-amber-300 underline decoration-white/40 hover:decoration-amber-300 underline-offset-4 transition-colors">The New Foreign Assistance (TNFA)</a>.
             </p>
           </div>
         </div>

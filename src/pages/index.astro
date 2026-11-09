@@ -8,9 +8,10 @@ import BookingWidget from '../components/BookingWidget.astro';
 import KeyExpertise from '../components/KeyExpertise.astro';
 import SpeakingEngagements from '../components/SpeakingEngagements.astro';
 import FeaturedProjects from '../components/FeaturedProjects.astro';
+import { tnfaUrl } from '../utils/utm';
 
 const credentials = [
-  { name: "The New Foreign Assistance", short: "TNFA", isCurrent: true },
+  { name: "The New Foreign Assistance", short: "TNFA", isCurrent: true, href: tnfaUrl('home-hero-cred_pill') },
   { name: "Millennium Challenge Corporation", short: "MCC", isCurrent: false },
   { name: "Peace Corps Ecuador", short: "Peace Corps", isCurrent: false },
   { name: "TechnoServe", short: "TechnoServe", isCurrent: false },
@@ -54,7 +55,7 @@ const metrics = [
               Turning complex data into <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue via-blue-600 to-indigo-600">evidence-based global impact</span>.
             </h1>
             <p class="text-lg sm:text-xl text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              Vice President of Policy Innovation at <strong>The New Foreign Assistance (TNFA)</strong> and Senior Strategy &amp; Innovation Leader with 20+ years steering multi-million dollar international programs, frontier AI systems, and rigorous econometric evaluations.
+              Vice President of Policy Innovation at <a href={tnfaUrl('home-hero-bio_link')} target="_blank" rel="noopener noreferrer" class="font-bold text-brand-slate hover:text-brand-blue underline decoration-blue-300/80 hover:decoration-brand-blue underline-offset-4 transition-colors">The New Foreign Assistance (TNFA)</a> and Senior Strategy &amp; Innovation Leader with 20+ years steering multi-million dollar international programs, frontier AI systems, and rigorous econometric evaluations.
             </p>
           </div>
 
@@ -63,10 +64,16 @@ const metrics = [
             <span class="text-slate-400 font-semibold uppercase tracking-wider text-[11px] mr-1">Proven with:</span>
             {credentials.map((cred) => (
               cred.isCurrent ? (
-                <span title={`${cred.name} (Current — Vice President of Policy Innovation)`} class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-blue-50/90 border border-blue-200 text-brand-blue shadow-xs font-bold">
+                <a
+                  href={cred.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={`${cred.name} (Current — Vice President of Policy Innovation)`}
+                  class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-blue-50/90 hover:bg-blue-100/90 border border-blue-200 hover:border-blue-300 text-brand-blue shadow-xs font-bold transition-all hover:-translate-y-0.5"
+                >
                   <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                   <span>{cred.short}</span>
-                </span>
+                </a>
               ) : (
                 <span title={cred.name} class="px-2.5 py-1 rounded-md bg-white border border-slate-200 text-slate-700 shadow-xs font-semibold">
                   {cred.short}
@@ -120,7 +127,14 @@ const metrics = [
               <div class="absolute bottom-6 left-6 right-6 glass-panel p-4 rounded-xl shadow-lg border border-white/80">
                 <div class="flex items-center justify-between gap-2">
                   <div>
-                    <p class="text-xs font-bold uppercase tracking-wider text-brand-accent">VP of Policy Innovation &bull; TNFA</p>
+                    <a
+                      href={tnfaUrl('home-hero-portrait_badge')}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="block text-xs font-bold uppercase tracking-wider text-brand-accent hover:text-brand-blue hover:underline transition-colors"
+                    >
+                      VP of Policy Innovation &bull; TNFA &nearr;
+                    </a>
                     <p class="text-sm font-serif font-bold text-brand-slate">Ryan A. Moore</p>
                   </div>
                   <span class="inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-100/90 text-emerald-800">

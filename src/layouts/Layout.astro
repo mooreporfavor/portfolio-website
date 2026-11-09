@@ -34,6 +34,54 @@ const { title, description } = Astro.props;
 		<Footer />
 
 		<script is:inline>
+			const EXCLUDED_UTM_DOMAINS = new Set([
+				'ryanamoore.com',
+				'www.ryanamoore.com',
+				'linkedin.com',
+				'www.linkedin.com',
+				'facebook.com',
+				'www.facebook.com',
+				'x.com',
+				'www.x.com',
+				'twitter.com',
+				'www.twitter.com',
+				'youtube.com',
+				'www.youtube.com',
+				'youtu.be',
+				'github.com',
+				'www.github.com'
+			]);
+			const EXCLUDED_UTM_EXTENSIONS = /\.(cfm|aspx|jsp|pdf|docx?|xlsx?|pptx?|zip|png|jpe?g|gif|webp|svg)$/i;
+
+			const decorateOutboundUtmLinks = () => {
+				const segments = window.location.pathname
+					.split('/')
+					.filter(Boolean)
+					.map((s) => s.replace(/[^a-zA-Z0-9]+/g, '_').toLowerCase());
+				const pageKey = segments[0] || 'home';
+				const sectionKey = segments[1] || 'body';
+				const defaultContent = `${pageKey}-${sectionKey}-inline_link`;
+
+				document.querySelectorAll('a[href^="http://"], a[href^="https://"]').forEach((anchor) => {
+					try {
+						const url = new URL(anchor.href);
+						const host = url.hostname.toLowerCase();
+						if (host === window.location.hostname.toLowerCase()) return;
+						if (EXCLUDED_UTM_DOMAINS.has(host)) return;
+						if (EXCLUDED_UTM_EXTENSIONS.test(url.pathname)) return;
+						if (url.searchParams.has('utm_source')) return;
+
+						url.searchParams.set('utm_source', 'ryanamoore.com');
+						url.searchParams.set('utm_medium', 'referral');
+						url.searchParams.set('utm_campaign', 'exec_leadership_ryan_moore');
+						url.searchParams.set('utm_content', defaultContent);
+						anchor.href = url.toString();
+					} catch {
+						// Ignore malformed URLs
+					}
+				});
+			};
+
 			const initScrollAnimation = () => {
 				const observer = new IntersectionObserver((entries) => {
 					entries.forEach((entry) => {
@@ -51,11 +99,16 @@ const { title, description } = Astro.props;
 				elementsToAnimate.forEach((element) => observer.observe(element));
 			};
 
+			const initPageEnhancements = () => {
+				initScrollAnimation();
+				decorateOutboundUtmLinks();
+			};
+
 			// Run on load and after view transitions
 			if (document.readyState === 'loading') {
-				document.addEventListener('DOMContentLoaded', initScrollAnimation);
+				document.addEventListener('DOMContentLoaded', initPageEnhancements);
 			} else {
-				initScrollAnimation();
+				initPageEnhancements();
 			}
 		</script>
   </body>

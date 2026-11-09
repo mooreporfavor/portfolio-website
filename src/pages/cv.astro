@@ -3,11 +3,13 @@
 import Layout from '../layouts/Layout.astro';
 import SocialLinks from '../components/SocialLinks.astro';
 import AIBioGenerator from '../components/AIBioGenerator.astro';
+import { tnfaUrl } from '../utils/utm';
 
 const executiveRoles = [
   {
     role: "Vice President of Policy Innovation",
     org: "The New Foreign Assistance (TNFA)",
+    orgUrl: tnfaUrl('cv-experience-org_card'),
     period: "Oct 2026 — Present",
     isCurrent: true,
     highlights: [
@@ -137,7 +139,19 @@ const competencies = [
                     {item.period}
                   </span>
                 </div>
-                <p class="text-xs font-bold text-brand-accent uppercase tracking-wide mb-3">{item.org}</p>
+                {item.orgUrl ? (
+                  <a
+                    href={item.orgUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1 text-xs font-bold text-brand-accent hover:text-brand-blue uppercase tracking-wide mb-3 hover:underline transition-colors"
+                  >
+                    <span>{item.org}</span>
+                    <span>&nearr;</span>
+                  </a>
+                ) : (
+                  <p class="text-xs font-bold text-brand-accent uppercase tracking-wide mb-3">{item.org}</p>
+                )}
                 <ul class="space-y-1.5">
                   {item.highlights.map(h => (
                     <li class="flex items-start text-xs sm:text-sm text-slate-600 leading-relaxed">
